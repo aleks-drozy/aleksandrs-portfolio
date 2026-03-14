@@ -38,8 +38,11 @@ export function Hero() {
           <Link href={personalInfo.cvUrl} download className="px-6 py-3 rounded-lg border border-border text-text-muted hover:text-text-primary hover:border-accent-from transition-colors">Download CV</Link>
         </motion.div>
       </motion.div>
-      <motion.div className="absolute bottom-8 left-1/2 -translate-x-1/2" animate={{ y: [0, 6, 0] }} transition={{ duration: 1.5, repeat: Infinity }}>
-        <div className="w-[1px] h-12 mx-auto" style={{ background: 'linear-gradient(to bottom, #6366f1, transparent)' }}/>
+      <motion.div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1" animate={{ y: [0, 6, 0] }} transition={{ duration: 1.5, repeat: Infinity }}>
+        <div className="w-[1px] h-8 mx-auto" style={{ background: 'linear-gradient(to bottom, #6366f1, transparent)' }}/>
+        <svg width="12" height="8" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M1 1L6 7L11 1" stroke="#6366f1" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+        </svg>
       </motion.div>
     </section>
   )
