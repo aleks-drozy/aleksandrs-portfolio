@@ -37,15 +37,15 @@ export function Navbar() {
       <motion.nav initial={{ y: -100 }} animate={{ y: 0 }} transition={{ duration: 0.5, ease: 'easeOut' }}
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? 'bg-background/80 backdrop-blur-md border-b border-border' : 'bg-transparent'}`}>
         <div className="max-w-6xl mx-auto px-4 sm:px-6 flex items-center justify-between h-16">
-          <Link href="#hero" className="font-display font-bold text-xl" style={{ background: 'linear-gradient(135deg, #6366f1, #a855f7)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>AD</Link>
+          <a href="#hero" className="font-display font-bold text-xl" style={{ background: 'linear-gradient(135deg, #6366f1, #a855f7)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>AD</a>
           <div className="hidden md:flex items-center gap-6">
             {NAV_LINKS.map((link) => {
               const sectionId = link.href.replace('#', '')
               return (
-                <Link key={link.href} href={link.href}
+                <a key={link.href} href={link.href}
                   className={`text-sm transition-colors duration-200 ${activeSection === sectionId ? 'text-text-primary' : 'text-text-muted hover:text-text-primary'}`}>
                   {link.label}
-                </Link>
+                </a>
               )
             })}
           </div>
@@ -71,9 +71,9 @@ export function Navbar() {
               </button>
               <nav className="flex flex-col gap-6">
                 {NAV_LINKS.map((link) => (
-                  <Link key={link.href} href={link.href} className="text-lg text-text-muted hover:text-text-primary transition-colors" onClick={() => setMobileOpen(false)}>
+                  <a key={link.href} href={link.href} className="text-lg text-text-muted hover:text-text-primary transition-colors" onClick={() => setMobileOpen(false)}>
                     {link.label}
-                  </Link>
+                  </a>
                 ))}
               </nav>
               <div className="mt-auto flex gap-4">
