@@ -8,10 +8,10 @@ const geistSans = Geist({ subsets: ['latin'], variable: '--font-geist-sans' })
 const geistMono = Geist_Mono({ subsets: ['latin'], variable: '--font-geist-mono' })
 
 export const metadata: Metadata = {
-  title: 'Aleksander Drozdovs — Developer & Algo Trader',
+  title: 'Aleksandrs Drozdovs | Developer & Algo Trader',
   description: 'Final year CS & Software Engineering student at Maynooth University. Algorithmic trader, Judo black belt, and software developer.',
   openGraph: {
-    title: 'Aleksander Drozdovs — Developer & Algo Trader',
+    title: 'Aleksandrs Drozdovs | Developer & Algo Trader',
     description: 'Final year CS & Software Engineering student at Maynooth University.',
     type: 'website',
   },

@@ -10,7 +10,7 @@ export type BeyondPanel = { icon: string; title: string; copy: string }
 export const projects: Project[] = [
   {
     id: 'fyp-trading-strategy', title: 'FYP Trading Strategy', featured: true,
-    description: 'Algorithmic trading strategy for NASDAQ-100 E-mini futures using Smart Money Concepts — built for my final year project.',
+    description: 'Algorithmic trading strategy for NASDAQ-100 E-mini futures using Smart Money Concepts, built for my final year project.',
     longDescription: 'Targets NQ1! futures during NY morning sessions using Inverse Fair Value Gaps and Change in State of Delivery for double confirmation entries. Backtested across 72 trades with a strict 28-minute execution window.',
     tags: ['PineScript v6', 'TradingView', 'Algorithmic Trading', 'SMC'],
     metrics: [{ label: 'Win Rate', value: '56%+' }, { label: 'Net Profit', value: '$28.4k' }, { label: 'Profit Factor', value: '1.703' }, { label: 'Trades', value: '72' }],
@@ -18,7 +18,7 @@ export const projects: Project[] = [
   },
   {
     id: 'gym-membership', title: 'Gym Membership System', featured: false,
-    description: 'A data management application for gym operations — members, classes, and orders.',
+    description: 'A data management application for gym operations: members, classes, and orders.',
     tags: ['JavaScript', 'JSON', 'Node.js'], githubUrl: 'https://github.com/aleks-drozy/GymMembership-Project',
   },
   {
@@ -40,13 +40,13 @@ export const socials: Social[] = [
 ]
 
 export const beyondPanels: BeyondPanel[] = [
-  { icon: '🥋', title: 'Judo', copy: '16 years on the mat. Black belt. Multiple Irish national medals. Judo taught me discipline, composure under pressure, and how to fall — and get back up.' },
-  { icon: '📈', title: 'Algo Trading', copy: "Funded account holder with real payouts. I don't just write trading strategies — I trade them. Bridging quantitative thinking with live market execution." },
-  { icon: '🎨', title: 'Fashion & Content', copy: 'Style is another form of self-expression. I create content on Instagram and have a genuine interest in fashion — the creative counterpart to code.' },
+  { icon: '🥋', title: 'Judo', copy: '16 years on the mat. Black belt. Multiple Irish national medals. Judo taught me discipline, composure under pressure, and how to fall and get back up.' },
+  { icon: '📈', title: 'Algo Trading', copy: "Funded account holder with real payouts. I don't just write trading strategies, I trade them. Bridging quantitative thinking with live market execution." },
+  { icon: '🎨', title: 'Fashion & Content', copy: 'Style is another form of self-expression. I create content on Instagram and have a genuine interest in fashion, the creative counterpart to code.' },
 ]
 
 export const personalInfo = {
-  name: 'Aleksander Drozdovs',
+  name: 'Aleksandrs Drozdovs',
   roles: ['Developer', 'Algo Trader', 'Black Belt'],
   heroLine: 'Final year CS & Software Engineering at Maynooth. I build things, trade markets, and throw people.',
   cvUrl: '/cv.pdf',

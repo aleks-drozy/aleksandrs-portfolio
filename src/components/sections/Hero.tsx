@@ -25,7 +25,7 @@ export function Hero() {
         className="relative z-10 text-center max-w-3xl mx-auto">
         <motion.p variants={itemVariants} className="text-text-muted text-sm font-mono tracking-widest uppercase mb-4">Welcome</motion.p>
         <motion.h1 variants={itemVariants} className="font-display text-5xl sm:text-6xl md:text-7xl font-bold tracking-tight mb-4">
-          Hi, I&apos;m <span style={{ background: 'linear-gradient(135deg, #6366f1, #a855f7)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>Aleksander.</span>
+          Hi, I&apos;m <span style={{ background: 'linear-gradient(135deg, #6366f1, #a855f7)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>Aleksandrs.</span>
         </motion.h1>
         <motion.div variants={itemVariants} className="text-2xl sm:text-3xl font-display font-medium mb-6">
           <AnimatedText words={personalInfo.roles}/>
