@@ -34,8 +34,8 @@ export function Hero() {
           {personalInfo.heroLine}
         </motion.p>
         <motion.div variants={itemVariants} className="flex gap-4 justify-center flex-wrap">
-          <Link href="#projects" className="px-6 py-3 rounded-lg text-white font-medium hover:opacity-90 transition-opacity" style={{ background: 'linear-gradient(135deg, #6366f1, #a855f7)' }}>View Projects</Link>
-          <Link href={personalInfo.cvUrl} download className="px-6 py-3 rounded-lg border border-border text-text-muted hover:text-text-primary hover:border-accent-from transition-colors">Download CV</Link>
+          <a href="#projects" className="px-6 py-3 rounded-lg text-white font-medium hover:opacity-90 transition-opacity" style={{ background: 'linear-gradient(135deg, #6366f1, #a855f7)' }}>View Projects</a>
+          <a href={personalInfo.cvUrl} download className="px-6 py-3 rounded-lg border border-border text-text-muted hover:text-text-primary hover:border-accent-from transition-colors">Download CV</a>
         </motion.div>
       </motion.div>
       <motion.div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1" animate={{ y: [0, 6, 0] }} transition={{ duration: 1.5, repeat: Infinity }}>
