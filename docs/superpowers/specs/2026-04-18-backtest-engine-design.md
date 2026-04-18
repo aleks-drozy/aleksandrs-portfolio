@@ -185,7 +185,7 @@ File: `.github/workflows/run_backtest.yml` in the engine repo. Triggers on push 
 
 **Steps:**
 1. Checkout engine repo.
-2. Set up Python 3.11, install `pandas numpy yfinance scipy`.
+2. Set up Python 3.11, install `pandas numpy yfinance scipy pydantic`.
 3. Restore yfinance CSV cache (cache key: `yfinance-data-{year}-{week}`). Cuts runtime from ~30s to ~5s after the first run of each week.
 4. Run `python run_all.py`.
 5. Save CSV cache.
