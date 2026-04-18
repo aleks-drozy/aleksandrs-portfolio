@@ -1,33 +1,52 @@
 'use client'
-import { motion, useScroll, useTransform } from 'framer-motion'
-import { useRef } from 'react'
+import type { ReactElement } from 'react'
+import { motion } from 'framer-motion'
 import { beyondPanels } from '@/lib/data'
+import { SectionHeader } from '@/components/ui/SectionHeader'
 
-function Panel({ panel, index }: { panel: typeof beyondPanels[0]; index: number }) {
-  const ref = useRef<HTMLDivElement>(null)
-  const { scrollYProgress } = useScroll({ target: ref, offset: ['start end', 'end start'] })
-  const y = useTransform(scrollYProgress, [0, 1], [index % 2 === 0 ? 20 : -20, index % 2 === 0 ? -20 : 20])
-  return (
-    <motion.div ref={ref} style={{ y, borderTopColor: '#6366f1' }} initial={{ opacity: 0, y: 32 }} whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }} transition={{ duration: 0.6, delay: index * 0.1 }}
-      className="bg-surface border border-border border-t-2 rounded-2xl p-8 flex flex-col items-center text-center">
-      <span className="text-5xl mb-4" role="img" aria-label={panel.title}>{panel.icon}</span>
-      <h3 className="font-display text-xl font-bold mb-3 text-text-primary">{panel.title}</h3>
-      <p className="text-text-muted text-sm leading-relaxed">{panel.copy}</p>
-    </motion.div>
-  )
+const EASE = [0.23, 1, 0.32, 1] as const
+
+const ICONS: Record<string, ReactElement> = {
+  judo: (
+    <svg className="h-8 w-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden>
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5}
+        d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+    </svg>
+  ),
+  chart: (
+    <svg className="h-8 w-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden>
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5}
+        d="M7 12l3-3 3 3 4-4M8 21l4-4 4 4M3 4h18M4 4h16v12a1 1 0 01-1 1H5a1 1 0 01-1-1V4z" />
+    </svg>
+  ),
 }
 
 export function BeyondTheCode() {
   return (
-    <section id="beyond" className="py-24 px-4 bg-surface/30">
-      <div className="max-w-6xl mx-auto">
-        <motion.div initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="mb-12">
-          <p className="text-text-muted text-sm font-mono tracking-widest uppercase mb-2">The full picture</p>
-          <h2 className="font-display text-3xl md:text-4xl font-bold">Beyond <span style={{ background: 'linear-gradient(135deg, #6366f1, #a855f7)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>the Code</span></h2>
-        </motion.div>
-        <div className="grid md:grid-cols-3 gap-6">
-          {beyondPanels.map((panel, i) => <Panel key={panel.title} panel={panel} index={i}/>)}
+    <section id="beyond" className="px-[clamp(16px,4vw,32px)] py-32 md:py-24 sm:py-20 bg-surface/20">
+      <div className="mx-auto max-w-[1200px]">
+        <SectionHeader eyebrow="The full picture" title="Beyond" accent="the Code" />
+
+        <div className="grid gap-6 md:grid-cols-2">
+          {beyondPanels.map((panel, i) => (
+            <motion.div
+              key={panel.title}
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.25 }}
+              transition={{ duration: 0.45, delay: i * 0.07, ease: EASE }}
+              className="group relative overflow-hidden rounded-2xl border border-border bg-surface p-8 transition-colors duration-200 hover:border-border-strong"
+            >
+              <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-accent/30 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+              <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-xl border border-border bg-background text-accent">
+                {ICONS[panel.icon] ?? <span className="text-2xl">{panel.icon}</span>}
+              </div>
+              <h3 className="mb-3 font-display text-xl font-bold tracking-tight text-text-primary">
+                {panel.title}
+              </h3>
+              <p className="text-sm leading-relaxed text-text-secondary">{panel.copy}</p>
+            </motion.div>
+          ))}
         </div>
       </div>
     </section>

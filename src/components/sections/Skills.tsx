@@ -2,25 +2,38 @@
 import { motion } from 'framer-motion'
 import { skillCategories } from '@/lib/data'
 import { SkillIcon } from '@/components/ui/SkillIcon'
+import { SectionHeader } from '@/components/ui/SectionHeader'
+
+const EASE = [0.23, 1, 0.32, 1] as const
 
 export function Skills() {
   return (
-    <section id="skills" className="py-24 px-4 bg-surface/30">
-      <div className="max-w-6xl mx-auto">
-        <motion.div initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="mb-12">
-          <p className="text-text-muted text-sm font-mono tracking-widest uppercase mb-2">What I work with</p>
-          <h2 className="font-display text-3xl md:text-4xl font-bold">Skills & <span style={{ background: 'linear-gradient(135deg, #6366f1, #a855f7)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>Tech Stack</span></h2>
-        </motion.div>
-        <div className="space-y-10">
+    <section id="skills" className="px-[clamp(16px,4vw,32px)] py-32 md:py-24 sm:py-20 bg-surface/20">
+      <div className="mx-auto max-w-[1200px]">
+        <SectionHeader eyebrow="What I work with" title="Skills &amp;" accent="Tech Stack" />
+
+        <div className="flex flex-col gap-10">
           {skillCategories.map((category) => (
             <div key={category.name}>
-              <p className="text-text-muted text-xs font-mono tracking-widest uppercase mb-4">{category.name}</p>
-              <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }}
-                variants={{ hidden: {}, visible: { transition: { staggerChildren: 0.08 } } }}
-                className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3">
+              <p className="mb-4 font-mono text-[11px] uppercase tracking-widest text-text-muted">
+                {category.name}
+              </p>
+              <motion.div
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.2 }}
+                variants={{ hidden: {}, visible: { transition: { staggerChildren: 0.05 } } }}
+                className="grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6"
+              >
                 {category.skills.map((skill) => (
-                  <motion.div key={skill.name} variants={{ hidden: { opacity: 0, y: 16 }, visible: { opacity: 1, y: 0, transition: { duration: 0.4 } } }}>
-                    <SkillIcon name={skill.name} icon={skill.icon}/>
+                  <motion.div
+                    key={skill.name}
+                    variants={{
+                      hidden: { opacity: 0, y: 16 },
+                      visible: { opacity: 1, y: 0, transition: { duration: 0.35, ease: EASE } },
+                    }}
+                  >
+                    <SkillIcon name={skill.name} icon={skill.icon} />
                   </motion.div>
                 ))}
               </motion.div>
