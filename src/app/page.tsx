@@ -1,7 +1,9 @@
 import { Navbar } from '@/components/layout/Navbar'
 import { Footer } from '@/components/layout/Footer'
 import { Hero } from '@/components/sections/Hero'
-import { About } from '@/components/sections/About'
+import { FeaturedWork } from '@/components/sections/FeaturedWork'
+import { Experience } from '@/components/sections/Experience'
+import { Education } from '@/components/sections/Education'
 import { Skills } from '@/components/sections/Skills'
 import { Projects } from '@/components/sections/Projects'
 import { BeyondTheCode } from '@/components/sections/BeyondTheCode'
@@ -10,16 +12,18 @@ import { Contact } from '@/components/sections/Contact'
 export default function Home() {
   return (
     <>
-      <Navbar/>
+      <Navbar />
       <main>
-        <Hero/>
-        <About/>
-        <Skills/>
-        <Projects/>
-        <BeyondTheCode/>
-        <Contact/>
+        <Hero />
+        <FeaturedWork />
+        <Experience />
+        <Education />
+        <Skills />
+        <Projects />
+        <BeyondTheCode />
+        <Contact />
       </main>
-      <Footer/>
+      <Footer />
     </>
   )
 }
