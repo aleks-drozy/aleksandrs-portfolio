@@ -84,6 +84,15 @@ export const projects: Project[] = [
     githubUrl: 'https://github.com/aleks-drozy/fyp-trading-strategy',
   },
   {
+    id: 'backtest-engine',
+    title: 'Backtest Engine',
+    featured: false,
+    description:
+      'Vectorised Python backtesting engine with a strategy registry, slippage/commission model, and walk-forward train/test split. Benchmarks SMA Crossover and RSI Mean Reversion against the FYP IFVG+CISD strategy. GitHub Actions auto-updates results on push.',
+    tags: ['Python', 'pandas', 'numpy', 'yfinance', 'GitHub Actions'],
+    githubUrl: 'https://github.com/aleks-drozy/aleksander-backtest-engine',
+  },
+  {
     id: 'trading-dashboard',
     title: 'Trading Dashboard',
     featured: false,
