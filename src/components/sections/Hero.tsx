@@ -1,5 +1,5 @@
 'use client'
-import { motion, useReducedMotion } from 'framer-motion'
+import { motion } from 'framer-motion'
 import { personalInfo, heroStats } from '@/lib/data'
 import { HeroStat } from '@/components/ui/HeroStat'
 import { StatusPill } from '@/components/ui/StatusPill'
@@ -9,16 +9,13 @@ const stagger = { hidden: {}, visible: { transition: { staggerChildren: 0.08 } }
 const item = { hidden: { opacity: 0, y: 24 }, visible: { opacity: 1, y: 0, transition: { duration: 0.45, ease: EASE } } }
 
 export function Hero() {
-  const shouldReduce = useReducedMotion()
   return (
     <section id="hero" className="relative flex min-h-[calc(100vh-64px)] items-center justify-center overflow-hidden px-[clamp(16px,4vw,32px)]">
-      {/* Subtle radial background — accent-only, no purple */}
-      {!shouldReduce && (
-        <div className="pointer-events-none absolute inset-0">
-          <div className="absolute -left-32 top-1/3 h-[480px] w-[480px] rounded-full bg-accent/5 blur-3xl" />
-          <div className="absolute -right-24 bottom-1/4 h-[360px] w-[360px] rounded-full bg-accent-muted/5 blur-3xl" />
-        </div>
-      )}
+      {/* Static decorative radial blurs — always rendered for SSR consistency */}
+      <div className="pointer-events-none absolute inset-0" aria-hidden>
+        <div className="absolute -left-32 top-1/3 h-[480px] w-[480px] rounded-full bg-accent/5 blur-3xl" />
+        <div className="absolute -right-24 bottom-1/4 h-[360px] w-[360px] rounded-full bg-accent-muted/5 blur-3xl" />
+      </div>
 
       <motion.div
         variants={stagger}
@@ -74,7 +71,7 @@ export function Hero() {
       {/* Scroll indicator */}
       <motion.div
         className="absolute bottom-8 left-1/2 flex -translate-x-1/2 flex-col items-center gap-1"
-        animate={shouldReduce ? {} : { y: [0, 6, 0] }}
+        animate={{ y: [0, 6, 0] }}
         transition={{ duration: 1.5, repeat: Infinity, ease: 'easeInOut' }}
       >
         <div className="mx-auto h-8 w-px bg-gradient-to-b from-accent/60 to-transparent" />

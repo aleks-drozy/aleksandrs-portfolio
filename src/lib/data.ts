@@ -61,14 +61,14 @@ export const personalInfo = {
 
 export const heroStats: ProjectMetric[] = [
   { label: 'Win Rate', value: '56%' },
-  { label: 'Max Drawdown', value: '$28.4k' },
+  { label: 'Max Drawdown', value: '$28K' },
   { label: 'Sharpe Ratio', value: '1.703' },
 ]
 
 export const projects: Project[] = [
   {
     id: 'fyp-trading-strategy',
-    title: 'Algorithmic Trading Strategy — NASDAQ-100 Futures',
+    title: 'Algorithmic Trading Strategy: NASDAQ-100 Futures',
     featured: true,
     description:
       'Quantitative trading system for NQ1! E-mini futures built around Smart Money Concepts. Targets NY morning sessions with Inverse Fair Value Gap + Change in State of Delivery double confirmation, backtested across 72 trades in a strict 28-minute execution window.',
@@ -77,27 +77,38 @@ export const projects: Project[] = [
     tags: ['PineScript v6', 'TradingView', 'Quant Research', 'SMC'],
     metrics: [
       { label: 'Win Rate', value: '56%' },
-      { label: 'Max Drawdown', value: '$28.4k' },
+      { label: 'Max Drawdown', value: '$28K' },
       { label: 'Sharpe Ratio', value: '1.703' },
       { label: 'Trades', value: '72' },
     ],
     githubUrl: 'https://github.com/aleks-drozy/fyp-trading-strategy',
   },
   {
-    id: 'gym-membership',
-    title: 'Gym Membership System',
+    id: 'trading-dashboard',
+    title: 'Trading Dashboard',
     featured: false,
-    description: 'Data-management application covering members, classes, and orders. CRUD logic, JSON persistence, Node runtime.',
-    tags: ['JavaScript', 'Node.js', 'JSON'],
-    githubUrl: 'https://github.com/aleks-drozy/GymMembership-Project',
+    description:
+      'Full-stack financial market dashboard with a Next.js + TypeScript frontend and Python data backend. Live market data, pre-commit hooks, Vitest coverage, and Vercel deployment.',
+    tags: ['TypeScript', 'Next.js', 'Python', 'Vitest'],
+    githubUrl: 'https://github.com/aleks-drozy/Trading_Dashboard',
   },
   {
-    id: 'login-signup',
-    title: 'Login / Signup UI',
+    id: 'noteit',
+    title: 'NoteIt',
     featured: false,
-    description: 'Clean authentication UI with form validation and smooth transitions, built with React and Vite.',
-    tags: ['React', 'Vite', 'CSS'],
-    githubUrl: 'https://github.com/aleks-drozy/login-signup',
+    description:
+      'Full-stack note-taking app with role-based authentication, CRUD notes, sharing, and publishing. Separate Node.js REST API backend with MongoDB; React + Vite frontend.',
+    tags: ['JavaScript', 'Node.js', 'MongoDB', 'React'],
+    githubUrl: 'https://github.com/aleks-drozy/noteit',
+  },
+  {
+    id: 'portfolio',
+    title: 'This Portfolio',
+    featured: false,
+    description:
+      'Personal portfolio built with Next.js 15, TypeScript, Tailwind CSS v4, and Framer Motion. Custom design system, count-up stat animations, SSR-safe motion, and Vercel deployment.',
+    tags: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Framer Motion'],
+    githubUrl: 'https://github.com/aleks-drozy/aleksandrs-portfolio',
   },
 ]
 
@@ -137,7 +148,7 @@ export const experience: ExperienceEntry[] = [
   {
     role: 'Funded Prop Trader',
     company: 'Undisclosed prop firm',
-    period: '2024 — Present',
+    period: '2024 - Present',
     location: 'Remote',
     bullets: [
       'Trade NASDAQ-100 E-mini futures on a funded account with real payouts, applying strict risk management and session-based execution rules.',
@@ -145,9 +156,9 @@ export const experience: ExperienceEntry[] = [
     ],
   },
   {
-    role: 'Software Engineering Student — Research & Projects',
+    role: 'Software Engineering Student: Research & Projects',
     company: 'Maynooth University',
-    period: '2022 — 2026',
+    period: '2022 - 2026',
     location: 'Maynooth, Ireland',
     bullets: [
       'Shipped academic software projects in Java, Python, and JavaScript, including a full-stack gym-management system and an algorithmic trading strategy as final-year thesis.',
@@ -159,7 +170,7 @@ export const experience: ExperienceEntry[] = [
 export const education: Education = {
   institution: 'Maynooth University',
   degree: 'B.Sc. Computer Science & Software Engineering',
-  period: '2022 — 2026',
+  period: '2022 - 2026',
   location: 'Maynooth, Ireland',
   gpa: 'First Class Honours (expected)',
   coursework: [
@@ -172,7 +183,7 @@ export const education: Education = {
     'Machine Learning',
     'Computer Networks',
     'Artificial Intelligence',
-    'Final-Year Project — Algorithmic Trading',
+    'Final-Year Project: Algorithmic Trading',
   ],
 }
 
@@ -193,6 +204,6 @@ export const beyondPanels: BeyondPanel[] = [
     icon: 'chart',
     title: 'Algorithmic Trading',
     copy:
-      "Funded account holder with real payouts, focused on NASDAQ-100 E-mini futures during NY morning sessions. I don't just write strategies — I execute them live. The work bridges quantitative thinking with engineering discipline, and every trade is a feedback loop that makes me a better systems builder.",
+      "Funded account holder with real payouts, focused on NASDAQ-100 E-mini futures during NY morning sessions. I write strategies and execute them live. The work bridges quantitative thinking with engineering discipline, and every trade is a feedback loop that makes me a better systems builder.",
   },
 ]
