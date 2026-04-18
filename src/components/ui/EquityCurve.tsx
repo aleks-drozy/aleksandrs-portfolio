@@ -1,6 +1,6 @@
 'use client'
 import { useRef } from 'react'
-import { motion, useInView, useReducedMotion } from 'framer-motion'
+import { motion, useInView } from 'framer-motion'
 
 const POINTS: [number, number][] = [
   [0, 85], [4, 82], [8, 88], [12, 80], [16, 75],
@@ -17,8 +17,7 @@ const area = `${path} L 100 100 L 0 100 Z`
 export function EquityCurve({ className = '' }: { className?: string }) {
   const ref = useRef<SVGSVGElement>(null)
   const inView = useInView(ref, { once: true, margin: '-15% 0px' })
-  const shouldReduceMotion = useReducedMotion()
-  const startProgress = shouldReduceMotion ? 1 : inView ? 1 : 0
+  const startProgress = inView ? 1 : 0
 
   return (
     <div className={`relative w-full ${className}`}>
@@ -55,7 +54,7 @@ export function EquityCurve({ className = '' }: { className?: string }) {
           strokeWidth="0.8"
           strokeLinecap="round"
           strokeLinejoin="round"
-          initial={{ pathLength: shouldReduceMotion ? 1 : 0 }}
+          initial={{ pathLength: 0 }}
           animate={{ pathLength: startProgress }}
           transition={{ duration: 1.1, ease: [0.23, 1, 0.32, 1] }}
           vectorEffect="non-scaling-stroke"
