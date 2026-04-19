@@ -8,6 +8,8 @@ export interface EquityPoint {
 export interface PeriodMetrics {
   total_return_pct: number
   sharpe: number
+  sortino: number
+  calmar: number
   max_drawdown_pct: number
   win_rate_pct: number
   profit_factor: number
@@ -35,5 +37,6 @@ export interface StrategyResult {
 export interface BacktestResults {
   generated_at: string
   asset_universe: Record<string, string>
+  benchmark_return_pct: number
   strategies: StrategyResult[]
 }
