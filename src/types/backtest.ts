@@ -26,6 +26,7 @@ export interface StrategyResult {
   name: string
   description: string
   direction: Direction
+  timeframe: string
   params: Record<string, number>
   in_sample: PeriodResult
   out_of_sample: PeriodResult
