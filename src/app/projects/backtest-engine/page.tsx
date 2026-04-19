@@ -41,6 +41,14 @@ function DirectionBadge({ direction }: { direction: StrategyResult['direction'] 
   )
 }
 
+function TimeframeBadge({ timeframe }: { timeframe: string }) {
+  return (
+    <span className="rounded-md border border-accent/30 bg-accent/10 px-2 py-0.5 font-mono text-[10px] uppercase tracking-widest text-accent">
+      {timeframe}
+    </span>
+  )
+}
+
 function MetricStrip({ metrics, dimmed }: { metrics: PeriodMetrics; dimmed?: boolean }) {
   const cls = dimmed ? 'text-text-muted' : 'text-text-primary'
   const items = [
@@ -134,7 +142,10 @@ function StrategyCard({ strategy }: { strategy: StrategyResult }) {
           <h3 className="font-display text-xl font-bold text-text-primary">{strategy.name}</h3>
           <p className="mt-1 text-sm text-text-secondary">{strategy.description}</p>
         </div>
-        <DirectionBadge direction={strategy.direction} />
+        <div className="flex flex-wrap gap-1.5">
+          <TimeframeBadge timeframe={strategy.timeframe} />
+          <DirectionBadge direction={strategy.direction} />
+        </div>
       </div>
 
       <div className="mb-4 flex flex-wrap gap-1.5">
@@ -240,6 +251,7 @@ export default function BacktestEnginePage() {
                     <tr>
                       <th className="p-3 text-[11px] uppercase tracking-widest text-text-muted">Strategy</th>
                       <th className="p-3 text-[11px] uppercase tracking-widest text-text-muted">Asset</th>
+                      <th className="p-3 text-[11px] uppercase tracking-widest text-text-muted">TF</th>
                       <th className="p-3 text-[11px] uppercase tracking-widest text-text-muted">Direction</th>
                       {SORT_KEYS.map(({ key, label }) => (
                         <th
@@ -259,6 +271,7 @@ export default function BacktestEnginePage() {
                         <tr key={s.id} className="border-b border-border/50 last:border-0 odd:bg-surface/40">
                           <td className="p-3 text-text-primary">{s.name}</td>
                           <td className="p-3 text-text-secondary">{assetOf(s.id)}</td>
+                          <td className="p-3 font-mono text-accent">{s.timeframe}</td>
                           <td className="p-3 text-text-muted">
                             {s.direction === 'long_only'
                               ? 'Long'
