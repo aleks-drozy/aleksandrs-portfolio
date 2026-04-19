@@ -21,6 +21,8 @@ const results = rawResults as unknown as BacktestResults
 type SortKey = keyof PeriodMetrics
 const SORT_KEYS: { key: SortKey; label: string }[] = [
   { key: 'sharpe', label: 'Sharpe' },
+  { key: 'sortino', label: 'Sortino' },
+  { key: 'calmar', label: 'Calmar' },
   { key: 'total_return_pct', label: 'Return %' },
   { key: 'max_drawdown_pct', label: 'Max DD' },
   { key: 'win_rate_pct', label: 'Win Rate' },
@@ -54,13 +56,15 @@ function MetricStrip({ metrics, dimmed }: { metrics: PeriodMetrics; dimmed?: boo
   const items = [
     { label: 'Return', value: `${fmt(metrics.total_return_pct)}%` },
     { label: 'Sharpe', value: fmt(metrics.sharpe) },
+    { label: 'Sortino', value: fmt(metrics.sortino) },
+    { label: 'Calmar', value: fmt(metrics.calmar) },
     { label: 'Max DD', value: `${fmt(metrics.max_drawdown_pct)}%` },
     { label: 'Win Rate', value: `${fmt(metrics.win_rate_pct)}%` },
     { label: 'PF', value: fmt(metrics.profit_factor) },
     { label: 'Trades', value: String(metrics.num_trades) },
   ]
   return (
-    <div className="grid grid-cols-3 gap-2 sm:grid-cols-6">
+    <div className="grid grid-cols-4 gap-2 sm:grid-cols-8">
       {items.map((item) => (
         <div key={item.label} className="rounded-md border border-border bg-surface p-2 text-center">
           <p className={`font-mono text-sm font-bold tabular-nums ${cls}`}>{item.value}</p>
@@ -241,10 +245,17 @@ export default function BacktestEnginePage() {
 
             <section className="mb-16">
               <h2 className="mb-4 font-display text-2xl font-bold text-text-primary">Strategy Comparison</h2>
-              <p className="mb-6 text-sm text-text-secondary">
+              <p className="mb-4 text-sm text-text-secondary">
                 Out-of-sample metrics only — in-sample is where you fit, OOS is where you&apos;re judged. Click a
                 column header to sort.
               </p>
+              <div className="mb-6 inline-flex items-center gap-3 rounded-lg border border-border bg-surface px-4 py-2.5 text-sm">
+                <span className="font-mono text-[10px] uppercase tracking-widest text-text-muted">Benchmark</span>
+                <span className="font-mono text-[10px] uppercase tracking-widest text-text-muted">NQ Buy &amp; Hold OOS</span>
+                <span className={`font-mono font-bold tabular-nums ${results.benchmark_return_pct >= 0 ? 'text-signal-green' : 'text-signal-red'}`}>
+                  {results.benchmark_return_pct >= 0 ? '+' : ''}{results.benchmark_return_pct.toFixed(2)}%
+                </span>
+              </div>
               <div className="overflow-x-auto rounded-xl border border-border">
                 <table className="w-full text-left font-mono text-sm">
                   <thead className="border-b border-border bg-surface">
@@ -279,10 +290,14 @@ export default function BacktestEnginePage() {
                               ? 'Short'
                               : 'Both'}
                           </td>
-                          <td
-                            className={`p-3 tabular-nums ${m.sharpe >= 0 ? 'text-accent' : 'text-signal-red'}`}
-                          >
+                          <td className={`p-3 tabular-nums ${m.sharpe >= 0 ? 'text-accent' : 'text-signal-red'}`}>
                             {fmt(m.sharpe)}
+                          </td>
+                          <td className={`p-3 tabular-nums ${m.sortino >= 0 ? 'text-accent' : 'text-signal-red'}`}>
+                            {fmt(m.sortino)}
+                          </td>
+                          <td className={`p-3 tabular-nums ${m.calmar >= 0 ? 'text-accent' : 'text-signal-red'}`}>
+                            {fmt(m.calmar)}
                           </td>
                           <td
                             className={`p-3 tabular-nums ${
