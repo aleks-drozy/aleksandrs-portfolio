@@ -20,7 +20,7 @@ export default function FypCaseStudy() {
           <div className="mx-auto max-w-[900px]">
             <Link
               href="/#featured-work"
-              className="mb-10 inline-flex items-center gap-2 font-mono text-xs uppercase text-text-muted transition-colors hover:text-accent"
+              className="mb-10 inline-flex items-center gap-2 font-mono text-xs uppercase text-text-muted transition-colors hover:text-proof"
             >
               <svg className="h-3 w-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden>
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
@@ -29,9 +29,9 @@ export default function FypCaseStudy() {
             </Link>
 
             <header className="mb-12">
-              <p className="mb-3 font-mono text-[11px] uppercase text-accent">Case Study / Final-Year Project</p>
+              <p className="mb-3 font-mono text-[11px] uppercase text-proof">Case Study / Final-Year Project</p>
               <h1 className="font-display text-4xl font-bold leading-[1.1] text-text-primary sm:text-5xl md:text-6xl">
-                NASDAQ-100 <span className="text-accent">Algo Strategy</span>
+                NASDAQ-100 <span className="text-proof">Algo Strategy</span>
               </h1>
               <p className="mt-4 max-w-[640px] text-lg leading-relaxed text-text-secondary">
                 A quantitative trading strategy for NQ1! E-mini futures built around two Smart Money Concepts:
@@ -57,7 +57,7 @@ export default function FypCaseStudy() {
                 { label: 'Expectancy', value: FYP_RESULTS.inSample.expectancy },
               ].map((m) => (
                 <div key={m.label} className="rounded-lg border border-border bg-surface p-4">
-                  <p className="font-display text-2xl font-bold tabular-nums text-text-primary">{m.value}</p>
+                  <p className="font-display text-2xl font-bold tabular-nums text-proof">{m.value}</p>
                   <p className="mt-1 font-mono text-[10px] uppercase text-text-muted">{m.label}</p>
                 </div>
               ))}
@@ -116,11 +116,11 @@ export default function FypCaseStudy() {
               <div>
                 <h3 className="mb-3 font-display text-xl font-semibold text-text-primary">Entry + risk</h3>
                 <ul className="space-y-2 text-text-secondary">
-                  <li className="flex gap-3"><span className="text-accent">+</span>Both IFVG and CISD must confirm in the same direction.</li>
-                  <li className="flex gap-3"><span className="text-accent">+</span>Prior liquidity sweep required: wick through a recent swing high/low that closes back inside range.</li>
-                  <li className="flex gap-3"><span className="text-accent">+</span>Stop loss at the 8-bar swing low (longs) or swing high (shorts).</li>
-                  <li className="flex gap-3"><span className="text-accent">+</span>Take profit at 1.5x the stop distance.</li>
-                  <li className="flex gap-3"><span className="text-accent">+</span>One trade per day max; session 09:32 to 10:00 NY only.</li>
+                  <li className="flex gap-3"><span className="text-proof">+</span>Both IFVG and CISD must confirm in the same direction.</li>
+                  <li className="flex gap-3"><span className="text-proof">+</span>Prior liquidity sweep required: wick through a recent swing high/low that closes back inside range.</li>
+                  <li className="flex gap-3"><span className="text-proof">+</span>Stop loss at the 8-bar swing low (longs) or swing high (shorts).</li>
+                  <li className="flex gap-3"><span className="text-proof">+</span>Take profit at 1.5x the stop distance.</li>
+                  <li className="flex gap-3"><span className="text-proof">+</span>One trade per day max; session 09:32 to 10:00 NY only.</li>
                 </ul>
               </div>
             </section>
@@ -148,7 +148,7 @@ export default function FypCaseStudy() {
                         <td className="p-3 text-text-secondary">{f.result}</td>
                         <td className="p-3">
                           {f.kept ? (
-                            <span className="rounded-md bg-accent/10 px-2 py-0.5 text-xs font-semibold text-accent">
+                            <span className="rounded-md bg-proof/10 px-2 py-0.5 text-xs font-semibold text-proof">
                               Kept
                             </span>
                           ) : (
@@ -184,17 +184,17 @@ export default function FypCaseStudy() {
                   <tbody>
                     <tr className="border-b border-border/50 odd:bg-surface/40">
                       <td className="p-3 text-text-primary">Win Rate</td>
-                      <td className="p-3 text-accent">{FYP_RESULTS.inSample.winRate}</td>
+                      <td className="p-3 text-proof">{FYP_RESULTS.inSample.winRate}</td>
                       <td className="p-3 text-signal-red">{FYP_RESULTS.outOfSample.winRate}</td>
                     </tr>
                     <tr className="border-b border-border/50 odd:bg-surface/40">
                       <td className="p-3 text-text-primary">Profit Factor</td>
-                      <td className="p-3 text-accent">{FYP_RESULTS.inSample.profitFactor}</td>
+                      <td className="p-3 text-proof">{FYP_RESULTS.inSample.profitFactor}</td>
                       <td className="p-3 text-signal-red">{FYP_RESULTS.outOfSample.profitFactor}</td>
                     </tr>
                     <tr className="odd:bg-surface/40">
                       <td className="p-3 text-text-primary">Net P&L</td>
-                      <td className="p-3 text-accent">{FYP_RESULTS.inSample.netPnl}</td>
+                      <td className="p-3 text-proof">{FYP_RESULTS.inSample.netPnl}</td>
                       <td className="p-3 text-signal-red">{FYP_RESULTS.outOfSample.netPnl}</td>
                     </tr>
                   </tbody>
@@ -225,13 +225,13 @@ export default function FypCaseStudy() {
                   href="https://github.com/aleks-drozy/fyp-trading-strategy"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="rounded-lg bg-accent px-6 py-3 text-sm font-semibold text-background transition-all duration-200 hover:bg-accent/90 active:scale-[0.97]"
+                  className="btn-primary active:scale-[0.97]"
                 >
                   View on GitHub
                 </Link>
                 <Link
                   href="/#featured-work"
-                  className="rounded-lg border border-border px-6 py-3 text-sm font-medium text-text-secondary transition-all duration-200 hover:border-border-strong hover:text-text-primary active:scale-[0.97]"
+                  className="btn-secondary active:scale-[0.97]"
                 >
                   Back to portfolio
                 </Link>

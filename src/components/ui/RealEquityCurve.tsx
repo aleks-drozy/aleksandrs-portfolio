@@ -79,7 +79,7 @@ export function RealEquityCurve({ className = '' }: { className?: string }) {
       <div className="pointer-events-none absolute left-3 top-2 font-mono text-[10px] uppercase text-text-muted">
         Cumulative P&L USD
       </div>
-      <div className="pointer-events-none absolute right-3 top-2 font-mono text-[10px] text-accent">
+      <div className="pointer-events-none absolute right-3 top-2 font-mono text-[10px] text-proof">
         +$28,400
       </div>
       <div className="pointer-events-none absolute bottom-2 left-3 font-mono text-[10px] text-text-muted">

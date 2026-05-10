@@ -44,14 +44,14 @@ export function Navbar() {
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.5, ease: EASE }}
         className={`fixed left-0 right-0 top-0 z-50 transition-all duration-300 ${
-          scrolled ? 'border-b border-border bg-background/88 backdrop-blur-md' : 'bg-background/30 backdrop-blur-sm'
+          scrolled ? 'border-b border-border bg-background/90 backdrop-blur-md' : 'bg-background/45 backdrop-blur-sm'
         }`}
       >
         <div className="mx-auto flex h-16 max-w-[1200px] items-center justify-between px-[clamp(16px,4vw,32px)]">
           <div className="flex items-center gap-3">
             <a
               href="#hero"
-              className="font-display text-lg font-black text-text-primary transition-colors duration-200 hover:text-accent"
+              className="font-display text-lg font-black text-text-primary transition-colors duration-200 hover:text-proof"
             >
               Aleksandrs D.
             </a>
@@ -68,7 +68,7 @@ export function Navbar() {
                 href={link.href}
                 className={`relative text-sm transition-colors duration-200 ${
                   isActive(link.href)
-                    ? 'text-text-primary after:absolute after:-bottom-1 after:left-0 after:h-px after:w-full after:bg-accent after:content-[""]'
+                    ? 'text-text-primary after:absolute after:-bottom-1 after:left-0 after:h-px after:w-full after:bg-proof after:content-[""]'
                     : 'text-text-muted hover:text-text-primary'
                 }`}
               >
@@ -81,7 +81,7 @@ export function Navbar() {
             <a
               href={personalInfo.cvUrl}
               download
-              className="hidden rounded-md border border-border px-4 py-2 font-mono text-xs text-text-muted transition-all duration-200 hover:border-accent/60 hover:text-text-primary active:scale-[0.98] md:block"
+              className="hidden rounded-md border border-border px-4 py-2 font-mono text-xs text-text-muted transition-all duration-200 hover:border-proof/60 hover:text-proof active:scale-[0.98] md:block"
             >
               CV
             </a>
@@ -113,7 +113,7 @@ export function Navbar() {
               initial={{ x: '100%' }}
               animate={{ x: 0 }}
               exit={{ x: '100%' }}
-              transition={{ type: 'spring', duration: 0.4, bounce: 0.1 }}
+              transition={{ duration: 0.32, ease: EASE }}
               className="fixed bottom-0 right-0 top-0 z-50 flex w-72 flex-col border-l border-border bg-surface px-6 py-8"
             >
               <button
@@ -140,7 +140,7 @@ export function Navbar() {
                 <a
                   href={personalInfo.cvUrl}
                   download
-                  className="mt-2 rounded-md border border-border px-4 py-2 text-center font-mono text-sm text-text-muted transition-all duration-200 hover:border-accent/60 hover:text-text-primary"
+                  className="mt-2 rounded-md border border-border px-4 py-2 text-center font-mono text-sm text-text-muted transition-all duration-200 hover:border-proof/60 hover:text-proof"
                   onClick={() => setMobileOpen(false)}
                 >
                   Download CV

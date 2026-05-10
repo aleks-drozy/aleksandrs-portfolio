@@ -36,7 +36,7 @@ export default function PortfolioPage() {
           <div className="mx-auto max-w-[900px]">
             <Link
               href="/#projects"
-              className="mb-10 inline-flex items-center gap-2 font-mono text-xs uppercase text-text-muted transition-colors hover:text-accent"
+              className="mb-10 inline-flex items-center gap-2 font-mono text-xs uppercase text-text-muted transition-colors hover:text-proof"
             >
               <svg className="h-3 w-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden>
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
@@ -45,9 +45,9 @@ export default function PortfolioPage() {
             </Link>
 
             <header className="mb-12">
-              <p className="mb-3 font-mono text-[11px] uppercase text-accent">Project / Frontend Engineering</p>
+              <p className="mb-3 font-mono text-[11px] uppercase text-proof">Project / Frontend Engineering</p>
               <h1 className="font-display text-4xl font-bold leading-[1.1] text-text-primary sm:text-5xl md:text-6xl">
-                This <span className="text-accent">Portfolio</span>
+                This <span className="text-proof">Portfolio</span>
               </h1>
               <p className="mt-4 max-w-[680px] text-lg leading-relaxed text-text-secondary">
                 Built to make the strongest work obvious: full-stack trading software, Python research tooling,
@@ -64,7 +64,7 @@ export default function PortfolioPage() {
 
             <section className="mb-16 grid gap-4 sm:grid-cols-2">
               {FEATURES.map((f) => (
-                <div key={f.title} className="rounded-xl border border-border bg-surface p-5">
+                <div key={f.title} className="proof-panel rounded-md p-5">
                   <p className="mb-2 font-display text-base font-semibold text-text-primary">{f.title}</p>
                   <p className="text-sm leading-relaxed text-text-secondary">{f.body}</p>
                 </div>
@@ -93,13 +93,13 @@ export default function PortfolioPage() {
                   href="https://github.com/aleks-drozy/aleksandrs-portfolio"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="rounded-lg bg-accent px-6 py-3 text-sm font-semibold text-background transition-all duration-200 hover:bg-accent/90 active:scale-[0.97]"
+                  className="btn-primary active:scale-[0.97]"
                 >
                   View on GitHub
                 </Link>
                 <Link
                   href="/"
-                  className="rounded-lg border border-border px-6 py-3 text-sm font-medium text-text-secondary transition-all duration-200 hover:border-border-strong hover:text-text-primary active:scale-[0.97]"
+                  className="btn-secondary active:scale-[0.97]"
                 >
                   Back to home
                 </Link>

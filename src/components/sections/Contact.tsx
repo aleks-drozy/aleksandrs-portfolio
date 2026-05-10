@@ -14,7 +14,7 @@ export function Contact() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.45, ease: EASE }}
-          className="border-y border-border py-10"
+          className="proof-panel overflow-hidden rounded-md p-8 md:p-10"
         >
           <div className="grid gap-8 md:grid-cols-[1fr_auto] md:items-end">
             <div>
@@ -38,14 +38,14 @@ export function Contact() {
           <div className="mt-8 flex flex-wrap gap-3">
             <a
               href={`mailto:${personalInfo.email}`}
-              className="rounded-md bg-accent px-6 py-3 text-sm font-semibold text-background transition-all duration-200 hover:bg-accent/90 active:scale-[0.98]"
+              className="btn-primary active:scale-[0.98]"
             >
               {personalInfo.email}
             </a>
             <a
               href={personalInfo.cvUrl}
               download
-              className="rounded-md border border-border bg-surface/70 px-6 py-3 text-sm font-medium text-text-primary transition-all duration-200 hover:border-accent/60 hover:text-accent active:scale-[0.98]"
+              className="btn-secondary active:scale-[0.98]"
             >
               Download CV
             </a>

@@ -11,6 +11,7 @@ const item = { hidden: { opacity: 0, y: 24 }, visible: { opacity: 1, y: 0, trans
 export function Hero() {
   return (
     <section id="hero" className="relative flex min-h-[calc(100vh-64px)] items-center overflow-hidden px-[clamp(16px,4vw,32px)] py-16">
+      <div className="signal-field" aria-hidden />
       <motion.div
         variants={stagger}
         initial="hidden"
@@ -33,7 +34,7 @@ export function Hero() {
               className="max-w-[820px] font-display text-[clamp(3.3rem,8vw,6.8rem)] font-black leading-[0.94]"
             >
               {personalInfo.headline}{' '}
-              <span className="text-accent">{personalInfo.headlineAccent}</span>
+              <span className="text-proof">{personalInfo.headlineAccent}</span>
             </motion.h1>
 
             <motion.p variants={item} className="max-w-[650px] text-lg leading-8 text-text-secondary md:text-xl">
@@ -49,20 +50,20 @@ export function Hero() {
             <motion.div variants={item} className="flex flex-wrap gap-3">
               <a
                 href="#featured-work"
-                className="rounded-md bg-accent px-6 py-3 text-sm font-semibold text-background transition-all duration-200 hover:bg-accent/90 active:scale-[0.98]"
+                className="btn-primary active:scale-[0.98]"
               >
                 See the proof
               </a>
               <a
                 href={`mailto:${personalInfo.email}`}
-                className="rounded-md border border-border bg-surface/70 px-6 py-3 text-sm font-medium text-text-primary transition-all duration-200 hover:border-accent/60 hover:text-accent active:scale-[0.98]"
+                className="btn-secondary active:scale-[0.98]"
               >
                 Email me
               </a>
               <a
                 href={personalInfo.cvUrl}
                 download
-                className="rounded-md px-6 py-3 text-sm font-medium text-text-secondary transition-colors duration-200 hover:text-text-primary"
+                className="btn-ghost active:scale-[0.98]"
               >
                 Download CV
               </a>
@@ -71,10 +72,11 @@ export function Hero() {
 
           <motion.aside
             variants={item}
-            className="border-y border-border bg-background/55 py-6 lg:border-l lg:border-y-0 lg:pl-8"
+            className="proof-panel relative overflow-hidden rounded-md p-6"
             aria-label="Hiring snapshot"
           >
-            <p className="mb-5 font-mono text-xs uppercase text-warm">Hiring snapshot</p>
+            <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-proof/70" aria-hidden />
+            <p className="mb-5 font-mono text-xs uppercase text-proof">Hiring snapshot</p>
             <dl className="divide-y divide-border">
               {hireSignals.map((signal) => (
                 <div key={signal.label} className="grid grid-cols-[120px_1fr] gap-5 py-4">
@@ -92,14 +94,13 @@ export function Hero() {
       </motion.div>
 
       <motion.div
-        className="absolute bottom-6 left-1/2 hidden -translate-x-1/2 flex-col items-center gap-1 text-accent md:flex"
-        animate={{ y: [0, 6, 0] }}
-        transition={{ duration: 1.5, repeat: Infinity, ease: 'easeInOut' }}
+        className="absolute bottom-6 left-1/2 hidden -translate-x-1/2 flex-col items-center gap-2 text-proof md:flex"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: [0.38, 0.75, 0.38] }}
+        transition={{ duration: 2.8, repeat: Infinity, ease: 'easeInOut' }}
       >
-        <div className="mx-auto h-8 w-px bg-accent/60" />
-        <svg width="12" height="8" viewBox="0 0 12 8" fill="none" aria-hidden>
-          <path d="M1 1L6 7L11 1" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-        </svg>
+        <div className="mx-auto h-10 w-px bg-gradient-to-b from-transparent via-proof/80 to-transparent" />
+        <span className="h-1.5 w-1.5 rounded-full bg-proof" />
       </motion.div>
     </section>
   )
