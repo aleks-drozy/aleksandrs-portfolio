@@ -5,26 +5,26 @@ import { Footer } from '@/components/layout/Footer'
 
 export const metadata: Metadata = {
   title: 'This Portfolio | Aleksandrs Drozdovs',
-  description: 'Personal portfolio built with Next.js 15, TypeScript, Tailwind CSS v4, and Framer Motion.',
+  description: 'Personal portfolio built with Next.js 16, TypeScript, Tailwind CSS v4, and Framer Motion.',
 }
 
 const FEATURES = [
-  { title: 'Tailwind CSS v4 design system', body: 'All tokens defined in a single @theme block — background, surface, border, text, and accent scales. No config file; the design system lives in CSS.' },
-  { title: 'SSR-safe animations', body: 'Framer Motion\'s useReducedMotion hook causes hydration mismatches when used in the render path. All motion preference checks moved into useEffect, keeping server and client HTML identical.' },
-  { title: 'Count-up stat animations', body: 'Hero stats animate from zero using Framer Motion\'s useMotionValue and animate. Reduced motion handled client-side only — no server/client divergence.' },
-  { title: 'Real equity curve', body: 'The FYP case study renders a real SVG equity curve from 72 actual trade data points, animated via pathLength. No third-party chart library needed.' },
-  { title: 'Active section tracking', body: 'Navbar highlights the current section using an IntersectionObserver hook. Smooth, performant, no scroll event listeners.' },
-  { title: 'Static build', body: 'All case study data is statically imported at build time. Zero runtime API calls — pages are fully static and deploy instantly on Vercel.' },
+  { title: 'Hiring-first content system', body: 'The homepage is organized around proof recruiters can scan quickly: dashboard, backtest engine, FYP strategy, DLT Capital experience, and contact paths.' },
+  { title: 'Tailwind CSS v4 design tokens', body: 'OKLCH colors, surface, border, text, and accent scales live in a single @theme block. The site avoids one-note template colors.' },
+  { title: 'SSR-safe animations', body: 'Framer Motion count-ups and reveals avoid hydration mismatch paths while respecting reduced motion preferences.' },
+  { title: 'Real equity curve', body: 'The FYP proof section renders a real SVG equity curve from 72 trade data points. The chart is evidence, not decoration.' },
+  { title: 'Active section tracking', body: 'Navbar highlights the current section using an IntersectionObserver hook. Smooth and cheap, without scroll-event spam.' },
+  { title: 'Static build', body: 'Project data is statically imported at build time. Pages deploy as static content with zero runtime API dependency.' },
 ]
 
-const STACK = ['Next.js 15', 'TypeScript', 'Tailwind CSS v4', 'Framer Motion', 'Vercel']
+const STACK = ['Next.js 16', 'TypeScript', 'Tailwind CSS v4', 'Framer Motion', 'Vercel']
 
 const DECISIONS = [
-  { label: 'Accent colour', value: '#2dd4bf — teal signals data/finance without the overused blue' },
-  { label: 'Font stack', value: 'Geist Sans (display), Inter (body), Geist Mono (numbers + labels)' },
-  { label: 'Motion easing', value: 'cubic-bezier(0.23, 1, 0.32, 1) — expo out, snappy but not jarring' },
-  { label: 'Max width', value: '1200px content, clamp(16px, 4vw, 32px) horizontal padding' },
-  { label: 'Section rhythm', value: '128px / 96px / 80px top padding — desktop / tablet / mobile' },
+  { label: 'Positioning', value: 'Graduate SWE with quant instincts, backed by DLT Capital, a trading dashboard, Python backtesting, and FYP research' },
+  { label: 'Color', value: 'OKLCH-tinted dark neutrals with cyan/green accent and restrained warm highlights' },
+  { label: 'Typography', value: 'Geist Sans display, Inter body, Geist Mono for labels and numbers' },
+  { label: 'Motion', value: 'Expo-out reveal motion, no bounce, no layout animation' },
+  { label: 'Layout', value: 'Proof-led sections with dividers and data surfaces instead of endless identical cards' },
 ]
 
 export default function PortfolioPage() {
@@ -36,7 +36,7 @@ export default function PortfolioPage() {
           <div className="mx-auto max-w-[900px]">
             <Link
               href="/#projects"
-              className="mb-10 inline-flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-text-muted transition-colors hover:text-accent"
+              className="mb-10 inline-flex items-center gap-2 font-mono text-xs uppercase text-text-muted transition-colors hover:text-accent"
             >
               <svg className="h-3 w-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden>
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
@@ -45,14 +45,13 @@ export default function PortfolioPage() {
             </Link>
 
             <header className="mb-12">
-              <p className="mb-3 font-mono text-[11px] uppercase tracking-widest text-accent">Project / Frontend Engineering</p>
-              <h1 className="font-display text-4xl font-bold leading-[1.1] tracking-tight text-text-primary sm:text-5xl md:text-6xl">
+              <p className="mb-3 font-mono text-[11px] uppercase text-accent">Project / Frontend Engineering</p>
+              <h1 className="font-display text-4xl font-bold leading-[1.1] text-text-primary sm:text-5xl md:text-6xl">
                 This <span className="text-accent">Portfolio</span>
               </h1>
-              <p className="mt-4 max-w-[640px] text-lg leading-relaxed text-text-secondary">
-                Built to show design engineering taste alongside technical depth. Finance-tech hybrid visual system,
-                SSR-safe Framer Motion animations, real equity curve data, and two full case study pages built from
-                actual project output.
+              <p className="mt-4 max-w-[680px] text-lg leading-relaxed text-text-secondary">
+                Built to make the strongest work obvious: full-stack trading software, Python research tooling,
+                quant strategy validation, and enough craft to show I can ship usable interfaces.
               </p>
               <div className="mt-6 flex flex-wrap gap-2">
                 {STACK.map((tag) => (
@@ -79,7 +78,7 @@ export default function PortfolioPage() {
                   <tbody>
                     {DECISIONS.map((d) => (
                       <tr key={d.label} className="border-b border-border/50 last:border-0 odd:bg-surface/40">
-                        <td className="p-3 font-mono text-[11px] uppercase tracking-widest text-text-muted whitespace-nowrap">{d.label}</td>
+                        <td className="whitespace-nowrap p-3 font-mono text-[11px] uppercase text-text-muted">{d.label}</td>
                         <td className="p-3 text-text-secondary">{d.value}</td>
                       </tr>
                     ))}

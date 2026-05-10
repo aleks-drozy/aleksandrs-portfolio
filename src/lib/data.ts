@@ -8,7 +8,16 @@ export type Project = {
   tags: string[]
   metrics?: ProjectMetric[]
   githubUrl: string
+  liveUrl?: string
   featured: boolean
+}
+
+export type ProofItem = {
+  label: string
+  title: string
+  description: string
+  href: string
+  meta: ProjectMetric[]
 }
 
 export type SkillCategory = {
@@ -48,21 +57,67 @@ export type Education = {
 export const personalInfo = {
   name: 'Aleksandrs Drozdovs',
   shortName: 'Aleksandrs D.',
-  headline: 'Building at the intersection of',
-  headlineAccent: 'code and markets.',
-  eyebrow: 'Software Engineer + Quant Developer',
+  headline: 'Software engineer with',
+  headlineAccent: 'quant instincts.',
+  eyebrow: 'Dublin-based software engineer',
   subline:
-    'Final year Computer Science & Software Engineering @ Maynooth University. I build software, trade NASDAQ-100 futures on a funded account, and throw people for fun.',
-  status: 'Open to opportunities',
+    'Final-year Computer Science & Software Engineering student at Maynooth. I build full-stack products, Python data tools, and trading systems with the discipline of someone who has to trust the output.',
+  status: 'Open to 2026 roles',
   cvUrl: '/cv.pdf',
   email: 'aleksandrs.drozdovs2005@gmail.com',
   location: 'Dublin, Ireland',
 }
 
 export const heroStats: ProjectMetric[] = [
-  { label: 'Win Rate', value: '56%' },
-  { label: 'Max Drawdown', value: '$28K' },
-  { label: 'Sharpe Ratio', value: '1.703' },
+  { label: 'Dashboard Commits', value: '228' },
+  { label: 'Trading Profit', value: '$15K' },
+  { label: 'FYP Win Rate', value: '56.94%' },
+]
+
+export const hireSignals = [
+  { label: 'Looking for', value: 'Graduate SWE / Fintech / Data teams' },
+  { label: 'Location', value: 'Dublin, Ireland' },
+  { label: 'Strongest proof', value: 'Full-stack trading dashboard, Python backtester, FYP strategy' },
+  { label: 'Working style', value: 'Tested systems, documented tradeoffs, honest results' },
+]
+
+export const proofItems: ProofItem[] = [
+  {
+    label: 'Full-stack shipping',
+    title: 'Trading Analytics Dashboard',
+    description:
+      'A production-style market research dashboard with a Next.js + TypeScript frontend, Python analytics workflow, tests, schemas, pre-commit tooling, and Vercel deployment.',
+    href: '/projects/trading-dashboard',
+    meta: [
+      { label: 'GitHub commits', value: '228' },
+      { label: 'Stack', value: 'TS + Python' },
+      { label: 'Deploy', value: 'Vercel' },
+    ],
+  },
+  {
+    label: 'Python infrastructure',
+    title: 'Vectorised Backtesting Engine',
+    description:
+      'Reusable Python engine for strategy experiments with walk-forward analysis, pytest coverage, structured results, and a GitHub Actions pipeline.',
+    href: '/projects/backtest-engine',
+    meta: [
+      { label: 'Language', value: 'Python' },
+      { label: 'Strategies', value: '9' },
+      { label: 'Validation', value: 'CI' },
+    ],
+  },
+  {
+    label: 'Quant research',
+    title: 'NASDAQ-100 FYP Strategy',
+    description:
+      'Pine Script v6 strategy for NQ1! futures using IFVG, CISD, liquidity sweep filters, fixed risk rules, and documented out-of-sample caveats.',
+    href: '/projects/fyp-trading-strategy',
+    meta: [
+      { label: 'Win rate', value: '56.94%' },
+      { label: 'Net P&L', value: '$28.4K' },
+      { label: 'Profit factor', value: '1.703' },
+    ],
+  },
 ]
 
 export const projects: Project[] = [
@@ -71,21 +126,21 @@ export const projects: Project[] = [
     title: 'Algorithmic Trading Strategy: NASDAQ-100 Futures',
     featured: true,
     description:
-      'Quantitative trading system for NQ1! E-mini futures built around Smart Money Concepts. Targets NY morning sessions with Inverse Fair Value Gap + Change in State of Delivery double confirmation, backtested across 72 trades in a strict 28-minute execution window.',
+      'Final-year quantitative trading project for NQ1! E-mini futures. Encodes IFVG + CISD confirmation, session filters, risk rules, and trade logging into a strategy that can be tested instead of hand-waved.',
     longDescription:
       'Quantitative trading system for NQ1! E-mini futures built around Smart Money Concepts. Targets NY morning sessions with Inverse Fair Value Gap + Change in State of Delivery double confirmation, backtested across 72 trades in a strict 28-minute execution window.',
     tags: ['PineScript v6', 'TradingView', 'Quant Research', 'SMC'],
     metrics: [
-      { label: 'Win Rate', value: '56%' },
-      { label: 'Max Drawdown', value: '$28K' },
-      { label: 'Sharpe Ratio', value: '1.703' },
+      { label: 'Win Rate', value: '56.94%' },
+      { label: 'Net P&L', value: '$28.4K' },
+      { label: 'Profit Factor', value: '1.703' },
       { label: 'Trades', value: '72' },
     ],
     githubUrl: 'https://github.com/aleks-drozy/fyp-trading-strategy',
   },
   {
     id: 'backtest-engine',
-    title: 'Backtest Engine',
+    title: 'Vectorised Backtesting Engine',
     featured: false,
     description:
       'Vectorised Python backtesting engine with a strategy registry, slippage/commission model, and walk-forward train/test split. Benchmarks SMA Crossover and RSI Mean Reversion against the FYP IFVG+CISD strategy. GitHub Actions auto-updates results on push.',
@@ -94,12 +149,13 @@ export const projects: Project[] = [
   },
   {
     id: 'trading-dashboard',
-    title: 'Trading Dashboard',
+    title: 'Trading Analytics Dashboard',
     featured: false,
     description:
-      'Full-stack financial market dashboard with a Next.js + TypeScript frontend and Python data backend. Live market data, pre-commit hooks, Vitest coverage, and Vercel deployment.',
-    tags: ['TypeScript', 'Next.js', 'Python', 'Vitest'],
+      'Full-stack trade journal and financial market app with a Next.js dashboard, authenticated trade logging, analytics pages, tests, schemas, pre-commit hooks, docs, and Vercel deployment.',
+    tags: ['TypeScript', 'Next.js', 'Python', 'Vitest', 'Vercel'],
     githubUrl: 'https://github.com/aleks-drozy/Trading_Dashboard',
+    liveUrl: 'https://tradingdashboard-one.vercel.app',
   },
   {
     id: 'noteit',
@@ -115,7 +171,7 @@ export const projects: Project[] = [
     title: 'This Portfolio',
     featured: false,
     description:
-      'Personal portfolio built with Next.js 15, TypeScript, Tailwind CSS v4, and Framer Motion. Custom design system, count-up stat animations, SSR-safe motion, and Vercel deployment.',
+      'Personal portfolio built with Next.js 16, TypeScript, Tailwind CSS v4, and Framer Motion. Hiring-first content system, custom design tokens, SSR-safe motion, and Vercel deployment.',
     tags: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Framer Motion'],
     githubUrl: 'https://github.com/aleks-drozy/aleksandrs-portfolio',
   },
@@ -129,6 +185,7 @@ export const skillCategories: SkillCategory[] = [
       { name: 'Python', icon: 'python' },
       { name: 'TypeScript', icon: 'typescript' },
       { name: 'JavaScript', icon: 'javascript' },
+      { name: 'C++', icon: 'cpp' },
       { name: 'SQL', icon: 'sql' },
       { name: 'PineScript', icon: 'pinescript' },
     ],
@@ -139,7 +196,9 @@ export const skillCategories: SkillCategory[] = [
       { name: 'React', icon: 'react' },
       { name: 'Next.js', icon: 'nextjs' },
       { name: 'Node.js', icon: 'nodejs' },
+      { name: 'Express', icon: 'express' },
       { name: 'Tailwind CSS', icon: 'tailwind' },
+      { name: 'MongoDB', icon: 'mongodb' },
     ],
   },
   {
@@ -147,7 +206,9 @@ export const skillCategories: SkillCategory[] = [
     skills: [
       { name: 'Git', icon: 'git' },
       { name: 'GitHub', icon: 'github' },
+      { name: 'GitHub Actions', icon: 'actions' },
       { name: 'TradingView', icon: 'tradingview' },
+      { name: 'Postman', icon: 'postman' },
       { name: 'VS Code', icon: 'vscode' },
     ],
   },
@@ -155,23 +216,35 @@ export const skillCategories: SkillCategory[] = [
 
 export const experience: ExperienceEntry[] = [
   {
-    role: 'Funded Prop Trader',
-    company: 'Undisclosed prop firm',
-    period: '2024 - Present',
-    location: 'Remote',
+    role: 'Quantitative Researcher (Part-Time)',
+    company: 'DLT Capital',
+    period: 'Feb 2025 - Jul 2025',
+    location: 'Maynooth',
     bullets: [
-      'Trade NASDAQ-100 E-mini futures on a funded account with real payouts, applying strict risk management and session-based execution rules.',
-      'Run a production trading strategy derived from my final-year research; track every trade in a journal to refine edge over time.',
+      'Developed algorithmic trading indicators and rules-based strategies in PineScript for crypto and futures markets on TradingView.',
+      'Built and tested automated Bitcoin trading bots with systematic entry, exit, position sizing, and risk management logic.',
+      'Generated approximately $15,000 in trading profit through disciplined technical analysis, statistical filters, and strict risk rules.',
+      'Supported data-entry workflows, compliance checks, and internal workshop coordination for a more reliable research process.',
     ],
   },
   {
-    role: 'Software Engineering Student: Research & Projects',
+    role: 'Software Engineering Student',
     company: 'Maynooth University',
-    period: '2022 - 2026',
+    period: 'Sept 2022 - Expected 2026',
     location: 'Maynooth, Ireland',
     bullets: [
-      'Shipped academic software projects in Java, Python, and JavaScript, including a full-stack gym-management system and an algorithmic trading strategy as final-year thesis.',
-      'Worked in small teams on agile-style coursework; comfortable with Git workflows, code review, and writing documentation engineers actually read.',
+      'Built academic and personal projects across Java, Python, TypeScript, JavaScript, C++, and SQL, including full-stack apps, data tooling, and an algorithmic trading thesis.',
+      'Final-year project: designed, implemented, and evaluated an automated PineScript v6 strategy for NASDAQ-100 E-mini futures.',
+    ],
+  },
+  {
+    role: 'Customer Operations: Part-Time Roles',
+    company: 'Circle K, UPS, Resus First Aid Ireland',
+    period: '2022 - Present',
+    location: 'Dublin',
+    bullets: [
+      'Worked in high-pressure service, warehouse, and first-aid environments where accuracy, calm communication, and reliability mattered.',
+      'Resolved payment and system issues, handled documentation, maintained stock and dispatch accuracy, and followed safety protocols precisely.',
     ],
   },
 ]
@@ -181,17 +254,14 @@ export const education: Education = {
   degree: 'B.Sc. Computer Science & Software Engineering',
   period: '2022 - 2026',
   location: 'Maynooth, Ireland',
-  gpa: 'First Class Honours (expected)',
+  gpa: 'GPA 3.0',
   coursework: [
-    'Data Structures & Algorithms',
-    'Software Engineering',
-    'Operating Systems',
+    'Algorithms & Data Structures',
+    'Software Testing',
     'Databases',
-    'Probability & Statistics',
-    'Discrete Mathematics',
-    'Machine Learning',
-    'Computer Networks',
-    'Artificial Intelligence',
+    'Web Information Processing',
+    'Computer Systems',
+    'UX/UI Design',
     'Final-Year Project: Algorithmic Trading',
   ],
 }
@@ -207,12 +277,12 @@ export const beyondPanels: BeyondPanel[] = [
     icon: 'judo',
     title: 'Judo',
     copy:
-      'Sixteen years on the mat, black belt, multiple Irish national medals. Judo taught me composure under pressure, how to lose well, and how to get up faster than the problem. The discipline I built there is the same discipline I bring to code: methodical, resilient, always looking for the edge.',
+      'Sixteen years on the mat, black belt, multiple Irish national medals. Judo taught me how to stay composed when the situation gets ugly, how to lose without making excuses, and how to improve through repetition. That shows up in my engineering work: calm under pressure, honest about mistakes, and stubborn about getting better.',
   },
   {
     icon: 'chart',
     title: 'Algorithmic Trading',
     copy:
-      "Funded account holder with real payouts, focused on NASDAQ-100 E-mini futures during NY morning sessions. I write strategies and execute them live. The work bridges quantitative thinking with engineering discipline, and every trade is a feedback loop that makes me a better systems builder.",
+      "Funded account holder with real payouts, focused on NASDAQ-100 E-mini futures during NY morning sessions. I write strategies, test assumptions, and execute with predefined risk. It is a useful pressure test for engineering judgment because vague thinking gets punished quickly.",
   },
 ]

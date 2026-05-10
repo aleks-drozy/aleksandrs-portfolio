@@ -7,18 +7,18 @@ const geistSans = Geist({ subsets: ['latin'], variable: '--font-geist-sans' })
 const geistMono = Geist_Mono({ subsets: ['latin'], variable: '--font-geist-mono' })
 
 export const metadata: Metadata = {
-  title: 'Aleksandrs Drozdovs | Software Engineer + Quant Developer',
-  description: 'Final year Computer Science & Software Engineering student at Maynooth University. I build software and trade NASDAQ-100 futures on a funded account.',
+  title: 'Aleksandrs Drozdovs | Software Engineer',
+  description: 'Dublin-based final-year CS & Software Engineering student building full-stack trading tools, Python backtesting infrastructure, and quantitative research systems.',
   openGraph: {
-    title: 'Aleksandrs Drozdovs | Software Engineer + Quant Developer',
-    description: 'Final year CS & SWE at Maynooth. Building at the intersection of code and markets.',
+    title: 'Aleksandrs Drozdovs | Software Engineer',
+    description: 'Full-stack trading dashboard, Python backtest engine, and NASDAQ-100 FYP strategy.',
     type: 'website',
     locale: 'en_IE',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Aleksandrs Drozdovs | Software Engineer + Quant Developer',
-    description: 'Final year CS & SWE at Maynooth. Building at the intersection of code and markets.',
+    title: 'Aleksandrs Drozdovs | Software Engineer',
+    description: 'Full-stack trading dashboard, Python backtest engine, and NASDAQ-100 FYP strategy.',
   },
 }
 

@@ -20,7 +20,7 @@ export default function FypCaseStudy() {
           <div className="mx-auto max-w-[900px]">
             <Link
               href="/#featured-work"
-              className="mb-10 inline-flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-text-muted transition-colors hover:text-accent"
+              className="mb-10 inline-flex items-center gap-2 font-mono text-xs uppercase text-text-muted transition-colors hover:text-accent"
             >
               <svg className="h-3 w-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden>
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
@@ -29,8 +29,8 @@ export default function FypCaseStudy() {
             </Link>
 
             <header className="mb-12">
-              <p className="mb-3 font-mono text-[11px] uppercase tracking-widest text-accent">Case Study / Final-Year Project</p>
-              <h1 className="font-display text-4xl font-bold leading-[1.1] tracking-tight text-text-primary sm:text-5xl md:text-6xl">
+              <p className="mb-3 font-mono text-[11px] uppercase text-accent">Case Study / Final-Year Project</p>
+              <h1 className="font-display text-4xl font-bold leading-[1.1] text-text-primary sm:text-5xl md:text-6xl">
                 NASDAQ-100 <span className="text-accent">Algo Strategy</span>
               </h1>
               <p className="mt-4 max-w-[640px] text-lg leading-relaxed text-text-secondary">
@@ -58,7 +58,7 @@ export default function FypCaseStudy() {
               ].map((m) => (
                 <div key={m.label} className="rounded-lg border border-border bg-surface p-4">
                   <p className="font-display text-2xl font-bold tabular-nums text-text-primary">{m.value}</p>
-                  <p className="mt-1 font-mono text-[10px] uppercase tracking-widest text-text-muted">{m.label}</p>
+                  <p className="mt-1 font-mono text-[10px] uppercase text-text-muted">{m.label}</p>
                 </div>
               ))}
             </div>
@@ -136,9 +136,9 @@ export default function FypCaseStudy() {
                 <table className="w-full text-left font-mono text-sm">
                   <thead className="border-b border-border bg-surface">
                     <tr>
-                      <th className="p-3 text-[11px] uppercase tracking-widest text-text-muted">Filter</th>
-                      <th className="p-3 text-[11px] uppercase tracking-widest text-text-muted">Result</th>
-                      <th className="p-3 text-[11px] uppercase tracking-widest text-text-muted">Kept?</th>
+                      <th className="p-3 text-[11px] uppercase text-text-muted">Filter</th>
+                      <th className="p-3 text-[11px] uppercase text-text-muted">Result</th>
+                      <th className="p-3 text-[11px] uppercase text-text-muted">Kept?</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -176,9 +176,9 @@ export default function FypCaseStudy() {
                 <table className="w-full text-left font-mono text-sm">
                   <thead className="border-b border-border bg-surface">
                     <tr>
-                      <th className="p-3 text-[11px] uppercase tracking-widest text-text-muted">Metric</th>
-                      <th className="p-3 text-[11px] uppercase tracking-widest text-text-muted">In-sample (2025 to 2026)</th>
-                      <th className="p-3 text-[11px] uppercase tracking-widest text-text-muted">OOS (2023 to 2024)</th>
+                      <th className="p-3 text-[11px] uppercase text-text-muted">Metric</th>
+                      <th className="p-3 text-[11px] uppercase text-text-muted">In-sample (2025 to 2026)</th>
+                      <th className="p-3 text-[11px] uppercase text-text-muted">OOS (2023 to 2024)</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -208,7 +208,7 @@ export default function FypCaseStudy() {
               <div className="grid gap-2 sm:grid-cols-2">
                 {FYP_PARAMETERS.map((p) => (
                   <div key={p.label} className="flex items-center justify-between rounded-lg border border-border bg-surface px-4 py-3">
-                    <span className="font-mono text-xs uppercase tracking-widest text-text-muted">{p.label}</span>
+                    <span className="font-mono text-xs uppercase text-text-muted">{p.label}</span>
                     <span className="font-mono text-sm text-text-primary">{p.value}</span>
                   </div>
                 ))}
@@ -217,7 +217,7 @@ export default function FypCaseStudy() {
 
             {/* Supervisor + CTAs */}
             <section className="border-t border-border pt-10">
-              <p className="mb-6 font-mono text-xs uppercase tracking-widest text-text-muted">
+              <p className="mb-6 font-mono text-xs uppercase text-text-muted">
                 Supervisor: Dr. Phil Maguire, Dept. of Computer Science, Maynooth University
               </p>
               <div className="flex flex-wrap gap-3">
