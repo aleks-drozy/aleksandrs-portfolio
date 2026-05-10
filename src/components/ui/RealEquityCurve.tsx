@@ -35,11 +35,11 @@ export function RealEquityCurve({ className = '' }: { className?: string }) {
       >
         <defs>
           <linearGradient id="realEqFill" x1="0" x2="0" y1="0" y2="1">
-            <stop offset="0%" stopColor="#2dd4bf" stopOpacity="0.35" />
-            <stop offset="100%" stopColor="#2dd4bf" stopOpacity="0" />
+            <stop offset="0%" stopColor="var(--color-accent)" stopOpacity="0.35" />
+            <stop offset="100%" stopColor="var(--color-accent)" stopOpacity="0" />
           </linearGradient>
           <pattern id="realEqGrid" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
-            <path d="M 20 0 L 0 0 0 20" fill="none" stroke="#1e293b" strokeWidth="0.4" />
+            <path d="M 20 0 L 0 0 0 20" fill="none" stroke="var(--color-border)" strokeWidth="0.4" />
           </pattern>
         </defs>
         <rect width="100" height="100" fill="url(#realEqGrid)" />
@@ -49,7 +49,7 @@ export function RealEquityCurve({ className = '' }: { className?: string }) {
           y1={zeroY}
           x2="100"
           y2={zeroY}
-          stroke="#475569"
+          stroke="var(--color-text-muted)"
           strokeWidth="0.3"
           strokeDasharray="1 1"
           vectorEffect="non-scaling-stroke"
@@ -66,7 +66,7 @@ export function RealEquityCurve({ className = '' }: { className?: string }) {
         <motion.path
           d={path}
           fill="none"
-          stroke="#2dd4bf"
+          stroke="var(--color-accent)"
           strokeWidth="0.6"
           strokeLinecap="round"
           strokeLinejoin="round"
@@ -76,7 +76,7 @@ export function RealEquityCurve({ className = '' }: { className?: string }) {
           vectorEffect="non-scaling-stroke"
         />
       </svg>
-      <div className="pointer-events-none absolute left-3 top-2 font-mono text-[10px] uppercase tracking-widest text-text-muted">
+      <div className="pointer-events-none absolute left-3 top-2 font-mono text-[10px] uppercase text-text-muted">
         Cumulative P&L USD
       </div>
       <div className="pointer-events-none absolute right-3 top-2 font-mono text-[10px] text-accent">

@@ -11,10 +11,10 @@ export function SectionHeader({ eyebrow, title, accent, className = '' }: Props)
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.4 }}
       transition={{ duration: 0.45, ease: [0.23, 1, 0.32, 1] }}
-      className={`mb-12 ${className}`}
+      className={`mb-12 max-w-3xl ${className}`}
     >
-      <p className="mb-2 font-mono text-xs uppercase tracking-widest text-text-muted">{eyebrow}</p>
-      <h2 className="font-display text-3xl font-bold tracking-tight md:text-5xl">
+      <p className="mb-3 font-mono text-xs uppercase text-text-muted">{eyebrow}</p>
+      <h2 className="font-display text-3xl font-black leading-tight md:text-5xl">
         {title}
         {accent ? <> <span className="text-accent">{accent}</span></> : null}
       </h2>

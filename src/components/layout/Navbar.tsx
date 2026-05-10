@@ -9,12 +9,11 @@ const NAV_LINKS = [
   { label: 'Work', href: '#featured-work' },
   { label: 'Experience', href: '#experience' },
   { label: 'Skills', href: '#skills' },
-  { label: 'Beyond', href: '#beyond' },
+  { label: 'Projects', href: '#projects' },
   { label: 'Contact', href: '#contact' },
 ]
 
 const SECTION_IDS = ['hero', 'featured-work', 'experience', 'education', 'skills', 'projects', 'beyond', 'contact']
-
 const EASE = [0.23, 1, 0.32, 1] as const
 
 export function Navbar() {
@@ -29,7 +28,9 @@ export function Navbar() {
   }, [])
 
   useEffect(() => {
-    const handleResize = () => { if (window.innerWidth >= 768) setMobileOpen(false) }
+    const handleResize = () => {
+      if (window.innerWidth >= 768) setMobileOpen(false)
+    }
     window.addEventListener('resize', handleResize)
     return () => window.removeEventListener('resize', handleResize)
   }, [])
@@ -43,25 +44,23 @@ export function Navbar() {
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.5, ease: EASE }}
         className={`fixed left-0 right-0 top-0 z-50 transition-all duration-300 ${
-          scrolled ? 'border-b border-border bg-background/80 backdrop-blur-md' : 'bg-transparent'
+          scrolled ? 'border-b border-border bg-background/88 backdrop-blur-md' : 'bg-background/30 backdrop-blur-sm'
         }`}
       >
         <div className="mx-auto flex h-16 max-w-[1200px] items-center justify-between px-[clamp(16px,4vw,32px)]">
-          {/* Left: wordmark + status pill */}
           <div className="flex items-center gap-3">
             <a
               href="#hero"
-              className="font-display text-lg font-bold tracking-tight text-text-primary transition-colors duration-200 hover:text-accent"
+              className="font-display text-lg font-black text-text-primary transition-colors duration-200 hover:text-accent"
             >
-              Aleksandrs <span className="text-accent">D.</span>
+              Aleksandrs D.
             </a>
-            <span className="hidden items-center gap-1.5 rounded-full border border-border bg-surface px-2.5 py-0.5 font-mono text-[10px] uppercase tracking-widest text-text-muted sm:inline-flex">
+            <span className="hidden items-center gap-1.5 rounded-md border border-border bg-surface/80 px-2.5 py-1 font-mono text-[10px] uppercase text-text-muted sm:inline-flex">
               <span className="pulse-dot inline-block h-1.5 w-1.5 rounded-full bg-signal-green" aria-hidden />
               {personalInfo.status}
             </span>
           </div>
 
-          {/* Centre: nav links */}
           <nav className="hidden items-center gap-6 md:flex" aria-label="Main navigation">
             {NAV_LINKS.map((link) => (
               <a
@@ -69,7 +68,7 @@ export function Navbar() {
                 href={link.href}
                 className={`relative text-sm transition-colors duration-200 ${
                   isActive(link.href)
-                    ? 'text-text-primary after:absolute after:-bottom-0.5 after:left-0 after:h-px after:w-full after:bg-accent after:content-[""]'
+                    ? 'text-text-primary after:absolute after:-bottom-1 after:left-0 after:h-px after:w-full after:bg-accent after:content-[""]'
                     : 'text-text-muted hover:text-text-primary'
                 }`}
               >
@@ -78,14 +77,13 @@ export function Navbar() {
             ))}
           </nav>
 
-          {/* Right: CV button + hamburger */}
           <div className="flex items-center gap-3">
             <a
               href={personalInfo.cvUrl}
               download
-              className="hidden rounded-lg border border-border px-4 py-1.5 font-mono text-xs text-text-muted transition-all duration-200 hover:border-accent/60 hover:text-text-primary active:scale-[0.97] md:block"
+              className="hidden rounded-md border border-border px-4 py-2 font-mono text-xs text-text-muted transition-all duration-200 hover:border-accent/60 hover:text-text-primary active:scale-[0.98] md:block"
             >
-              Download CV
+              CV
             </a>
             <button
               className="rounded-md p-2 text-text-muted transition-colors duration-200 hover:text-text-primary md:hidden"
@@ -100,7 +98,6 @@ export function Navbar() {
         </div>
       </motion.nav>
 
-      {/* Mobile drawer */}
       <AnimatePresence>
         {mobileOpen && (
           <>
@@ -109,7 +106,7 @@ export function Navbar() {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.2 }}
-              className="fixed inset-0 z-50 bg-background/70 backdrop-blur-sm"
+              className="fixed inset-0 z-50 bg-background/75 backdrop-blur-sm"
               onClick={() => setMobileOpen(false)}
             />
             <motion.div
@@ -143,7 +140,7 @@ export function Navbar() {
                 <a
                   href={personalInfo.cvUrl}
                   download
-                  className="mt-2 rounded-lg border border-border px-4 py-2 text-center font-mono text-sm text-text-muted transition-all duration-200 hover:border-accent/60 hover:text-text-primary"
+                  className="mt-2 rounded-md border border-border px-4 py-2 text-center font-mono text-sm text-text-muted transition-all duration-200 hover:border-accent/60 hover:text-text-primary"
                   onClick={() => setMobileOpen(false)}
                 >
                   Download CV

@@ -8,14 +8,14 @@ const EASE = [0.23, 1, 0.32, 1] as const
 
 export function Skills() {
   return (
-    <section id="skills" className="px-[clamp(16px,4vw,32px)] py-32 md:py-24 sm:py-20 bg-surface/20">
+    <section id="skills" className="bg-surface/25 px-[clamp(16px,4vw,32px)] py-28 md:py-24 sm:py-20">
       <div className="mx-auto max-w-[1200px]">
-        <SectionHeader eyebrow="What I work with" title="Skills &amp;" accent="Tech Stack" />
+        <SectionHeader eyebrow="Tools" title="The stack I can actually work in." />
 
         <div className="flex flex-col gap-10">
           {skillCategories.map((category) => (
             <div key={category.name}>
-              <p className="mb-4 font-mono text-[11px] uppercase tracking-widest text-text-muted">
+              <p className="mb-4 font-mono text-[11px] uppercase text-text-muted">
                 {category.name}
               </p>
               <motion.div

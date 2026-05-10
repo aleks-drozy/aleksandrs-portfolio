@@ -9,9 +9,9 @@ const EASE = [0.23, 1, 0.32, 1] as const
 export function Projects() {
   const rest = projects.filter((p) => !p.featured)
   return (
-    <section id="projects" className="px-[clamp(16px,4vw,32px)] py-32 md:py-24 sm:py-20">
+    <section id="projects" className="px-[clamp(16px,4vw,32px)] py-28 md:py-24 sm:py-20">
       <div className="mx-auto max-w-[1200px]">
-        <SectionHeader eyebrow="More work" title="Other" accent="Projects" />
+        <SectionHeader eyebrow="More work" title="Other shipped projects." />
 
         <motion.div
           initial="hidden"

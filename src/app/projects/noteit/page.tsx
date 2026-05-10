@@ -28,7 +28,7 @@ export default function NoteItPage() {
           <div className="mx-auto max-w-[900px]">
             <Link
               href="/#projects"
-              className="mb-10 inline-flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-text-muted transition-colors hover:text-accent"
+              className="mb-10 inline-flex items-center gap-2 font-mono text-xs uppercase text-text-muted transition-colors hover:text-accent"
             >
               <svg className="h-3 w-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden>
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
@@ -37,8 +37,8 @@ export default function NoteItPage() {
             </Link>
 
             <header className="mb-12">
-              <p className="mb-3 font-mono text-[11px] uppercase tracking-widest text-accent">Project / Full-Stack</p>
-              <h1 className="font-display text-4xl font-bold leading-[1.1] tracking-tight text-text-primary sm:text-5xl md:text-6xl">
+              <p className="mb-3 font-mono text-[11px] uppercase text-accent">Project / Full-Stack</p>
+              <h1 className="font-display text-4xl font-bold leading-[1.1] text-text-primary sm:text-5xl md:text-6xl">
                 Note<span className="text-accent">It</span>
               </h1>
               <p className="mt-4 max-w-[640px] text-lg leading-relaxed text-text-secondary">

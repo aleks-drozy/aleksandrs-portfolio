@@ -9,7 +9,6 @@ import {
   YAxis,
   Tooltip,
   ReferenceLine,
-  ResponsiveContainer,
 } from 'recharts'
 import { Navbar } from '@/components/layout/Navbar'
 import { Footer } from '@/components/layout/Footer'
@@ -44,7 +43,7 @@ function DirectionBadge({ direction }: { direction: StrategyResult['direction'] 
   const label = direction === 'long_only' ? 'Long Only'
     : direction === 'short_only' ? 'Short Only' : 'Long & Short'
   return (
-    <span className="rounded-md border border-border bg-surface px-2 py-0.5 font-mono text-[10px] uppercase tracking-widest text-text-muted">
+    <span className="rounded-md border border-border bg-surface px-2 py-0.5 font-mono text-[10px] uppercase text-text-muted">
       {label}
     </span>
   )
@@ -52,7 +51,7 @@ function DirectionBadge({ direction }: { direction: StrategyResult['direction'] 
 
 function TimeframeBadge({ timeframe }: { timeframe: string }) {
   return (
-    <span className="rounded-md border border-accent/30 bg-accent/10 px-2 py-0.5 font-mono text-[10px] uppercase tracking-widest text-accent">
+    <span className="rounded-md border border-accent/30 bg-accent/10 px-2 py-0.5 font-mono text-[10px] uppercase text-accent">
       {timeframe}
     </span>
   )
@@ -65,7 +64,7 @@ function SigBadge({ label, value, good, warn }: { label: string; value: string; 
     ? 'border-yellow-400/30 bg-yellow-400/10 text-yellow-400'
     : 'border-signal-red/30 bg-signal-red/10 text-signal-red'
   return (
-    <span className={`rounded-md border px-2 py-0.5 font-mono text-[10px] uppercase tracking-widest ${cls}`}>
+    <span className={`rounded-md border px-2 py-0.5 font-mono text-[10px] uppercase ${cls}`}>
       {label}&nbsp;{value}
     </span>
   )
@@ -96,7 +95,7 @@ function MetricStrip({ metrics, dimmed }: { metrics: PeriodMetrics; dimmed?: boo
         {primary.map((item) => (
           <div key={item.label} className="rounded-lg border border-border bg-surface p-2.5 text-center">
             <p className={`font-mono text-sm font-bold tabular-nums ${item.color}`}>{item.value}</p>
-            <p className="mt-0.5 font-mono text-[9px] uppercase tracking-widest text-text-muted">{item.label}</p>
+            <p className="mt-0.5 font-mono text-[9px] uppercase text-text-muted">{item.label}</p>
           </div>
         ))}
       </div>
@@ -105,7 +104,7 @@ function MetricStrip({ metrics, dimmed }: { metrics: PeriodMetrics; dimmed?: boo
         {secondary.map((item) => (
           <div key={item.label} className="rounded-lg border border-border/50 bg-surface/40 px-2 py-1.5 text-center">
             <p className={`font-mono text-xs tabular-nums ${dimmed ? 'text-text-muted/60' : 'text-text-secondary'}`}>{item.value}</p>
-            <p className="mt-0.5 font-mono text-[8px] uppercase tracking-widest text-text-muted/50">{item.label}</p>
+            <p className="mt-0.5 font-mono text-[8px] uppercase text-text-muted/50">{item.label}</p>
           </div>
         ))}
       </div>
@@ -124,9 +123,8 @@ function EquityChart({ strategy }: { strategy: StrategyResult }) {
   }, [strategy])
 
   return (
-    <div className="h-[180px] w-full">
-      <ResponsiveContainer width="100%" height="100%">
-        <LineChart data={chartData} margin={{ top: 4, right: 8, bottom: 0, left: 0 }}>
+    <div className="h-[180px] w-full overflow-hidden">
+        <LineChart width={760} height={180} style={{ width: '100%', height: '100%' }} data={chartData} margin={{ top: 4, right: 8, bottom: 0, left: 0 }}>
           <XAxis dataKey="date" tick={false} axisLine={false} tickLine={false} />
           <YAxis
             domain={['auto', 'auto']}
@@ -145,7 +143,6 @@ function EquityChart({ strategy }: { strategy: StrategyResult }) {
           <Line type="monotone" dataKey="is_value"  stroke="#334155" strokeWidth={1.5} dot={false} connectNulls={false} name="In-sample" />
           <Line type="monotone" dataKey="oos_value" stroke="#2dd4bf" strokeWidth={1.5} dot={false} connectNulls={false} name="Out-of-sample" />
         </LineChart>
-      </ResponsiveContainer>
     </div>
   )
 }
@@ -161,7 +158,7 @@ function CostSensitivityBar({ cost_sensitivity }: { cost_sensitivity: Record<str
   const maxAbs = Math.max(...levels.map((l) => Math.abs(cost_sensitivity[l.key] ?? 0)), 0.01)
   return (
     <div className="rounded-lg border border-border bg-surface p-3">
-      <p className="mb-2.5 font-mono text-[9px] uppercase tracking-widest text-text-muted">Cost Sensitivity — OOS Sharpe</p>
+      <p className="mb-2.5 font-mono text-[9px] uppercase text-text-muted">Cost Sensitivity — OOS Sharpe</p>
       <div className="space-y-2">
         {levels.map(({ key, label, note }) => {
           const val = cost_sensitivity[key] ?? 0
@@ -197,10 +194,9 @@ function ParamSensitivityChart({ entry }: { entry: ParamSensitivity }) {
   const midSharpe = data[midIdx]?.sharpe ?? 0
   return (
     <div className="rounded-lg border border-border bg-surface p-3">
-      <p className="mb-1 font-mono text-[9px] uppercase tracking-widest text-text-muted">{entry.param} sensitivity</p>
+      <p className="mb-1 font-mono text-[9px] uppercase text-text-muted">{entry.param} sensitivity</p>
       <div className="h-14 w-full">
-        <ResponsiveContainer width="100%" height="100%">
-          <LineChart data={data} margin={{ top: 2, right: 4, bottom: 2, left: 4 }}>
+          <LineChart width={240} height={56} style={{ width: '100%', height: '100%' }} data={data} margin={{ top: 2, right: 4, bottom: 2, left: 4 }}>
             <XAxis dataKey="v" tick={{ fill: '#475569', fontSize: 8 }} axisLine={false} tickLine={false} />
             <YAxis hide domain={['auto', 'auto']} />
             <Tooltip
@@ -218,7 +214,6 @@ function ParamSensitivityChart({ entry }: { entry: ParamSensitivity }) {
               connectNulls
             />
           </LineChart>
-        </ResponsiveContainer>
       </div>
     </div>
   )
@@ -281,13 +276,13 @@ function StrategyCard({ strategy, index }: { strategy: StrategyResult; index: nu
       {/* ── IS / OOS metric strips ── */}
       <div className="mt-4 grid gap-4 sm:grid-cols-2">
         <div>
-          <p className="mb-2 font-mono text-[9px] uppercase tracking-widest text-text-muted">
+          <p className="mb-2 font-mono text-[9px] uppercase text-text-muted">
             In-sample · {strategy.in_sample.period.start} – {strategy.in_sample.period.end}
           </p>
           <MetricStrip metrics={strategy.in_sample.metrics} dimmed />
         </div>
         <div>
-          <p className="mb-2 font-mono text-[9px] uppercase tracking-widest text-accent">
+          <p className="mb-2 font-mono text-[9px] uppercase text-accent">
             Out-of-sample · {strategy.out_of_sample.period.start} – {strategy.out_of_sample.period.end}
           </p>
           <MetricStrip metrics={strategy.out_of_sample.metrics} />
@@ -334,7 +329,7 @@ function CorrelationHeatmap() {
           <tr>
             <th className="p-3 text-left" />
             {ids.map((id) => (
-              <th key={id} className="p-3 text-[10px] uppercase tracking-widest text-text-muted" title={id}>
+              <th key={id} className="p-3 text-[10px] uppercase text-text-muted" title={id}>
                 {short(id)}
               </th>
             ))}
@@ -343,7 +338,7 @@ function CorrelationHeatmap() {
         <tbody>
           {ids.map((rowId) => (
             <tr key={rowId} className="border-b border-border/50 last:border-0">
-              <td className="p-3 text-left text-[10px] uppercase tracking-widest text-text-muted" title={rowId}>
+              <td className="p-3 text-left text-[10px] uppercase text-text-muted" title={rowId}>
                 {short(rowId)}
               </td>
               {ids.map((colId) => {
@@ -395,7 +390,7 @@ export default function BacktestEnginePage() {
             {/* Back link */}
             <Link
               href="/#featured-work"
-              className="mb-10 inline-flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-text-muted transition-colors duration-150 hover:text-accent active:opacity-70"
+              className="mb-10 inline-flex items-center gap-2 font-mono text-xs uppercase text-text-muted transition-colors duration-150 hover:text-accent active:opacity-70"
             >
               <svg className="h-3 w-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden>
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
@@ -405,10 +400,10 @@ export default function BacktestEnginePage() {
 
             {/* Header */}
             <header className="mb-12">
-              <p className="mb-3 font-mono text-[11px] uppercase tracking-widest text-accent">
+              <p className="mb-3 font-mono text-[11px] uppercase text-accent">
                 Project / Quantitative Infrastructure
               </p>
-              <h1 className="font-display text-4xl font-bold leading-[1.1] tracking-tight text-text-primary sm:text-5xl md:text-6xl">
+              <h1 className="font-display text-4xl font-bold leading-[1.1] text-text-primary sm:text-5xl md:text-6xl">
                 Backtest <span className="text-accent">Engine</span>
               </h1>
               <p className="mt-4 max-w-[640px] text-lg leading-relaxed text-text-secondary">
@@ -434,7 +429,7 @@ export default function BacktestEnginePage() {
 
               {/* Benchmark chip */}
               <div className="mb-5 inline-flex items-center gap-2.5 rounded-lg border border-border bg-surface px-4 py-2">
-                <span className="font-mono text-[10px] uppercase tracking-widest text-text-muted">NQ Buy &amp; Hold OOS</span>
+                <span className="font-mono text-[10px] uppercase text-text-muted">NQ Buy &amp; Hold OOS</span>
                 <span className={`font-mono text-sm font-bold tabular-nums ${results.benchmark_return_pct >= 0 ? 'text-signal-green' : 'text-signal-red'}`}>
                   {results.benchmark_return_pct >= 0 ? '+' : ''}{results.benchmark_return_pct.toFixed(2)}%
                 </span>
@@ -444,22 +439,22 @@ export default function BacktestEnginePage() {
                 <table className="w-full text-left font-mono text-sm">
                   <thead className="border-b border-border bg-surface">
                     <tr>
-                      <th className="p-3 text-[10px] uppercase tracking-widest text-text-muted">Strategy</th>
-                      <th className="p-3 text-[10px] uppercase tracking-widest text-text-muted">Asset</th>
-                      <th className="p-3 text-[10px] uppercase tracking-widest text-text-muted">TF</th>
-                      <th className="p-3 text-[10px] uppercase tracking-widest text-text-muted">Dir</th>
+                      <th className="p-3 text-[10px] uppercase text-text-muted">Strategy</th>
+                      <th className="p-3 text-[10px] uppercase text-text-muted">Asset</th>
+                      <th className="p-3 text-[10px] uppercase text-text-muted">TF</th>
+                      <th className="p-3 text-[10px] uppercase text-text-muted">Dir</th>
                       {SORT_KEYS.map(({ key, label }) => (
                         <th
                           key={key}
                           onClick={() => toggleSort(key)}
-                          className="cursor-pointer select-none p-3 text-[10px] uppercase tracking-widest text-text-muted transition-colors duration-150 hover:text-text-primary active:opacity-60"
+                          className="cursor-pointer select-none p-3 text-[10px] uppercase text-text-muted transition-colors duration-150 hover:text-text-primary active:opacity-60"
                         >
                           {label}{sortKey === key ? (sortDir === 'desc' ? ' ↓' : ' ↑') : ''}
                         </th>
                       ))}
-                      <th className="p-3 text-[10px] uppercase tracking-widest text-text-muted">PSR</th>
-                      <th className="p-3 text-[10px] uppercase tracking-widest text-text-muted">MC p</th>
-                      <th className="p-3 text-[10px] uppercase tracking-widest text-text-muted">Kelly</th>
+                      <th className="p-3 text-[10px] uppercase text-text-muted">PSR</th>
+                      <th className="p-3 text-[10px] uppercase text-text-muted">MC p</th>
+                      <th className="p-3 text-[10px] uppercase text-text-muted">Kelly</th>
                     </tr>
                   </thead>
                   <tbody>
