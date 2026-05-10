@@ -16,7 +16,7 @@ export function Education() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.2 }}
           transition={{ duration: 0.45, ease: EASE }}
-          className="grid gap-8 border-y border-border py-8 lg:grid-cols-[0.8fr_1.2fr]"
+          className="proof-panel grid gap-8 rounded-md p-6 lg:grid-cols-[0.8fr_1.2fr] md:p-8"
         >
           <div>
             <div className="flex flex-wrap items-start justify-between gap-3">
@@ -24,7 +24,7 @@ export function Education() {
                 <h3 className="font-display text-2xl font-black text-text-primary">{education.institution}</h3>
                 <p className="mt-2 max-w-md text-base leading-7 text-text-secondary">{education.degree}</p>
               </div>
-              <span className="shrink-0 rounded-md border border-accent/40 bg-accent/10 px-3 py-1 font-mono text-xs text-accent">
+              <span className="shrink-0 rounded-md border border-proof/40 bg-proof/10 px-3 py-1 font-mono text-xs text-proof">
                 {education.gpa}
               </span>
             </div>
@@ -41,7 +41,7 @@ export function Education() {
               {education.coursework.map((course) => (
                 <span
                   key={course}
-                  className="rounded-sm border border-border bg-surface/75 px-2.5 py-1 font-mono text-xs text-text-secondary"
+                  className="rounded-sm border border-border bg-background/60 px-2.5 py-1 font-mono text-xs text-text-secondary"
                 >
                   {course}
                 </span>

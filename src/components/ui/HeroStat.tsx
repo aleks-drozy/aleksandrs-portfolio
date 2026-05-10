@@ -50,10 +50,10 @@ export function HeroStat({ value, label, delay = 0 }: Props) {
   return (
     <div
       ref={ref}
-      className="group relative min-h-28 overflow-hidden rounded-md border border-border bg-surface/85 p-4 transition-colors duration-200 hover:border-border-strong"
+      className="proof-panel group relative min-h-28 overflow-hidden rounded-md p-4 transition-colors duration-200 hover:border-border-strong"
     >
-      <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-accent/50 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
-      <p className="font-display text-3xl font-black text-text-primary tabular-nums">
+      <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-proof/0 transition-colors duration-300 group-hover:bg-proof/70" />
+      <p className="font-display text-3xl font-black text-proof tabular-nums">
         {display}
       </p>
       <p className="mt-2 font-mono text-[11px] uppercase text-text-muted">{label}</p>

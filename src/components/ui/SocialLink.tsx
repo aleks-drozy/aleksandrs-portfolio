@@ -29,7 +29,7 @@ export function SocialLink({ social, className = '' }: { social: Social; classNa
       target="_blank"
       rel="noopener noreferrer"
       aria-label={social.name}
-      className={`text-text-muted transition-colors duration-200 hover:text-accent ${className}`}
+      className={`text-text-muted transition-colors duration-200 hover:text-proof ${className}`}
     >
       <Icon className="h-5 w-5" />
     </Link>

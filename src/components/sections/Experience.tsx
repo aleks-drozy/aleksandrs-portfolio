@@ -7,7 +7,7 @@ const EASE = [0.23, 1, 0.32, 1] as const
 
 export function Experience() {
   return (
-    <section id="experience" className="bg-surface/25 px-[clamp(16px,4vw,32px)] py-28 md:py-24 sm:py-20">
+    <section id="experience" className="border-y border-border/70 bg-surface/20 px-[clamp(16px,4vw,32px)] py-28 md:py-24 sm:py-20">
       <div className="mx-auto max-w-[1200px]">
         <SectionHeader eyebrow="Experience" title="Real work, research, and pressure-tested reliability." />
 
@@ -22,7 +22,7 @@ export function Experience() {
               className="grid gap-5 py-8 md:grid-cols-[260px_1fr]"
             >
               <div>
-                <p className="font-mono text-xs uppercase text-accent">{entry.period}</p>
+                <p className="font-mono text-xs uppercase text-proof">{entry.period}</p>
                 {entry.location && <p className="mt-1 font-mono text-xs text-text-muted">{entry.location}</p>}
               </div>
 
@@ -34,7 +34,7 @@ export function Experience() {
 
                 <ul className="mt-4 grid gap-3 md:grid-cols-2">
                   {entry.bullets.map((b, j) => (
-                    <li key={j} className="border-l border-accent/60 pl-4 text-sm leading-7 text-text-secondary">
+                    <li key={j} className="border-l border-proof/55 pl-4 text-sm leading-7 text-text-secondary">
                       {b}
                     </li>
                   ))}

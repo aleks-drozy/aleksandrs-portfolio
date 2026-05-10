@@ -35,7 +35,7 @@ export function SkillIcon({ name, icon }: { name: string; icon: string }) {
   const fallback = FALLBACK_LABEL[icon] ?? name.slice(0, 2).toUpperCase()
 
   return (
-    <div className="group flex min-h-28 flex-col items-center justify-center gap-3 rounded-md border border-border bg-surface/80 p-4 transition-all duration-200 hover:-translate-y-0.5 hover:border-border-strong">
+    <div className="proof-panel group flex min-h-28 flex-col items-center justify-center gap-3 rounded-md p-4 transition-all duration-200 hover:-translate-y-0.5 hover:border-border-strong">
       {url ? (
         <Image
           src={url}
@@ -46,7 +46,7 @@ export function SkillIcon({ name, icon }: { name: string; icon: string }) {
           aria-hidden
         />
       ) : (
-        <span className="flex h-10 w-10 items-center justify-center rounded-sm border border-border bg-background font-mono text-sm font-semibold text-accent">
+        <span className="flex h-10 w-10 items-center justify-center rounded-sm border border-border bg-background font-mono text-sm font-semibold text-proof">
           {fallback}
         </span>
       )}

@@ -1,21 +1,23 @@
 @import "tailwindcss";
 
 @theme {
-  --color-background: oklch(0.155 0.018 248);
-  --color-surface: oklch(0.215 0.02 248);
-  --color-surface-elevated: oklch(0.275 0.024 248);
-  --color-border: oklch(0.34 0.028 248);
-  --color-border-strong: oklch(0.47 0.036 230);
-  --color-text-primary: oklch(0.94 0.012 85);
-  --color-text-secondary: oklch(0.75 0.025 238);
-  --color-text-muted: oklch(0.58 0.03 238);
-  --color-accent: oklch(0.78 0.14 178);
-  --color-accent-muted: oklch(0.66 0.12 184);
-  --color-signal-green: oklch(0.74 0.17 150);
+  --color-background: oklch(0.135 0.014 242);
+  --color-surface: oklch(0.19 0.016 240);
+  --color-surface-elevated: oklch(0.255 0.018 235);
+  --color-border: oklch(0.325 0.024 238);
+  --color-border-strong: oklch(0.48 0.035 228);
+  --color-text-primary: oklch(0.955 0.012 86);
+  --color-text-secondary: oklch(0.77 0.022 225);
+  --color-text-muted: oklch(0.61 0.025 228);
+  --color-accent: oklch(0.75 0.12 178);
+  --color-accent-muted: oklch(0.62 0.1 184);
+  --color-proof: oklch(0.77 0.13 76);
+  --color-proof-muted: oklch(0.64 0.1 70);
+  --color-signal-green: oklch(0.74 0.16 148);
   --color-signal-red: oklch(0.68 0.2 25);
   --color-signal-gold: oklch(0.82 0.16 82);
-  --color-warm: oklch(0.72 0.12 54);
-  --color-ink: oklch(0.115 0.014 248);
+  --color-warm: oklch(0.7 0.11 55);
+  --color-ink: oklch(0.105 0.012 242);
   --font-sans: var(--font-inter);
   --font-display: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
@@ -29,9 +31,9 @@ html {
 
 body {
   background:
-    linear-gradient(90deg, color-mix(in oklch, var(--color-border) 24%, transparent) 1px, transparent 1px),
-    linear-gradient(180deg, color-mix(in oklch, var(--color-border) 18%, transparent) 1px, transparent 1px),
-    radial-gradient(circle at 12% 0%, color-mix(in oklch, var(--color-warm) 10%, transparent), transparent 26rem),
+    linear-gradient(90deg, color-mix(in oklch, var(--color-border) 20%, transparent) 1px, transparent 1px),
+    linear-gradient(180deg, color-mix(in oklch, var(--color-border) 15%, transparent) 1px, transparent 1px),
+    linear-gradient(135deg, color-mix(in oklch, var(--color-proof) 8%, transparent), transparent 34%),
     linear-gradient(180deg, var(--color-background), var(--color-ink) 72%);
   background-size: 72px 72px, 72px 72px, auto, auto;
   color: var(--color-text-primary);
@@ -62,7 +64,7 @@ h1, h2, h3 {
 }
 
 ::selection {
-  background: color-mix(in oklch, var(--color-accent) 32%, transparent);
+  background: color-mix(in oklch, var(--color-proof) 38%, transparent);
   color: var(--color-text-primary);
 }
 
@@ -79,6 +81,106 @@ h1, h2, h3 {
 
 .pulse-dot {
   animation: pulse-dot 2s ease-in-out infinite;
+}
+
+.btn-primary,
+.btn-secondary,
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  border-radius: 6px;
+  padding: 0.75rem 1.5rem;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  transition:
+    transform 180ms var(--ease-out-expo),
+    border-color 180ms var(--ease-out-expo),
+    background-color 180ms var(--ease-out-expo),
+    color 180ms var(--ease-out-expo),
+    box-shadow 180ms var(--ease-out-expo);
+}
+
+.btn-primary {
+  border: 1px solid color-mix(in oklch, var(--color-proof) 70%, var(--color-border));
+  background: var(--color-proof);
+  color: var(--color-ink);
+  font-weight: 750;
+  box-shadow: 0 14px 34px color-mix(in oklch, var(--color-proof) 14%, transparent);
+}
+
+.btn-primary:hover {
+  background: color-mix(in oklch, var(--color-proof) 92%, white);
+  transform: translateY(-1px);
+}
+
+.btn-secondary {
+  border: 1px solid var(--color-border);
+  background: color-mix(in oklch, var(--color-surface) 86%, transparent);
+  color: var(--color-text-primary);
+  font-weight: 650;
+}
+
+.btn-secondary:hover {
+  border-color: color-mix(in oklch, var(--color-proof) 55%, var(--color-border));
+  color: var(--color-proof);
+  transform: translateY(-1px);
+}
+
+.btn-ghost {
+  color: var(--color-text-muted);
+  font-weight: 600;
+}
+
+.btn-ghost:hover {
+  color: var(--color-text-primary);
+  transform: translateY(-1px);
+}
+
+.proof-panel {
+  border: 1px solid var(--color-border);
+  background:
+    linear-gradient(180deg, color-mix(in oklch, var(--color-surface-elevated) 72%, transparent), color-mix(in oklch, var(--color-surface) 86%, transparent));
+  box-shadow: 0 24px 70px color-mix(in oklch, black 28%, transparent);
+}
+
+.signal-field {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.signal-field::before {
+  content: "";
+  position: absolute;
+  inset: 14% -18% auto auto;
+  width: min(620px, 58vw);
+  height: 280px;
+  background:
+    linear-gradient(90deg, transparent, color-mix(in oklch, var(--color-proof) 22%, transparent), transparent),
+    repeating-linear-gradient(90deg, color-mix(in oklch, var(--color-accent) 16%, transparent) 0 1px, transparent 1px 48px);
+  mask-image: linear-gradient(90deg, transparent, black 18%, black 82%, transparent);
+  opacity: 0.42;
+  transform: rotate(-8deg);
+  animation: signal-scan 9s var(--ease-out-expo) infinite;
+}
+
+.signal-field::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 9%;
+  height: 72%;
+  width: 1px;
+  background: linear-gradient(180deg, transparent, color-mix(in oklch, var(--color-proof) 42%, transparent), transparent);
+  opacity: 0.5;
+}
+
+@keyframes signal-scan {
+  0%, 100% { transform: translateX(-18px) rotate(-8deg); opacity: 0.28; }
+  48% { transform: translateX(28px) rotate(-8deg); opacity: 0.5; }
 }
 
 @media (prefers-reduced-motion: reduce) {

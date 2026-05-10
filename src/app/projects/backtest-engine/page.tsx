@@ -51,7 +51,7 @@ function DirectionBadge({ direction }: { direction: StrategyResult['direction'] 
 
 function TimeframeBadge({ timeframe }: { timeframe: string }) {
   return (
-    <span className="rounded-md border border-accent/30 bg-accent/10 px-2 py-0.5 font-mono text-[10px] uppercase text-accent">
+    <span className="rounded-md border border-proof/30 bg-proof/10 px-2 py-0.5 font-mono text-[10px] uppercase text-proof">
       {timeframe}
     </span>
   )
@@ -390,7 +390,7 @@ export default function BacktestEnginePage() {
             {/* Back link */}
             <Link
               href="/#featured-work"
-              className="mb-10 inline-flex items-center gap-2 font-mono text-xs uppercase text-text-muted transition-colors duration-150 hover:text-accent active:opacity-70"
+              className="mb-10 inline-flex items-center gap-2 font-mono text-xs uppercase text-text-muted transition-colors duration-150 hover:text-proof active:opacity-70"
             >
               <svg className="h-3 w-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden>
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
@@ -400,11 +400,11 @@ export default function BacktestEnginePage() {
 
             {/* Header */}
             <header className="mb-12">
-              <p className="mb-3 font-mono text-[11px] uppercase text-accent">
+              <p className="mb-3 font-mono text-[11px] uppercase text-proof">
                 Project / Quantitative Infrastructure
               </p>
               <h1 className="font-display text-4xl font-bold leading-[1.1] text-text-primary sm:text-5xl md:text-6xl">
-                Backtest <span className="text-accent">Engine</span>
+                Backtest <span className="text-proof">Engine</span>
               </h1>
               <p className="mt-4 max-w-[640px] text-lg leading-relaxed text-text-secondary">
                 A vectorised Python backtesting engine with walk-forward validation, statistical
@@ -464,7 +464,7 @@ export default function BacktestEnginePage() {
                         <tr key={s.id} className="border-b border-border/50 last:border-0 odd:bg-surface/40">
                           <td className="p-3 text-text-primary">{s.name}</td>
                           <td className="p-3 text-text-muted">{assetOf(s.id)}</td>
-                          <td className="p-3 text-accent">{s.timeframe}</td>
+                          <td className="p-3 text-proof">{s.timeframe}</td>
                           <td className="p-3 text-text-muted text-xs">
                             {s.direction === 'long_only' ? 'Long' : s.direction === 'short_only' ? 'Short' : 'Both'}
                           </td>
@@ -532,13 +532,13 @@ export default function BacktestEnginePage() {
                   href="https://github.com/aleks-drozy/aleksander-backtest-engine"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="rounded-lg bg-accent px-6 py-3 text-sm font-semibold text-background transition-all duration-150 hover:bg-accent/90 active:scale-[0.97]"
+                  className="btn-primary active:scale-[0.97]"
                 >
                   View Engine on GitHub
                 </Link>
                 <Link
                   href="/#featured-work"
-                  className="rounded-lg border border-border px-6 py-3 text-sm font-medium text-text-secondary transition-all duration-150 hover:border-border-strong hover:text-text-primary active:scale-[0.97]"
+                  className="btn-secondary active:scale-[0.97]"
                 >
                   Back to portfolio
                 </Link>

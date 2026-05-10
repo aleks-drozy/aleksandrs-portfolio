@@ -27,7 +27,7 @@ export default function TradingDashboardPage() {
           <div className="mx-auto max-w-[900px]">
             <Link
               href="/#featured-work"
-              className="mb-10 inline-flex items-center gap-2 font-mono text-xs uppercase text-text-muted transition-colors hover:text-accent"
+              className="mb-10 inline-flex items-center gap-2 font-mono text-xs uppercase text-text-muted transition-colors hover:text-proof"
             >
               <svg className="h-3 w-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden>
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
@@ -36,9 +36,9 @@ export default function TradingDashboardPage() {
             </Link>
 
             <header className="mb-12">
-              <p className="mb-3 font-mono text-[11px] uppercase text-accent">Project / Full-Stack Trading Tool</p>
+              <p className="mb-3 font-mono text-[11px] uppercase text-proof">Project / Full-Stack Trading Tool</p>
               <h1 className="font-display text-4xl font-bold leading-[1.1] text-text-primary sm:text-5xl md:text-6xl">
-                Trading Analytics <span className="text-accent">Dashboard</span>
+                Trading Analytics <span className="text-proof">Dashboard</span>
               </h1>
               <p className="mt-4 max-w-[680px] text-lg leading-relaxed text-text-secondary">
                 A full-stack trade journal and market research app built around a Next.js dashboard, authenticated trade
@@ -57,7 +57,7 @@ export default function TradingDashboardPage() {
 
             <section className="mb-16 grid gap-4 sm:grid-cols-2">
               {FEATURES.map((f) => (
-                <div key={f.title} className="rounded-xl border border-border bg-surface p-5">
+                <div key={f.title} className="proof-panel rounded-md p-5">
                   <p className="mb-2 font-display text-base font-semibold text-text-primary">{f.title}</p>
                   <p className="text-sm leading-relaxed text-text-secondary">{f.body}</p>
                 </div>
@@ -67,7 +67,7 @@ export default function TradingDashboardPage() {
             <section className="mb-16">
               <h2 className="mb-4 font-display text-2xl font-bold text-text-primary">Architecture</h2>
               <div className="rounded-xl border border-border bg-surface p-6 font-mono text-sm leading-relaxed text-text-secondary">
-                <p className="mb-3 text-accent">Trading_Dashboard/</p>
+                <p className="mb-3 text-proof">Trading_Dashboard/</p>
                 <p className="ml-4">app/ <span className="text-text-muted">Next.js landing, auth, dashboard, trade journal, and API routes</span></p>
                 <p className="ml-4">components/ <span className="text-text-muted">Reusable landing, auth, dashboard, and trade-entry UI</span></p>
                 <p className="ml-4">backend/ <span className="text-text-muted">Python analytics service</span></p>
@@ -84,7 +84,7 @@ export default function TradingDashboardPage() {
                   href="https://tradingdashboard-one.vercel.app"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="rounded-lg bg-accent px-6 py-3 text-sm font-semibold text-background transition-all duration-200 hover:bg-accent/90 active:scale-[0.97]"
+                  className="btn-primary active:scale-[0.97]"
                 >
                   Open Live App
                 </Link>
@@ -92,7 +92,7 @@ export default function TradingDashboardPage() {
                   href="https://github.com/aleks-drozy/Trading_Dashboard"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="rounded-lg border border-border px-6 py-3 text-sm font-semibold text-text-primary transition-all duration-200 hover:border-accent hover:text-accent active:scale-[0.97]"
+                  className="btn-secondary active:scale-[0.97]"
                 >
                   View on GitHub
                 </Link>

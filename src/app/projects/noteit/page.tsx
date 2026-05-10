@@ -28,7 +28,7 @@ export default function NoteItPage() {
           <div className="mx-auto max-w-[900px]">
             <Link
               href="/#projects"
-              className="mb-10 inline-flex items-center gap-2 font-mono text-xs uppercase text-text-muted transition-colors hover:text-accent"
+              className="mb-10 inline-flex items-center gap-2 font-mono text-xs uppercase text-text-muted transition-colors hover:text-proof"
             >
               <svg className="h-3 w-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden>
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
@@ -37,9 +37,9 @@ export default function NoteItPage() {
             </Link>
 
             <header className="mb-12">
-              <p className="mb-3 font-mono text-[11px] uppercase text-accent">Project / Full-Stack</p>
+              <p className="mb-3 font-mono text-[11px] uppercase text-proof">Project / Full-Stack</p>
               <h1 className="font-display text-4xl font-bold leading-[1.1] text-text-primary sm:text-5xl md:text-6xl">
-                Note<span className="text-accent">It</span>
+                Note<span className="text-proof">It</span>
               </h1>
               <p className="mt-4 max-w-[640px] text-lg leading-relaxed text-text-secondary">
                 A full-stack note-taking application with role-based authentication, note sharing, and publishing.
@@ -57,7 +57,7 @@ export default function NoteItPage() {
 
             <section className="mb-16 grid gap-4 sm:grid-cols-2">
               {FEATURES.map((f) => (
-                <div key={f.title} className="rounded-xl border border-border bg-surface p-5">
+                <div key={f.title} className="proof-panel rounded-md p-5">
                   <p className="mb-2 font-display text-base font-semibold text-text-primary">{f.title}</p>
                   <p className="text-sm leading-relaxed text-text-secondary">{f.body}</p>
                 </div>
@@ -67,7 +67,7 @@ export default function NoteItPage() {
             <section className="mb-16">
               <h2 className="mb-4 font-display text-2xl font-bold text-text-primary">Architecture</h2>
               <div className="rounded-xl border border-border bg-surface p-6 font-mono text-sm text-text-secondary leading-relaxed">
-                <p className="mb-3 text-accent">noteit/</p>
+                <p className="mb-3 text-proof">noteit/</p>
                 <p className="ml-4 mb-1">backend/           <span className="text-text-muted">Node.js + Express REST API</span></p>
                 <p className="ml-8 mb-1">src/               <span className="text-text-muted">Routes, controllers, models</span></p>
                 <p className="ml-8 mb-1">tests/             <span className="text-text-muted">Jest test suite</span></p>
@@ -85,13 +85,13 @@ export default function NoteItPage() {
                   href="https://github.com/aleks-drozy/noteit"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="rounded-lg bg-accent px-6 py-3 text-sm font-semibold text-background transition-all duration-200 hover:bg-accent/90 active:scale-[0.97]"
+                  className="btn-primary active:scale-[0.97]"
                 >
                   View on GitHub
                 </Link>
                 <Link
                   href="/#projects"
-                  className="rounded-lg border border-border px-6 py-3 text-sm font-medium text-text-secondary transition-all duration-200 hover:border-border-strong hover:text-text-primary active:scale-[0.97]"
+                  className="btn-secondary active:scale-[0.97]"
                 >
                   Back to projects
                 </Link>
