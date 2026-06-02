@@ -7,7 +7,7 @@ import { personalInfo } from '@/lib/data'
 const LIVE_URL = 'https://fitness-goal-coach.vercel.app'
 
 export const metadata: Metadata = {
-  title: 'Maken — Weight-Cut SaaS | Case Study | Aleksandrs Drozdovs',
+  title: 'Maken Weight-Cut SaaS | Case Study | Aleksandrs Drozdovs',
   description:
     'Maken is a live AI weight-cut SaaS for judo and BJJ athletes. Weight-class-aware cut protocols, AI training plans, and weekly check-ins. Next.js 16, Supabase, Groq, Resend, and an offline PWA.',
 }

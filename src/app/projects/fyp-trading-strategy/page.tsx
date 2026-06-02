@@ -164,7 +164,7 @@ export default function FypCaseStudy() {
               </div>
             </section>
 
-            {/* Out of sample — honest caveat */}
+            {/* Out of sample: honest caveat */}
             <section className="mb-16">
               <h2 className="mb-2 font-display text-2xl font-bold text-text-primary">Out-of-sample honesty</h2>
               <p className="mb-6 text-text-secondary">
