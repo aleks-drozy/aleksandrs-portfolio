@@ -16,6 +16,13 @@ const ICON_URLS: Record<string, string | null> = {
   github: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg',
   vscode: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg',
   cpp: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg',
+  supabase: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/supabase/supabase-original.svg',
+  postgresql: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg',
+  vitest: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vitest/vitest-original.svg',
+  playwright: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/playwright/playwright-original.svg',
+  pytest: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pytest/pytest-original.svg',
+  framermotion: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/framermotion/framermotion-original.svg',
+  vercel: null,
   sql: null,
   pinescript: null,
   tradingview: null,
@@ -28,6 +35,7 @@ const FALLBACK_LABEL: Record<string, string> = {
   pinescript: 'PS',
   tradingview: 'TV',
   actions: 'CI',
+  vercel: '▲',
 }
 
 export function SkillIcon({ name, icon }: { name: string; icon: string }) {

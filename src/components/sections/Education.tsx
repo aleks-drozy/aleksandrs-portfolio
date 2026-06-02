@@ -25,7 +25,7 @@ export function Education() {
                 <p className="mt-2 max-w-md text-base leading-7 text-text-secondary">{education.degree}</p>
               </div>
               <span className="shrink-0 rounded-md border border-proof/40 bg-proof/10 px-3 py-1 font-mono text-xs text-proof">
-                {education.gpa}
+                Honours
               </span>
             </div>
 
