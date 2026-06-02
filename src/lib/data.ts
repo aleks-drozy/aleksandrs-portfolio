@@ -62,7 +62,7 @@ export const personalInfo = {
   headlineAccent: 'quant instincts.',
   eyebrow: 'Dublin-based software engineer',
   subline:
-    'Final-year Computer Science & Software Engineering student at Maynooth. I ship production full-stack products end-to-end — two live apps on Next.js, TypeScript & Supabase with 100+ automated tests and Row-Level Security on every table — plus systematic trading systems with ~$15K in live profit.',
+    'Final-year Computer Science & Software Engineering student at Maynooth. I ship production full-stack products end-to-end: two live apps on Next.js, TypeScript & Supabase with 100+ automated tests and Row-Level Security on every table, plus systematic trading systems with ~$15K in live profit.',
   status: 'Open to 2026 roles',
   cvUrl: '/cv.pdf',
   email: 'aleksandrs.drozdovs2005@gmail.com',
@@ -97,7 +97,7 @@ export const proofItems: ProofItem[] = [
   },
   {
     label: 'Live SaaS · my sport',
-    title: 'Maken — weight-cut SaaS',
+    title: 'Maken Weight-Cut SaaS',
     description:
       'An AI weight-cut platform for judo and BJJ athletes, built by a 16-year black belt for his own sport. Weight-class-aware cut protocols, AI training plans, and weekly check-ins. Next.js 16, Supabase, Groq, with email automation and scheduled jobs.',
     href: '/projects/maken',
@@ -139,7 +139,7 @@ export const projects: Project[] = [
   },
   {
     id: 'maken',
-    title: 'Maken — Weight-Cut SaaS',
+    title: 'Maken Weight-Cut SaaS',
     featured: true,
     description:
       'An AI weight-cut SaaS for judo and BJJ athletes: weight-class-aware cut protocols, training plans, and weekly check-ins around a tournament date. Next.js 16, Supabase (auth + RLS), Groq AI, Resend email automation, scheduled cron, and an installable PWA. Live with real alpha users.',
@@ -296,7 +296,7 @@ export const beyondPanels: BeyondPanel[] = [
     icon: 'judo',
     title: 'Judo',
     copy:
-      'Sixteen years on the mat, black belt, multiple Irish national medals, competing from regional to international level. Judo taught me to stay composed when things get ugly, lose without excuses, and improve through relentless repetition — the same temperament I bring to engineering. It also pointed me at a real problem to solve: I built Maken, an AI weight-cut SaaS, for judo and BJJ athletes like me.',
+      'Sixteen years on the mat, black belt, multiple Irish national medals, competing from regional to international level. Judo taught me to stay composed when things get ugly, lose without excuses, and improve through relentless repetition, the same temperament I bring to engineering. It also pointed me at a real problem to solve: I built Maken, an AI weight-cut SaaS, for judo and BJJ athletes like me.',
   },
   {
     icon: 'chart',

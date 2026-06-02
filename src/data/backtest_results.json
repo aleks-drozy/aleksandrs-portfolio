@@ -3147,7 +3147,7 @@
     {
       "id": "MACD_BOLLINGER_COMBO",
       "name": "MACD + Bollinger Combo",
-      "description": "Dual-confirmation dip-buyer: enters long when price is below the lower Bollinger Band AND MACD is bullish. Long-only — both signals must confirm before buying NQ dips. Exits when price reverts to the middle band or MACD flips.",
+      "description": "Dual-confirmation dip-buyer: enters long when price is below the lower Bollinger Band AND MACD is bullish. Long-only, both signals must confirm before buying NQ dips. Exits when price reverts to the middle band or MACD flips.",
       "direction": "long_only",
       "timeframe": "1h",
       "params": {
