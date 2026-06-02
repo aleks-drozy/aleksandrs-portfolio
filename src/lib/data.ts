@@ -7,8 +7,9 @@ export type Project = {
   longDescription?: string
   tags: string[]
   metrics?: ProjectMetric[]
-  githubUrl: string
+  githubUrl?: string
   liveUrl?: string
+  codeAvailability?: 'public' | 'on-request'
   featured: boolean
 }
 
@@ -50,7 +51,7 @@ export type Education = {
   degree: string
   period: string
   location: string
-  gpa: string
+  gpa?: string
   coursework: string[]
 }
 
@@ -61,7 +62,7 @@ export const personalInfo = {
   headlineAccent: 'quant instincts.',
   eyebrow: 'Dublin-based software engineer',
   subline:
-    'Final-year Computer Science & Software Engineering student at Maynooth. I build full-stack products, Python data tools, and trading systems with the discipline of someone who has to trust the output.',
+    'Final-year Computer Science & Software Engineering student at Maynooth. I ship production full-stack products end-to-end — two live apps on Next.js, TypeScript & Supabase with 100+ automated tests and Row-Level Security on every table — plus systematic trading systems with ~$15K in live profit.',
   status: 'Open to 2026 roles',
   cvUrl: '/cv.pdf',
   email: 'aleksandrs.drozdovs2005@gmail.com',
@@ -69,48 +70,48 @@ export const personalInfo = {
 }
 
 export const heroStats: ProjectMetric[] = [
-  { label: 'Dashboard Commits', value: '228' },
-  { label: 'Trading Profit', value: '$15K' },
-  { label: 'FYP Win Rate', value: '56.94%' },
+  { label: 'Live apps shipped', value: '2' },
+  { label: 'Automated tests', value: '100+' },
+  { label: 'Live trading profit', value: '$15K' },
 ]
 
 export const hireSignals = [
   { label: 'Looking for', value: 'Graduate SWE / Fintech / Data teams' },
-  { label: 'Location', value: 'Dublin, Ireland' },
-  { label: 'Strongest proof', value: 'Full-stack trading dashboard, Python backtester, FYP strategy' },
+  { label: 'Location', value: 'Dublin, Ireland (open to remote EU/UK)' },
+  { label: 'Strongest proof', value: 'Personal Performance OS, Maken, and the NASDAQ-100 FYP strategy' },
   { label: 'Working style', value: 'Tested systems, documented tradeoffs, honest results' },
 ]
 
 export const proofItems: ProofItem[] = [
   {
-    label: 'Full-stack shipping',
-    title: 'Trading Analytics Dashboard',
+    label: 'Full-stack SaaS',
+    title: 'Personal Performance OS',
     description:
-      'A production-style market research dashboard with a Next.js + TypeScript frontend, Python analytics workflow, tests, schemas, pre-commit tooling, and Vercel deployment.',
-    href: '/projects/trading-dashboard',
+      'A production "operating system" for training, food, habits, and tasks. Supabase Postgres with Row-Level Security on all 25 tables, Groq (Llama 3.3 70B) AI coaching hardened against prompt injection, and a 100+ test suite (Vitest + Playwright) behind CI/CD.',
+    href: '/projects/personal-performance-os',
     meta: [
-      { label: 'GitHub commits', value: '228' },
-      { label: 'Stack', value: 'TS + Python' },
-      { label: 'Deploy', value: 'Vercel' },
+      { label: 'Postgres tables', value: '25' },
+      { label: 'Automated tests', value: '100+' },
+      { label: 'AI model', value: 'Llama 3.3' },
     ],
   },
   {
-    label: 'Python infrastructure',
-    title: 'Vectorised Backtesting Engine',
+    label: 'Live SaaS · my sport',
+    title: 'Maken — weight-cut SaaS',
     description:
-      'Reusable Python engine for strategy experiments with walk-forward analysis, pytest coverage, structured results, and a GitHub Actions pipeline.',
-    href: '/projects/backtest-engine',
+      'An AI weight-cut platform for judo and BJJ athletes, built by a 16-year black belt for his own sport. Weight-class-aware cut protocols, AI training plans, and weekly check-ins. Next.js 16, Supabase, Groq, with email automation and scheduled jobs.',
+    href: '/projects/maken',
     meta: [
-      { label: 'Language', value: 'Python' },
-      { label: 'Strategies', value: '9' },
-      { label: 'Validation', value: 'CI' },
+      { label: 'Status', value: 'Live' },
+      { label: 'Built for', value: 'Judo / BJJ' },
+      { label: 'AI plans', value: 'Groq' },
     ],
   },
   {
     label: 'Quant research',
     title: 'NASDAQ-100 FYP Strategy',
     description:
-      'Pine Script v6 strategy for NQ1! futures using IFVG, CISD, liquidity sweep filters, fixed risk rules, and documented out-of-sample caveats.',
+      'Pine Script v6 strategy for NQ1! futures using IFVG, CISD, and a liquidity-sweep filter, with fixed risk rules and honestly documented out-of-sample caveats.',
     href: '/projects/fyp-trading-strategy',
     meta: [
       { label: 'Win rate', value: '56.94%' },
@@ -121,6 +122,31 @@ export const proofItems: ProofItem[] = [
 ]
 
 export const projects: Project[] = [
+  {
+    id: 'personal-performance-os',
+    title: 'Personal Performance OS',
+    featured: true,
+    description:
+      'A live full-stack "performance OS" that plans training, food, habits, tasks, and ideas. Supabase auth over a 25-table Postgres schema with RLS on every table (12 migrations), streaming Groq AI coaching with prompt-injection hardening, 94 Vitest + 6/6 Playwright tests, and CI/CD.',
+    tags: ['Next.js', 'TypeScript', 'Supabase', 'Groq AI', 'Vitest', 'Playwright'],
+    metrics: [
+      { label: 'Postgres tables', value: '25' },
+      { label: 'Migrations', value: '12' },
+      { label: 'Automated tests', value: '100+' },
+    ],
+    liveUrl: 'https://personal-performance-os.vercel.app',
+    codeAvailability: 'on-request',
+  },
+  {
+    id: 'maken',
+    title: 'Maken — Weight-Cut SaaS',
+    featured: true,
+    description:
+      'An AI weight-cut SaaS for judo and BJJ athletes: weight-class-aware cut protocols, training plans, and weekly check-ins around a tournament date. Next.js 16, Supabase (auth + RLS), Groq AI, Resend email automation, scheduled cron, and an installable PWA. Live with real alpha users.',
+    tags: ['Next.js 16', 'Supabase', 'Groq AI', 'Resend', 'PWA'],
+    liveUrl: 'https://fitness-goal-coach.vercel.app',
+    codeAvailability: 'on-request',
+  },
   {
     id: 'fyp-trading-strategy',
     title: 'Algorithmic Trading Strategy: NASDAQ-100 Futures',
@@ -137,15 +163,7 @@ export const projects: Project[] = [
       { label: 'Trades', value: '72' },
     ],
     githubUrl: 'https://github.com/aleks-drozy/fyp-trading-strategy',
-  },
-  {
-    id: 'backtest-engine',
-    title: 'Vectorised Backtesting Engine',
-    featured: false,
-    description:
-      'Vectorised Python backtesting engine with a strategy registry, slippage/commission model, and walk-forward train/test split. Benchmarks SMA Crossover and RSI Mean Reversion against the FYP IFVG+CISD strategy. GitHub Actions auto-updates results on push.',
-    tags: ['Python', 'pandas', 'numpy', 'yfinance', 'GitHub Actions'],
-    githubUrl: 'https://github.com/aleks-drozy/aleksander-backtest-engine',
+    codeAvailability: 'public',
   },
   {
     id: 'trading-dashboard',
@@ -156,24 +174,17 @@ export const projects: Project[] = [
     tags: ['TypeScript', 'Next.js', 'Python', 'Vitest', 'Vercel'],
     githubUrl: 'https://github.com/aleks-drozy/Trading_Dashboard',
     liveUrl: 'https://tradingdashboard-one.vercel.app',
+    codeAvailability: 'public',
   },
   {
-    id: 'noteit',
-    title: 'NoteIt',
+    id: 'backtest-engine',
+    title: 'Vectorised Backtesting Engine',
     featured: false,
     description:
-      'Full-stack note-taking app with role-based authentication, CRUD notes, sharing, and publishing. Separate Node.js REST API backend with MongoDB; React + Vite frontend.',
-    tags: ['JavaScript', 'Node.js', 'MongoDB', 'React'],
-    githubUrl: 'https://github.com/aleks-drozy/noteit',
-  },
-  {
-    id: 'portfolio',
-    title: 'This Portfolio',
-    featured: false,
-    description:
-      'Personal portfolio built with Next.js 16, TypeScript, Tailwind CSS v4, and Framer Motion. Hiring-first content system, custom design tokens, SSR-safe motion, and Vercel deployment.',
-    tags: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Framer Motion'],
-    githubUrl: 'https://github.com/aleks-drozy/aleksandrs-portfolio',
+      'Vectorised Python backtesting engine with a strategy registry, slippage/commission model, and walk-forward train/test split. Benchmarks SMA Crossover and RSI Mean Reversion against the FYP IFVG+CISD strategy. GitHub Actions auto-updates results on push.',
+    tags: ['Python', 'pandas', 'numpy', 'yfinance', 'GitHub Actions'],
+    githubUrl: 'https://github.com/aleks-drozy/aleksander-backtest-engine',
+    codeAvailability: 'public',
   },
 ]
 
@@ -181,34 +192,44 @@ export const skillCategories: SkillCategory[] = [
   {
     name: 'Languages',
     skills: [
-      { name: 'Java', icon: 'java' },
-      { name: 'Python', icon: 'python' },
       { name: 'TypeScript', icon: 'typescript' },
       { name: 'JavaScript', icon: 'javascript' },
+      { name: 'Python', icon: 'python' },
+      { name: 'Java', icon: 'java' },
       { name: 'C++', icon: 'cpp' },
       { name: 'SQL', icon: 'sql' },
       { name: 'PineScript', icon: 'pinescript' },
     ],
   },
   {
-    name: 'Frameworks',
+    name: 'Frameworks & Libraries',
     skills: [
       { name: 'React', icon: 'react' },
       { name: 'Next.js', icon: 'nextjs' },
       { name: 'Node.js', icon: 'nodejs' },
       { name: 'Express', icon: 'express' },
       { name: 'Tailwind CSS', icon: 'tailwind' },
+      { name: 'Framer Motion', icon: 'framermotion' },
+    ],
+  },
+  {
+    name: 'Data & Backend',
+    skills: [
+      { name: 'Supabase', icon: 'supabase' },
+      { name: 'PostgreSQL', icon: 'postgresql' },
       { name: 'MongoDB', icon: 'mongodb' },
     ],
   },
   {
-    name: 'Tools',
+    name: 'Testing & Tooling',
     skills: [
+      { name: 'Vitest', icon: 'vitest' },
+      { name: 'Playwright', icon: 'playwright' },
+      { name: 'pytest', icon: 'pytest' },
       { name: 'Git', icon: 'git' },
-      { name: 'GitHub', icon: 'github' },
       { name: 'GitHub Actions', icon: 'actions' },
+      { name: 'Vercel', icon: 'vercel' },
       { name: 'TradingView', icon: 'tradingview' },
-      { name: 'Postman', icon: 'postman' },
       { name: 'VS Code', icon: 'vscode' },
     ],
   },
@@ -221,10 +242,9 @@ export const experience: ExperienceEntry[] = [
     period: 'Feb 2025 - Jul 2025',
     location: 'Maynooth',
     bullets: [
-      'Developed algorithmic trading indicators and rules-based strategies in PineScript for crypto and futures markets on TradingView.',
-      'Built and tested automated Bitcoin trading bots with systematic entry, exit, position sizing, and risk management logic.',
-      'Generated approximately $15,000 in trading profit through disciplined technical analysis, statistical filters, and strict risk rules.',
-      'Supported data-entry workflows, compliance checks, and internal workshop coordination for a more reliable research process.',
+      'Built and tested automated Bitcoin and futures trading bots in PineScript on TradingView, encoding systematic entry, exit, position sizing, and risk-management logic.',
+      'Developed fully rules-based crypto and futures strategies, validated with statistical filters and strict risk controls.',
+      'Generated approximately $15,000 in live trading profit through disciplined, systematic execution.',
     ],
   },
   {
@@ -233,28 +253,27 @@ export const experience: ExperienceEntry[] = [
     period: 'Sept 2022 - Expected 2026',
     location: 'Maynooth, Ireland',
     bullets: [
-      'Built academic and personal projects across Java, Python, TypeScript, JavaScript, C++, and SQL, including full-stack apps, data tooling, and an algorithmic trading thesis.',
-      'Final-year project: designed, implemented, and evaluated an automated PineScript v6 strategy for NASDAQ-100 E-mini futures.',
+      'Shipped two live full-stack SaaS products (Personal Performance OS, Maken) on Next.js, TypeScript, and Supabase, backed by 100+ automated tests, CI/CD, and Row-Level Security on every table.',
+      'Final-year project: designed, implemented, and evaluated an automated PineScript v6 strategy for NASDAQ-100 E-mini futures, with documented out-of-sample analysis.',
     ],
   },
   {
-    role: 'Customer Operations: Part-Time Roles',
-    company: 'Circle K, UPS, Resus First Aid Ireland',
+    role: 'Customer Operations & First Aid (Part-Time)',
+    company: 'Circle K · Resus First Aid Ireland',
     period: '2022 - Present',
     location: 'Dublin',
     bullets: [
-      'Worked in high-pressure service, warehouse, and first-aid environments where accuracy, calm communication, and reliability mattered.',
-      'Resolved payment and system issues, handled documentation, maintained stock and dispatch accuracy, and followed safety protocols precisely.',
+      'Ran high-volume POS and cash handling under time pressure across a two-year tenure, holding accuracy and service standards through peak periods.',
+      'Assess and respond to medical emergencies as a volunteer first aider, applying first aid calmly and documenting incidents to health-and-safety protocol.',
     ],
   },
 ]
 
 export const education: Education = {
   institution: 'Maynooth University',
-  degree: 'B.Sc. Computer Science & Software Engineering',
+  degree: 'B.Sc. (Hons) Computer Science & Software Engineering',
   period: '2022 - 2026',
   location: 'Maynooth, Ireland',
-  gpa: 'GPA 3.0',
   coursework: [
     'Algorithms & Data Structures',
     'Software Testing',
@@ -277,12 +296,12 @@ export const beyondPanels: BeyondPanel[] = [
     icon: 'judo',
     title: 'Judo',
     copy:
-      'Sixteen years on the mat, black belt, multiple Irish national medals. Judo taught me how to stay composed when the situation gets ugly, how to lose without making excuses, and how to improve through repetition. That shows up in my engineering work: calm under pressure, honest about mistakes, and stubborn about getting better.',
+      'Sixteen years on the mat, black belt, multiple Irish national medals, competing from regional to international level. Judo taught me to stay composed when things get ugly, lose without excuses, and improve through relentless repetition — the same temperament I bring to engineering. It also pointed me at a real problem to solve: I built Maken, an AI weight-cut SaaS, for judo and BJJ athletes like me.',
   },
   {
     icon: 'chart',
     title: 'Algorithmic Trading',
     copy:
-      "Funded account holder with real payouts, focused on NASDAQ-100 E-mini futures during NY morning sessions. I write strategies, test assumptions, and execute with predefined risk. It is a useful pressure test for engineering judgment because vague thinking gets punished quickly.",
+      'Funded account holder with verified real payouts, focused on NASDAQ-100 E-mini futures during NY morning sessions. I write strategies, test assumptions, and execute with predefined risk. It is a useful pressure test for engineering judgment, because vague thinking gets punished quickly and the only thing that survives is a system you can actually trust.',
   },
 ]
