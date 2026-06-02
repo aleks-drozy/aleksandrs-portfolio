@@ -90,7 +90,7 @@ function MetricStrip({ metrics, dimmed }: { metrics: PeriodMetrics; dimmed?: boo
   ]
   return (
     <div className="space-y-1.5">
-      {/* Primary — four cells, always readable */}
+      {/* Primary: four cells, always readable */}
       <div className="grid grid-cols-4 gap-1.5">
         {primary.map((item) => (
           <div key={item.label} className="rounded-lg border border-border bg-surface p-2.5 text-center">
@@ -99,7 +99,7 @@ function MetricStrip({ metrics, dimmed }: { metrics: PeriodMetrics; dimmed?: boo
           </div>
         ))}
       </div>
-      {/* Secondary — same grid, visually subordinate */}
+      {/* Secondary: same grid, visually subordinate */}
       <div className="grid grid-cols-4 gap-1.5">
         {secondary.map((item) => (
           <div key={item.label} className="rounded-lg border border-border/50 bg-surface/40 px-2 py-1.5 text-center">
@@ -158,7 +158,7 @@ function CostSensitivityBar({ cost_sensitivity }: { cost_sensitivity: Record<str
   const maxAbs = Math.max(...levels.map((l) => Math.abs(cost_sensitivity[l.key] ?? 0)), 0.01)
   return (
     <div className="rounded-lg border border-border bg-surface p-3">
-      <p className="mb-2.5 font-mono text-[9px] uppercase text-text-muted">Cost Sensitivity — OOS Sharpe</p>
+      <p className="mb-2.5 font-mono text-[9px] uppercase text-text-muted">Cost Sensitivity (OOS Sharpe)</p>
       <div className="space-y-2">
         {levels.map(({ key, label, note }) => {
           const val = cost_sensitivity[key] ?? 0
@@ -277,13 +277,13 @@ function StrategyCard({ strategy, index }: { strategy: StrategyResult; index: nu
       <div className="mt-4 grid gap-4 sm:grid-cols-2">
         <div>
           <p className="mb-2 font-mono text-[9px] uppercase text-text-muted">
-            In-sample · {strategy.in_sample.period.start} – {strategy.in_sample.period.end}
+            In-sample · {strategy.in_sample.period.start} to {strategy.in_sample.period.end}
           </p>
           <MetricStrip metrics={strategy.in_sample.metrics} dimmed />
         </div>
         <div>
           <p className="mb-2 font-mono text-[9px] uppercase text-accent">
-            Out-of-sample · {strategy.out_of_sample.period.start} – {strategy.out_of_sample.period.end}
+            Out-of-sample · {strategy.out_of_sample.period.start} to {strategy.out_of_sample.period.end}
           </p>
           <MetricStrip metrics={strategy.out_of_sample.metrics} />
         </div>
@@ -378,7 +378,7 @@ export default function BacktestEnginePage() {
     else { setSortKey(key); setSortDir('desc') }
   }
 
-  const assetOf = (id: string) => results.asset_universe[id] ?? '—'
+  const assetOf = (id: string) => results.asset_universe[id] ?? '-'
 
   return (
     <>
@@ -408,8 +408,8 @@ export default function BacktestEnginePage() {
               </h1>
               <p className="mt-4 max-w-[640px] text-lg leading-relaxed text-text-secondary">
                 A vectorised Python backtesting engine with walk-forward validation, statistical
-                significance testing, and VIX regime overlays. Nine strategies — from classic
-                trend-following to VWAP mean-reversion and overnight gap fades — all through
+                significance testing, and VIX regime overlays. Nine strategies, from classic
+                trend-following to VWAP mean-reversion and overnight gap fades, all through
                 the same slippage, commission, and half-Kelly sizing pipeline.
               </p>
               <div className="mt-6 flex flex-wrap gap-2 font-mono text-xs text-text-muted">
@@ -423,7 +423,7 @@ export default function BacktestEnginePage() {
             <section className="mb-16">
               <h2 className="mb-3 font-display text-2xl font-bold text-text-primary">Strategy Comparison</h2>
               <p className="mb-4 text-sm leading-relaxed text-text-secondary">
-                Out-of-sample metrics only — in-sample is where you fit, OOS is where you&apos;re judged.{' '}
+                Out-of-sample metrics only. In-sample is where you fit, OOS is where you&apos;re judged.{' '}
                 <span className="text-text-muted">PSR ≥ 0.95 and MC p ≤ 0.05 = statistically significant edge.</span>
               </p>
 
