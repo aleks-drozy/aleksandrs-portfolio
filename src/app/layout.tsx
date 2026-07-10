@@ -7,18 +7,21 @@ const geistSans = Geist({ subsets: ['latin'], variable: '--font-geist-sans' })
 const geistMono = Geist_Mono({ subsets: ['latin'], variable: '--font-geist-mono' })
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://aleksandrs-portfolio.vercel.app'),
   title: 'Aleksandrs Drozdovs | Software Engineer',
-  description: 'Dublin-based final-year CS & Software Engineering student building full-stack trading tools, Python backtesting infrastructure, and quantitative research systems.',
+  description: 'Dublin-based CS & Software Engineering graduate (Maynooth, 2026) building full-stack trading tools, Python backtesting infrastructure, and AI agents.',
   openGraph: {
     title: 'Aleksandrs Drozdovs | Software Engineer',
-    description: 'Full-stack trading dashboard, Python backtest engine, and NASDAQ-100 FYP strategy.',
+    description: 'Full-stack trading dashboard, Python backtest engine, NASDAQ-100 FYP strategy, and AI agents.',
     type: 'website',
     locale: 'en_IE',
+    images: [{ url: '/og.png', width: 1200, height: 630, alt: 'Aleksandrs Drozdovs - Software Engineer, Dublin' }],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Aleksandrs Drozdovs | Software Engineer',
-    description: 'Full-stack trading dashboard, Python backtest engine, and NASDAQ-100 FYP strategy.',
+    description: 'Full-stack trading dashboard, Python backtest engine, NASDAQ-100 FYP strategy, and AI agents.',
+    images: ['/og.png'],
   },
 }
 
