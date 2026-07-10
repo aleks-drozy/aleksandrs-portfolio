@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     description: 'Full-stack trading dashboard, Python backtest engine, NASDAQ-100 FYP strategy, and AI agents.',
     type: 'website',
     locale: 'en_IE',
-    images: [{ url: '/og.png', width: 1200, height: 630, alt: 'Aleksandrs Drozdovs - Software Engineer, Dublin' }],
+    images: [{ url: '/og.png', width: 2400, height: 1260, alt: 'Aleksandrs Drozdovs - Software Engineer, Dublin' }],
   },
   twitter: {
     card: 'summary_large_image',
