@@ -18,9 +18,12 @@ export function Contact() {
         >
           <div className="grid gap-8 md:grid-cols-[1fr_auto] md:items-end">
             <div>
-              <p className="mb-3 font-mono text-xs uppercase text-text-muted">Get in touch</p>
-              <h2 className="max-w-3xl font-display text-4xl font-black leading-tight md:text-6xl">
-                Hiring for 2026? I&apos;d like to talk.
+              <p className="mb-3 flex items-center gap-3 font-mono text-xs uppercase tracking-[0.28em] text-accent">
+                <span className="inline-block h-px w-6 bg-accent/70" aria-hidden />
+                07 · Get in touch
+              </p>
+              <h2 className="max-w-3xl font-display text-4xl font-light leading-tight tracking-[-0.01em] md:text-6xl">
+                Hiring for 2026? <span className="font-medium text-accent">I&apos;d like to talk.</span>
               </h2>
               <p className="mt-5 max-w-xl text-base leading-7 text-text-secondary">
                 Open to graduate software engineering, full-stack, frontend, data tooling, and quantitative developer
