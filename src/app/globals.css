@@ -19,7 +19,7 @@
   --color-warm: oklch(0.7 0.11 55);
   --color-ink: oklch(0.105 0.012 242);
   --font-sans: var(--font-inter);
-  --font-display: var(--font-geist-sans);
+  --font-display: var(--font-space-grotesk);
   --font-mono: var(--font-geist-mono);
   --ease-out-expo: cubic-bezier(0.23, 1, 0.32, 1);
   --ease-in-out-expo: cubic-bezier(0.77, 0, 0.175, 1);
@@ -101,6 +101,50 @@ h1, h2, h3 {
 }
 
 .scroll-cue { animation: cue-pulse 2.8s ease-in-out infinite; }
+
+/* the Orb: the app's own arc reactor, CSS-only, living on the hero */
+.orb-wrap {
+  position: relative;
+  width: 260px;
+  height: 260px;
+  animation: orb-breathe 5s ease-in-out infinite;
+}
+
+.orb-wrap svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.orb-wrap circle {
+  fill: none;
+  stroke: var(--color-accent);
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+.orb-r2 { animation: orb-spin 24s linear infinite; }
+.orb-r3 { animation: orb-spin 60s linear infinite reverse; }
+
+.orb-core {
+  position: absolute;
+  inset: 31%;
+  border-radius: 50%;
+  background: radial-gradient(circle,
+    color-mix(in oklch, var(--color-accent) 85%, white) 0%,
+    color-mix(in oklch, var(--color-accent) 30%, transparent) 55%,
+    transparent 75%);
+  filter: blur(2px);
+}
+
+@keyframes orb-spin { to { transform: rotate(360deg); } }
+
+@keyframes orb-breathe {
+  0%, 100% { filter: drop-shadow(0 0 10px color-mix(in oklch, var(--color-accent) 35%, transparent)); }
+  50% { filter: drop-shadow(0 0 26px color-mix(in oklch, var(--color-accent) 60%, transparent)); }
+}
 
 ::-webkit-scrollbar {
   width: 6px;
@@ -196,10 +240,10 @@ h1, h2, h3 {
 }
 
 .proof-panel {
-  border: 1px solid var(--color-border);
+  border: 1px solid color-mix(in oklch, var(--color-border) 80%, transparent);
   background:
-    linear-gradient(180deg, color-mix(in oklch, var(--color-surface-elevated) 72%, transparent), color-mix(in oklch, var(--color-surface) 86%, transparent));
-  box-shadow: 0 24px 70px color-mix(in oklch, black 28%, transparent);
+    linear-gradient(180deg, color-mix(in oklch, var(--color-surface-elevated) 60%, transparent), color-mix(in oklch, var(--color-surface) 78%, transparent));
+  box-shadow: 0 10px 34px color-mix(in oklch, black 18%, transparent);
 }
 
 .signal-field {
@@ -216,8 +260,8 @@ h1, h2, h3 {
   width: min(620px, 58vw);
   height: 280px;
   background:
-    linear-gradient(90deg, transparent, color-mix(in oklch, var(--color-proof) 22%, transparent), transparent),
-    repeating-linear-gradient(90deg, color-mix(in oklch, var(--color-accent) 16%, transparent) 0 1px, transparent 1px 48px);
+    linear-gradient(90deg, transparent, color-mix(in oklch, var(--color-accent) 20%, transparent), transparent),
+    repeating-linear-gradient(90deg, color-mix(in oklch, var(--color-accent) 14%, transparent) 0 1px, transparent 1px 48px);
   mask-image: linear-gradient(90deg, transparent, black 18%, black 82%, transparent);
   opacity: 0.42;
   transform: rotate(-8deg);
@@ -231,7 +275,7 @@ h1, h2, h3 {
   top: 9%;
   height: 72%;
   width: 1px;
-  background: linear-gradient(180deg, transparent, color-mix(in oklch, var(--color-proof) 42%, transparent), transparent);
+  background: linear-gradient(180deg, transparent, color-mix(in oklch, var(--color-accent) 38%, transparent), transparent);
   opacity: 0.5;
 }
 

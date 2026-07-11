@@ -9,7 +9,7 @@ export function Education() {
   return (
     <section id="education" className="px-[clamp(16px,4vw,32px)] py-28 md:py-24 sm:py-20">
       <div className="mx-auto max-w-[1200px]">
-        <SectionHeader eyebrow="Education" title="Computer Science and Software Engineering." />
+        <SectionHeader eyebrow="03 · Education" title="Computer Science and Software Engineering." />
 
         <motion.div
           initial={{ opacity: 0, y: 24 }}
@@ -21,7 +21,7 @@ export function Education() {
           <div>
             <div className="flex flex-wrap items-start justify-between gap-3">
               <div>
-                <h3 className="font-display text-2xl font-black text-text-primary">{education.institution}</h3>
+                <h3 className="font-display text-2xl font-medium tracking-[0.01em] text-text-primary">{education.institution}</h3>
                 <p className="mt-2 max-w-md text-base leading-7 text-text-secondary">{education.degree}</p>
               </div>
               <span className="shrink-0 rounded-md border border-proof/40 bg-proof/10 px-3 py-1 font-mono text-xs text-proof">

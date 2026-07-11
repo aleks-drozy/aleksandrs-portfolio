@@ -9,7 +9,7 @@ export function Experience() {
   return (
     <section id="experience" className="border-y border-border/70 bg-surface/20 px-[clamp(16px,4vw,32px)] py-28 md:py-24 sm:py-20">
       <div className="mx-auto max-w-[1200px]">
-        <SectionHeader eyebrow="Experience" title="Real work, research, and pressure-tested reliability." />
+        <SectionHeader eyebrow="02 · Experience" title="Real work, research, and pressure-tested reliability." />
 
         <div className="divide-y divide-border border-y border-border">
           {experience.map((entry, i) => (
@@ -28,7 +28,7 @@ export function Experience() {
 
               <div>
                 <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
-                  <h3 className="font-display text-xl font-black text-text-primary">{entry.role}</h3>
+                  <h3 className="font-display text-xl font-medium tracking-[0.01em] text-text-primary">{entry.role}</h3>
                   <span className="font-mono text-xs uppercase text-text-muted">{entry.company}</span>
                 </div>
 

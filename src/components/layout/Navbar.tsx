@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { personalInfo, socials } from '@/lib/data'
 import { SocialLink } from '@/components/ui/SocialLink'
+import { LocalTime } from '@/components/ui/LocalTime'
 import { useActiveSection } from '@/hooks/useActiveSection'
 
 const NAV_LINKS = [
@@ -51,7 +52,7 @@ export function Navbar() {
           <div className="flex items-center gap-3">
             <a
               href="#hero"
-              className="font-display text-lg font-black text-text-primary transition-colors duration-200 hover:text-proof"
+              className="font-display text-lg font-medium tracking-[0.04em] text-text-primary transition-colors duration-200 hover:text-accent"
             >
               Aleksandrs D.
             </a>
@@ -77,7 +78,8 @@ export function Navbar() {
             ))}
           </nav>
 
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-4">
+            <LocalTime />
             <a
               href={personalInfo.cvUrl}
               download

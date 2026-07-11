@@ -10,7 +10,7 @@ export function Skills() {
   return (
     <section id="skills" className="border-y border-border/70 bg-surface/20 px-[clamp(16px,4vw,32px)] py-28 md:py-24 sm:py-20">
       <div className="mx-auto max-w-[1200px]">
-        <SectionHeader eyebrow="Tools" title="The stack I can actually work in." />
+        <SectionHeader eyebrow="04 · Tools" title="The stack I can actually work in." />
 
         <div className="flex flex-col gap-10">
           {skillCategories.map((category) => (

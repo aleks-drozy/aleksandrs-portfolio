@@ -13,13 +13,13 @@ export function SectionHeader({ eyebrow, title, accent, className = '' }: Props)
       transition={{ duration: 0.45, ease: [0.23, 1, 0.32, 1] }}
       className={`mb-12 max-w-3xl ${className}`}
     >
-      <p className="mb-3 flex items-center gap-3 font-mono text-xs uppercase tracking-[0.28em] text-proof">
-        <span className="inline-block h-px w-6 bg-proof/70" aria-hidden />
+      <p className="mb-4 flex items-center gap-3 font-mono text-xs uppercase tracking-[0.28em] text-accent">
+        <span className="inline-block h-px w-6 bg-accent/70" aria-hidden />
         {eyebrow}
       </p>
-      <h2 className="font-display text-3xl font-black leading-tight md:text-5xl">
+      <h2 className="font-display text-3xl font-light leading-tight tracking-[-0.01em] md:text-5xl">
         {title}
-        {accent ? <> <span className="text-proof">{accent}</span></> : null}
+        {accent ? <> <span className="font-medium text-accent">{accent}</span></> : null}
       </h2>
     </motion.div>
   )

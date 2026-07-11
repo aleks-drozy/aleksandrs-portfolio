@@ -1,10 +1,11 @@
 import type { Metadata } from 'next'
-import { Inter, Geist, Geist_Mono } from 'next/font/google'
+import { Inter, Geist, Geist_Mono, Space_Grotesk } from 'next/font/google'
 import './globals.css'
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' })
 const geistSans = Geist({ subsets: ['latin'], variable: '--font-geist-sans' })
 const geistMono = Geist_Mono({ subsets: ['latin'], variable: '--font-geist-mono' })
+const spaceGrotesk = Space_Grotesk({ subsets: ['latin'], weight: ['300', '400', '500', '700'], variable: '--font-space-grotesk' })
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://aleksandrs-portfolio.vercel.app'),
@@ -28,7 +29,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body className={`${inter.variable} ${geistSans.variable} ${geistMono.variable} font-sans bg-background text-text-primary`}>
+      <body className={`${inter.variable} ${geistSans.variable} ${geistMono.variable} ${spaceGrotesk.variable} font-sans bg-background text-text-primary`}>
         {children}
       </body>
     </html>

@@ -9,7 +9,7 @@ export function BeyondTheCode() {
   return (
     <section id="beyond" className="border-y border-border/70 bg-surface/20 px-[clamp(16px,4vw,32px)] py-28 md:py-24 sm:py-20">
       <div className="mx-auto max-w-[1200px]">
-        <SectionHeader eyebrow="Character" title="The stuff that changes how I work." />
+        <SectionHeader eyebrow="06 · Character" title="The stuff that changes how I work." />
 
         <div className="grid gap-4 md:grid-cols-2">
           {beyondPanels.map((panel, i) => (

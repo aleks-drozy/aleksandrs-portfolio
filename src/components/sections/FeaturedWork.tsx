@@ -11,7 +11,7 @@ export function FeaturedWork() {
     <section id="featured-work" className="px-[clamp(16px,4vw,32px)] py-28 md:py-24 sm:py-20">
       <div className="mx-auto max-w-[1200px]">
         <SectionHeader
-          eyebrow="Best proof"
+          eyebrow="01 · Best proof"
           title="Four pieces of proof, one direction."
         />
 
@@ -27,12 +27,12 @@ export function FeaturedWork() {
             >
               <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-proof/0 transition-colors duration-300 group-hover:bg-proof/70" aria-hidden />
               <div>
-                <p className="font-mono text-[11px] uppercase text-proof">{String(index + 1).padStart(2, '0')}</p>
-                <p className="mt-2 font-mono text-xs uppercase text-text-muted">{item.label}</p>
+                <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-accent">{String(index + 1).padStart(2, '0')}</p>
+                <p className="mt-2 font-mono text-xs uppercase tracking-[0.12em] text-text-muted">{item.label}</p>
               </div>
 
               <div>
-                <h3 className="font-display text-2xl font-black leading-tight text-text-primary">
+                <h3 className="font-display text-2xl font-medium leading-tight tracking-[0.01em] text-text-primary">
                   {item.title}
                 </h3>
                 <p className="mt-3 max-w-2xl text-base leading-7 text-text-secondary">
