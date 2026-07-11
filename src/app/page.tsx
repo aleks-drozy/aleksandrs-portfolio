@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Image from 'next/image'
 import { SiteNav } from '@/components/SiteNav'
 import { Reveal } from '@/components/Reveal'
 import { EquityCurve } from '@/components/EquityCurve'
@@ -53,6 +54,20 @@ export default function Home() {
         <header className="border-b border-hair">
           <div className={`${CONTAINER} grid grid-cols-1 items-center gap-14 pb-16 pt-20 md:pt-24 lg:grid-cols-[1.05fr_0.95fr]`}>
             <div>
+              <div className="mb-6 flex items-center gap-4">
+                <Image
+                  src="/headshot.png"
+                  alt="Aleksandrs Drozdovs"
+                  width={88}
+                  height={88}
+                  priority
+                  className="h-[68px] w-[68px] rounded-full border border-hair object-cover shadow-[0_8px_22px_-10px_rgba(18,21,28,0.45)] ring-1 ring-cobalt/10 sm:h-[76px] sm:w-[76px]"
+                />
+                <div className="leading-tight">
+                  <div className="font-serif text-lg text-ink">{site.name}</div>
+                  <div className="font-mono text-[11px] uppercase tracking-[0.1em] text-ink-3">Dublin · Maynooth 2026</div>
+                </div>
+              </div>
               <span className="eyebrow">
                 {site.status} · {site.location}
               </span>
