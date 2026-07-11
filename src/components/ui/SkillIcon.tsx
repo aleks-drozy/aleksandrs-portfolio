@@ -10,7 +10,7 @@ const ICON_URLS: Record<string, string | null> = {
   nextjs: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg',
   tailwind: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg',
   nodejs: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg',
-  express: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg',
+  express: null,   // devicon's express logo is black-on-transparent — invisible on our dark theme
   mongodb: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg',
   git: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg',
   github: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg',
@@ -36,6 +36,7 @@ const FALLBACK_LABEL: Record<string, string> = {
   tradingview: 'TV',
   actions: 'CI',
   vercel: '▲',
+  express: 'EX',
 }
 
 export function SkillIcon({ name, icon }: { name: string; icon: string }) {

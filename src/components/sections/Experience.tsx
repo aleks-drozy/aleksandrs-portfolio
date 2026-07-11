@@ -15,9 +15,9 @@ export function Experience() {
           {experience.map((entry, i) => (
             <motion.article
               key={`${entry.company}-${i}`}
-              initial={{ opacity: 0, y: 24 }}
+              initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.25 }}
+              viewport={{ once: true, amount: 0.05, margin: '0px 0px -8% 0px' }}
               transition={{ duration: 0.45, delay: i * 0.06, ease: EASE }}
               className="grid gap-5 py-8 md:grid-cols-[260px_1fr]"
             >

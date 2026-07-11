@@ -12,18 +12,18 @@ export function FeaturedWork() {
       <div className="mx-auto max-w-[1200px]">
         <SectionHeader
           eyebrow="Best proof"
-          title="Three pieces of proof, one direction."
+          title="Four pieces of proof, one direction."
         />
 
         <div className="grid gap-4">
           {proofItems.map((item, index) => (
             <motion.article
               key={item.title}
-              initial={{ opacity: 0, y: 24 }}
+              initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.2 }}
+              viewport={{ once: true, amount: 0.05, margin: '0px 0px -8% 0px' }}
               transition={{ duration: 0.45, delay: index * 0.06, ease: EASE }}
-              className="proof-panel group relative grid gap-5 overflow-hidden rounded-md p-6 transition-colors duration-200 hover:border-border-strong md:grid-cols-[180px_1fr]"
+              className="proof-panel hud-corners group relative grid gap-5 overflow-hidden rounded-md p-6 transition-colors duration-200 hover:border-border-strong md:grid-cols-[180px_1fr]"
             >
               <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-proof/0 transition-colors duration-300 group-hover:bg-proof/70" aria-hidden />
               <div>

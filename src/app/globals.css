@@ -9,8 +9,8 @@
   --color-text-primary: oklch(0.955 0.012 86);
   --color-text-secondary: oklch(0.77 0.022 225);
   --color-text-muted: oklch(0.61 0.025 228);
-  --color-accent: oklch(0.75 0.12 178);
-  --color-accent-muted: oklch(0.62 0.1 184);
+  --color-accent: oklch(0.8 0.1 220);
+  --color-accent-muted: oklch(0.66 0.09 222);
   --color-proof: oklch(0.77 0.13 76);
   --color-proof-muted: oklch(0.64 0.1 70);
   --color-signal-green: oklch(0.74 0.16 148);
@@ -41,9 +41,66 @@ body {
   font-feature-settings: 'tnum' 1, 'ss01' 1;
 }
 
+/* cinema texture: static film grain over everything, barely there */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  pointer-events: none;
+  opacity: 0.035;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)'/%3E%3C/svg%3E") repeat;
+}
+
 h1, h2, h3 {
   letter-spacing: 0;
 }
+
+/* HUD corner brackets: one instrument detail, used sparingly */
+.hud-corners::before,
+.hud-corners::after {
+  content: "";
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  border: 1px solid color-mix(in oklch, var(--color-accent) 55%, transparent);
+  pointer-events: none;
+}
+
+.hud-corners::before {
+  top: 8px;
+  left: 8px;
+  border-right: 0;
+  border-bottom: 0;
+}
+
+.hud-corners::after {
+  bottom: 8px;
+  right: 8px;
+  border-left: 0;
+  border-top: 0;
+}
+
+/* CSS entrance: ships visible in HTML, animates without hydration */
+@keyframes rise-in {
+  from { opacity: 0; transform: translateY(14px); filter: blur(3px); }
+  to { opacity: 1; transform: translateY(0); filter: blur(0); }
+}
+
+.rise { animation: rise-in 0.55s var(--ease-out-expo) both; }
+.rise-1 { animation-delay: 50ms; }
+.rise-2 { animation-delay: 110ms; }
+.rise-3 { animation-delay: 170ms; }
+.rise-4 { animation-delay: 230ms; }
+.rise-5 { animation-delay: 290ms; }
+.rise-6 { animation-delay: 350ms; }
+
+@keyframes cue-pulse {
+  0%, 100% { opacity: 0.38; }
+  50% { opacity: 0.75; }
+}
+
+.scroll-cue { animation: cue-pulse 2.8s ease-in-out infinite; }
 
 ::-webkit-scrollbar {
   width: 6px;
