@@ -62,7 +62,7 @@ export const personalInfo = {
   headlineAccent: 'quant instincts.',
   eyebrow: 'Dublin-based software engineer',
   subline:
-    'Final-year Computer Science & Software Engineering student at Maynooth. I ship production full-stack products end-to-end: two live apps on Next.js, TypeScript & Supabase with 100+ automated tests and Row-Level Security on every table, plus systematic trading systems with ~$15K in live profit.',
+    'Computer Science & Software Engineering graduate (Maynooth, 2026). I ship production systems end-to-end: two live SaaS apps with 100+ automated tests, JARVIS — a voice-controlled AI agent that runs my mornings — and systematic trading strategies with ~$15K in live profit.',
   status: 'Open to 2026 roles',
   cvUrl: '/cv.pdf',
   email: 'aleksandrs.drozdovs2005@gmail.com',
@@ -76,13 +76,25 @@ export const heroStats: ProjectMetric[] = [
 ]
 
 export const hireSignals = [
-  { label: 'Looking for', value: 'Graduate SWE / Fintech / Data teams' },
+  { label: 'Looking for', value: 'Graduate SWE / AI / Fintech / Data teams' },
   { label: 'Location', value: 'Dublin, Ireland (open to remote EU/UK)' },
-  { label: 'Strongest proof', value: 'Personal Performance OS, Maken, and the NASDAQ-100 FYP strategy' },
+  { label: 'Strongest proof', value: 'JARVIS (AI agent), Personal Performance OS, and the NASDAQ-100 FYP strategy' },
   { label: 'Working style', value: 'Tested systems, documented tradeoffs, honest results' },
 ]
 
 export const proofItems: ProofItem[] = [
+  {
+    label: 'AI agent · voice',
+    title: 'JARVIS',
+    description:
+      'A voice-controlled AI butler that runs my mornings unattended: reads my git history, sweeps Dublin job boards overnight, coaches my budget, and emails me a briefing at 08:30 before I wake. Speech-to-text runs 100% locally (whisper.cpp), a Claude agent brain operates under hard-coded safety rules, and the Iron-Man-style HUD is Electron. Built in public — demo videos in the repo.',
+    href: '/projects/jarvis',
+    meta: [
+      { label: 'Voice', value: 'Local STT' },
+      { label: 'Brain', value: 'Claude agent' },
+      { label: 'Runs', value: 'Unattended' },
+    ],
+  },
   {
     label: 'Full-stack SaaS',
     title: 'Personal Performance OS',
@@ -237,7 +249,7 @@ export const skillCategories: SkillCategory[] = [
 
 export const experience: ExperienceEntry[] = [
   {
-    role: 'Quantitative Researcher (Part-Time)',
+    role: 'Quantitative Researcher & Software Engineer (Part-Time)',
     company: 'DLT Capital',
     period: 'Feb 2025 - Jul 2025',
     location: 'Maynooth',
@@ -248,9 +260,9 @@ export const experience: ExperienceEntry[] = [
     ],
   },
   {
-    role: 'Software Engineering Student',
+    role: 'B.Sc. (Hons) Computer Science & Software Engineering',
     company: 'Maynooth University',
-    period: 'Sept 2022 - Expected 2026',
+    period: 'Sept 2022 - 2026',
     location: 'Maynooth, Ireland',
     bullets: [
       'Shipped two live full-stack SaaS products (Personal Performance OS, Maken) on Next.js, TypeScript, and Supabase, backed by 100+ automated tests, CI/CD, and Row-Level Security on every table.',
@@ -287,7 +299,7 @@ export const education: Education = {
 
 export const socials: Social[] = [
   { name: 'GitHub', url: 'https://github.com/aleks-drozy', icon: 'github' },
-  { name: 'LinkedIn', url: 'https://www.linkedin.com/in/aleksandrs-drozdovs-13b730331/', icon: 'linkedin' },
+  { name: 'LinkedIn', url: 'https://www.linkedin.com/in/aleksandrsdrozdovs/', icon: 'linkedin' },
   { name: 'Instagram', url: 'https://www.instagram.com/alex_drozy/', icon: 'instagram' },
 ]
 
