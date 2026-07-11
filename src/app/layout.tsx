@@ -38,7 +38,7 @@ export const metadata: Metadata = {
     locale: 'en_IE',
     url: 'https://aleksandrs-portfolio.vercel.app',
     siteName: 'Aleksandrs Drozdovs',
-    images: [{ url: '/og.png', width: 2400, height: 1260, alt: 'Aleksandrs Drozdovs — Software Engineer, Dublin' }],
+    images: [{ url: '/og.png', width: 1200, height: 630, alt: 'Aleksandrs Drozdovs — Software Engineer, Dublin' }],
   },
   twitter: {
     card: 'summary_large_image',
