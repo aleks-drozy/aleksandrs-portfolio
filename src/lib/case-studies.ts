@@ -167,6 +167,55 @@ export const caseStudies: CaseStudy[] = [
     ],
   },
   {
+    slug: 'fyp-strategy-engine',
+    kicker: 'Quant research · capstone',
+    title: 'Quant Strategy Research Program',
+    year: '2026',
+    timeline: 'Six pre-registered phases',
+    role: 'Research design, engineering, statistics',
+    stack: ['Python', 'pandas', 'NumPy', 'pytest', 'GitHub Actions', 'Walk-forward analysis', 'Bootstrap inference'],
+    links: [
+      { label: 'GitHub', href: 'https://github.com/aleks-drozy/fyp-strategy-engine' },
+      { label: 'Monte Carlo repo', href: 'https://github.com/aleks-drozy/Trading-Strategy-Monte-Carlo-Simulation' },
+    ],
+    metrics: [
+      { value: '176', label: 'Tests, green CI' },
+      { value: '1,402', label: 'OOS trades judged' },
+      { value: '10 yrs', label: 'Across 3 markets' },
+      { value: '4', label: 'Data defects found' },
+    ],
+    sections: [
+      {
+        heading: 'The question',
+        paragraphs: [
+          'My FYP strategy showed +$28,400 in backtests. "Impressive on paper" is exactly what overfitting looks like, so I built a research program to find out whether the edge was real — designed so I could not fool myself.',
+        ],
+      },
+      {
+        heading: 'How honesty was enforced',
+        bullets: [
+          'Every phase pre-registered: grids, folds, floors, and the full verdict decision table were frozen and git-timestamped before each run; the runner recomputes the config hash and refuses to run on mismatch.',
+          'A bar-by-bar backtest engine with no lookahead, regression-locked across refactors (results reproduce to 12 decimal places).',
+          'Leak-free walk-forward optimisation, Monte Carlo bootstrap robustness studies, an ML trade-filter experiment, and day-cluster bootstrap confidence intervals built for correlated instruments.',
+          'Adversarial design reviews before every build phase — 19 blockers caught and fixed before any result was produced.',
+        ],
+      },
+      {
+        heading: 'The verdict',
+        paragraphs: [
+          'Run with zero re-tuning over ten years of S&P, Dow, and independent-vendor Nasdaq futures, the frozen hypothesis lost everywhere: pooled profit factor 0.905 with the entire 90% confidence interval below breakeven across 1,402 out-of-sample trades. The pre-registered rule — which could equally have said "proven" — said DISPROVEN. The original edge was period-specific tuning, not a persistent effect.',
+          'Bonus finding: the validation gates forensically identified four defect classes in the original dataset, including a ±60-minute DST timestamp bug, proven with lag-correlation evidence and a cross-instrument referee test.',
+        ],
+      },
+      {
+        heading: 'Why it matters',
+        paragraphs: [
+          'Anyone can produce a winning backtest. This project demonstrates the ability to design the experiment that determines whether it is real — and to accept the answer either way.',
+        ],
+      },
+    ],
+  },
+  {
     slug: 'trading-dashboard',
     kicker: 'Full-stack',
     title: 'Trading Analytics Dashboard',

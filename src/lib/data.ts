@@ -10,7 +10,7 @@ export const site = {
   status: 'Open to 2026 roles',
   location: 'Dublin, Ireland',
   lede:
-    'Computer Science & Software Engineering graduate (Maynooth, 2026). I ship production systems end-to-end — two live SaaS apps, an agentic AI assistant, and systematic trading strategies. Tested, documented, and honest about the results.',
+    'Computer Science & Software Engineering graduate (Maynooth, 2026). I ship production systems end-to-end — two live SaaS apps, an agentic AI assistant, and a six-phase pre-registered quant research program. Tested, documented, and honest about the results.',
   email: 'aleksandrs.drozdovs2005@gmail.com',
   phone: '089 257 1418',
   cvUrl: '/cv.pdf',
@@ -80,6 +80,20 @@ export const exhibits: Exhibit[] = [
       { value: '1.703', label: 'Profit factor' },
     ],
     slug: 'fyp-trading-strategy',
+  },
+  {
+    fig: 'Fig. 06',
+    kicker: 'Quant research · capstone',
+    title: 'Quant Strategy Research Program',
+    blurb:
+      'A six-phase, pre-registered research program that settled whether the FYP strategy’s +$28.4K backtest edge was real. Bar-by-bar backtest engine with no lookahead, leak-free walk-forward optimisation, Monte Carlo bootstrap studies, an ML trade-filter experiment, and cluster-bootstrap confidence intervals — verdict decided by a git-timestamped frozen decision table the runner hash-verifies before it will run. Answer: the edge did not survive 10 years and three futures markets, and the gates forensically caught a 60-minute timestamp bug in the source dataset along the way.',
+    tags: ['Python', 'pandas', 'pytest', 'Statistics', 'GitHub Actions'],
+    stats: [
+      { value: '176', label: 'Tests (CI)' },
+      { value: '1,402', label: 'OOS trades' },
+      { value: '10 yrs', label: '× 3 markets' },
+    ],
+    slug: 'fyp-strategy-engine',
   },
 ]
 
