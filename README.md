@@ -6,7 +6,7 @@ Live at: [aleksandrs-portfolio.vercel.app](https://aleksandrs-portfolio.vercel.a
 
 ## Positioning
 
-The site presents Aleksandrs as a Dublin-based final-year Computer Science and Software Engineering student at Maynooth with a practical SWE plus quant angle. The homepage leads with DLT Capital experience, a 228-commit trading dashboard, a Python backtesting engine, and a NASDAQ-100 final-year strategy.
+The site presents Aleksandrs as a Dublin-based Computer Science and Software Engineering graduate from Maynooth with a practical SWE plus quant angle. The homepage leads with DLT Capital experience, a 228-commit trading dashboard, a Python backtesting engine, and a NASDAQ-100 final-year strategy.
 
 ## Stack
 
