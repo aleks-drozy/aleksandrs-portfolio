@@ -106,7 +106,7 @@ export default function Home() {
         {/* ---------- SELECTED WORK ---------- */}
         <section id="work">
           <div className={`${CONTAINER} py-20 md:py-28`}>
-            <SectionHeader eyebrow="Selected work" title="Four exhibits, one direction." index="02 / EVIDENCE" />
+            <SectionHeader eyebrow="Selected work" title="Five exhibits, one direction." index="02 / EVIDENCE" />
 
             <div>
               {exhibits.map((ex, i) => (
@@ -228,7 +228,8 @@ export default function Home() {
                   <p className="mt-3 text-sm leading-relaxed text-ink-2">
                     Two live full-stack SaaS products on Next.js, TypeScript, and Supabase, backed by 790+ automated
                     tests, CI/CD, and Row-Level Security on every table. Final-year project: an automated NASDAQ-100
-                    futures strategy with documented out-of-sample analysis.
+                    futures strategy — followed by a six-phase, pre-registered research program that honestly
+                    disproved its backtest edge. Industrial placement: DLT Capital.
                   </p>
                   <div className="mt-4 flex flex-wrap gap-2">
                     {education.coursework.map((c) => (
