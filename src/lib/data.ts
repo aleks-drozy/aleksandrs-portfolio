@@ -40,8 +40,8 @@ export const exhibits: Exhibit[] = [
     kicker: 'AI agent',
     title: 'JARVIS — voice-controlled AI assistant',
     blurb:
-      'A personal AI butler that runs my mornings. A voice-controlled Iron-Man-style HUD (Electron, with 100% local speech-to-text via whisper.cpp) sits on top of a scheduled, fully unattended agent pipeline: it aggregates my git history, notes, and finances into a grounded morning brief and emails it via Gmail SMTP. Headless Claude-agent execution with OAuth token management, DPAPI-encrypted credentials, hard safety rules (no financial actions, self-only email), and failure alarms.',
-    tags: ['Claude agent', 'Electron', 'whisper.cpp', 'PowerShell', 'Gmail SMTP'],
+      'A personal AI butler that runs my mornings — now open source. A voice-controlled Iron-Man-style HUD (Electron, with 100% local speech-to-text via whisper.cpp) sits on top of a scheduled, fully unattended agent pipeline: it aggregates my git history, notes, job alerts, and a real bank feed into a grounded morning brief and delivers it to my phone over Telegram at 08:30. Two-way remote commands, headless Claude-agent execution with DPAPI-encrypted credentials, hard safety rules (no financial actions, self-only sends that fail closed), and failure alarms.',
+    tags: ['Claude agent', 'Electron', 'whisper.cpp', 'PowerShell', 'Telegram Bot API'],
     slug: 'jarvis',
   },
   {
@@ -72,12 +72,12 @@ export const exhibits: Exhibit[] = [
     kicker: 'Quant research',
     title: 'NASDAQ-100 FYP Strategy',
     blurb:
-      'Final-year Pine Script v6 strategy for NQ1! E-mini futures using Inverse Fair Value Gaps, Change in State of Delivery, and a liquidity-sweep filter, with fixed risk rules and honestly documented out-of-sample caveats.',
+      'Final-year Pine Script v6 strategy for NQ1! E-mini futures using Inverse Fair Value Gaps, Change in State of Delivery, and a liquidity-sweep filter, with fixed risk rules and honestly documented out-of-sample caveats. The sequel (Fig. 06) put this edge on trial — and disproved it.',
     tags: ['Pine Script v6', 'TradingView', 'Walk-forward'],
     stats: [
-      { value: '56.94%', label: 'Win rate' },
-      { value: '+$28.4K', label: 'Net P&L' },
-      { value: '1.703', label: 'Profit factor' },
+      { value: '56.94%', label: 'In-sample win rate' },
+      { value: '+$28.4K', label: 'In-sample P&L' },
+      { value: '1.703', label: 'In-sample profit factor' },
     ],
     slug: 'fyp-trading-strategy',
   },
@@ -109,7 +109,7 @@ export const alsoShipped: AlsoShipped[] = [
   {
     title: 'Trading Analytics Dashboard',
     blurb:
-      'Full-stack trade journal and market-research app — Next.js dashboard, authenticated trade logging, analytics pages, tests, schemas, and Vercel deployment.',
+      '228-commit full-stack trade journal and market-research app — Next.js dashboard, authenticated trade logging, analytics pages, a Python/FastAPI back end, tests, schemas, and Vercel deployment.',
     slug: 'trading-dashboard',
     github: 'https://github.com/aleks-drozy/Trading_Dashboard',
     live: 'https://tradingdashboard-one.vercel.app',
@@ -128,6 +128,27 @@ export const alsoShipped: AlsoShipped[] = [
     slug: 'noteit',
     github: 'https://github.com/aleks-drozy/noteit',
   },
+  {
+    title: 'Monte Carlo Robustness Study',
+    blurb:
+      'Monte Carlo stress-test of a real 72-trade NQ futures record — bootstrap resampling, order reshuffling, and drawdown-risk distributions, with an honest writeup of what survives.',
+    slug: 'monte-carlo-robustness',
+    github: 'https://github.com/aleks-drozy/Trading-Strategy-Monte-Carlo-Simulation',
+  },
+  {
+    title: 'Polymarket Favourite Bias',
+    blurb:
+      'Pre-registered backtest over 2,418 resolved Polymarket markets: favourites win 90.6% of the time and still lose ~1% after fees. Verdict: NOT PROVEN.',
+    slug: 'polymarket-favourite-bias',
+    github: 'https://github.com/aleks-drozy/polymarket-favourite-bias',
+  },
+  {
+    title: 'Football Career Trajectory Model',
+    blurb:
+      'Pre-registered Monte Carlo projection of young footballers’ careers on 24,057 FBref player-seasons, cross-checked on unseen 2025–26 data at six horizons. Verdict: NOT PROVEN — skilled but under-confident.',
+    slug: 'football-trajectory',
+    github: 'https://github.com/aleks-drozy/football-trajectory',
+  },
 ]
 
 export type ExperienceEntry = {
@@ -140,7 +161,7 @@ export type ExperienceEntry = {
 
 export const experience: ExperienceEntry[] = [
   {
-    when: 'Feb 2025 — Jun 2025',
+    when: 'Feb 2025 — Jul 2025',
     location: 'Maynooth',
     role: 'Quantitative Researcher & Software Engineer (Part-Time)',
     org: 'DLT Capital',
@@ -151,12 +172,12 @@ export const experience: ExperienceEntry[] = [
     ],
   },
   {
-    when: '2022 — Present',
+    when: 'Jul 2023 — Apr 2025',
     location: 'Dublin',
-    role: 'Customer Operations & First Aid (Part-Time)',
+    role: 'Sales Assistant (Part-Time) · Volunteer First Aider',
     org: 'Circle K · Resus First Aid Ireland',
     bullets: [
-      'Ran high-volume POS and cash handling under time pressure across a two-year tenure, holding accuracy and service standards through peak periods.',
+      'Ran high-volume POS and cash handling under time pressure, holding accuracy and service standards through peak periods.',
       'Volunteer first aider: assess and respond to medical emergencies calmly, documenting incidents to health-and-safety protocol.',
     ],
   },
@@ -173,18 +194,18 @@ export type Education = {
 }
 
 export const education: Education = {
-  when: 'Sept 2022 — 2026',
+  when: 'Sept 2022 — Sept 2026',
   location: 'Maynooth, Ireland',
   degree: 'B.Sc. (Hons) Computer Science & Software Engineering',
-  honours: '2.1 Honours',
+  honours: '2:1 Honours',
   org: 'Maynooth University',
   coursework: [
+    'Machine Learning & Neural Networks',
+    'AI & Language Processing',
+    'Parallel & Distributed Systems',
     'Algorithms & Data Structures',
-    'Software Testing',
+    'Software Testing & Verification',
     'Databases',
-    'Web Information Processing',
-    'Computer Systems',
-    'UX/UI Design',
   ],
   certifications: ['Claude Code 101 — Anthropic, 2026', 'Claude Platform 101 — Anthropic, 2026'],
 }
@@ -192,10 +213,10 @@ export const education: Education = {
 export type SkillGroup = { name: string; items: string[] }
 
 export const skillGroups: SkillGroup[] = [
-  { name: 'Languages', items: ['TypeScript', 'JavaScript', 'Python', 'Java', 'C++', 'SQL', 'PowerShell', 'PineScript'] },
-  { name: 'Frameworks', items: ['React', 'Next.js', 'Node.js', 'Express', 'Tailwind CSS', 'Framer Motion', 'Chart.js'] },
-  { name: 'Data & Backend', items: ['Supabase', 'PostgreSQL', 'MongoDB', 'REST APIs'] },
-  { name: 'Testing & Tooling', items: ['Vitest', 'Playwright', 'pytest', 'Git', 'GitHub Actions', 'Vercel', 'Postman', 'Claude (agent dev)'] },
+  { name: 'Languages', items: ['Python', 'TypeScript', 'JavaScript', 'Java', 'C++', 'SQL', 'PowerShell', 'PineScript', 'HTML & CSS'] },
+  { name: 'Frameworks', items: ['React', 'Next.js', 'Node.js', 'Express', 'FastAPI', 'pandas', 'NumPy', 'Tailwind CSS', 'Framer Motion'] },
+  { name: 'AI & ML', items: ['LLM integration (Anthropic, Groq)', 'AI agents & tool-use (MCP)', 'Prompt engineering', 'Applied ML & meta-labelling'] },
+  { name: 'Testing & Tools', items: ['Vitest', 'Playwright', 'pytest', 'Git & GitHub Actions', 'Supabase', 'PostgreSQL', 'MongoDB', 'Vercel', 'Jupyter', 'Postman', 'TradingView'] },
 ]
 
 export type CharacterPanel = { title: string; copy: string }

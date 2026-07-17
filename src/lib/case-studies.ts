@@ -23,9 +23,9 @@ export const caseStudies: CaseStudy[] = [
     kicker: 'AI agent',
     title: 'JARVIS — voice-controlled AI assistant',
     year: '2026',
-    timeline: 'Built in public',
+    timeline: 'Open source · built in public',
     role: 'Solo — design, agent, infra',
-    stack: ['Claude agent', 'Electron', 'whisper.cpp', 'PowerShell', 'Windows Task Scheduler', 'Gmail SMTP', 'REST APIs'],
+    stack: ['Claude agent', 'Electron', 'whisper.cpp', 'PowerShell', 'Windows Task Scheduler', 'Telegram Bot API', 'REST APIs'],
     links: [{ label: 'GitHub', href: 'https://github.com/aleks-drozy/jarvis' }],
     metrics: [
       { value: '100%', label: 'Local speech-to-text' },
@@ -38,12 +38,14 @@ export const caseStudies: CaseStudy[] = [
         paragraphs: [
           'JARVIS is a personal AI butler that runs my mornings. A voice-controlled, Iron-Man-style HUD sits on top of a scheduled agent pipeline that runs fully unattended and reports back before I wake.',
           'The interface is an Electron HUD driven by 100% local speech-to-text (whisper.cpp), so voice never leaves the machine. Underneath, a headless Claude agent executes a daily routine against real APIs.',
+          'In July 2026 it went open source: a config-driven install with no personal values in the tree (CI-enforced), templated personality files so a fork sounds like its owner, secret-scanning CI, and adversarial-review-gated merges.',
         ],
       },
       {
         heading: 'The unattended pipeline',
         bullets: [
-          'Aggregates my git history, notes, and finances into a single grounded morning brief, then emails it via Gmail SMTP at 08:30.',
+          'Aggregates my git history, notes, job alerts, and a real bank feed (aggregates only) into a single grounded morning brief, then delivers it to my phone over Telegram at 08:30 — email optional.',
+          'Two-way Telegram remote: request a briefing or status from my phone, and text quick notes that surface in the next morning’s brief — with command de-duplication and at-most-once semantics.',
           'Runs on Windows Task Scheduler with no human in the loop — collectors are plain PowerShell, covered by unit tests.',
           'Integrates a jobs REST API (Jooble) for automated role discovery, with provider fallback and rate-aware querying.',
         ],
@@ -51,7 +53,7 @@ export const caseStudies: CaseStudy[] = [
       {
         heading: 'Safety and secrets',
         bullets: [
-          'Hard-coded safety rules: no financial actions, and email is self-only — the agent physically cannot message anyone but me.',
+          'Hard-coded safety rules: no financial actions, and every send is self-only — the send lock fails closed if no owner is configured.',
           'OAuth token management with DPAPI-encrypted credentials at rest.',
           'Failure alarms so a broken run surfaces loudly instead of failing silently.',
         ],
@@ -135,11 +137,14 @@ export const caseStudies: CaseStudy[] = [
     timeline: 'Final-year project',
     role: 'Research, implementation, evaluation',
     stack: ['Pine Script v6', 'TradingView', 'NQ1! futures', 'Walk-forward analysis'],
-    links: [{ label: 'GitHub', href: 'https://github.com/aleks-drozy/fyp-trading-strategy' }],
+    links: [
+      { label: 'GitHub', href: 'https://github.com/aleks-drozy/fyp-trading-strategy' },
+      { label: 'Research program', href: '/projects/fyp-strategy-engine' },
+    ],
     metrics: [
       { value: '56.94%', label: 'Win rate (in-sample)' },
-      { value: '+$28,400', label: 'Net P&L' },
-      { value: '1.703', label: 'Profit factor' },
+      { value: '+$28,400', label: 'In-sample P&L' },
+      { value: '1.703', label: 'In-sample profit factor' },
       { value: '72', label: 'Trades' },
     ],
     hasEquityCurve: true,
@@ -162,6 +167,12 @@ export const caseStudies: CaseStudy[] = [
         bullets: [
           'A 1-minute liquidity-sweep filter was the only added filter that helped: +7.76% win rate, +0.311 profit factor. It stayed.',
           'HTF EMA trend filter, minimum FVG-size filter, strong-candle filter, and a volume filter were all tested and cut — no meaningful edge, or worse.',
+        ],
+      },
+      {
+        heading: 'The sequel: the edge went on trial',
+        paragraphs: [
+          'After submission I built a six-phase, pre-registered research program around this strategy — a no-lookahead backtest engine, walk-forward validation, and frozen decision rules — to settle whether the +$28,400 was a real edge or period-specific tuning. It was tuning: across 10 years, three futures markets, and 1,402 out-of-sample trades, the edge did not survive. The full story is in the Quant Strategy Research Program case study.',
         ],
       },
     ],
@@ -216,12 +227,96 @@ export const caseStudies: CaseStudy[] = [
     ],
   },
   {
+    slug: 'monte-carlo-robustness',
+    kicker: 'Quant research',
+    title: 'Monte Carlo Robustness Study',
+    year: '2026',
+    role: 'Solo',
+    stack: ['Python', 'pandas', 'NumPy', 'Monte Carlo'],
+    links: [{ label: 'GitHub', href: 'https://github.com/aleks-drozy/Trading-Strategy-Monte-Carlo-Simulation' }],
+    sections: [
+      {
+        heading: 'What it is',
+        paragraphs: [
+          'A Monte Carlo stress-test of a real 72-trade NQ futures record. One equity curve is a single draw from a distribution — this study asks what the rest of that distribution looks like.',
+        ],
+      },
+      {
+        heading: 'Method',
+        bullets: [
+          'Bootstrap resampling and order-reshuffle simulations over the real trade sequence.',
+          'Drawdown-risk distributions instead of a single max-drawdown number.',
+          'An honest writeup of what the simulations do and do not establish.',
+        ],
+      },
+    ],
+  },
+  {
+    slug: 'polymarket-favourite-bias',
+    kicker: 'Quant research',
+    title: 'Polymarket Favourite Bias',
+    year: '2026',
+    role: 'Solo',
+    stack: ['Python', 'pandas', 'Pre-registration'],
+    links: [{ label: 'GitHub', href: 'https://github.com/aleks-drozy/polymarket-favourite-bias' }],
+    metrics: [
+      { value: '2,418', label: 'Resolved markets' },
+      { value: '90.6%', label: 'Favourites win' },
+      { value: '−1%', label: 'Return after fees' },
+      { value: 'NOT PROVEN', label: 'Verdict' },
+    ],
+    sections: [
+      {
+        heading: 'The question',
+        paragraphs: [
+          'Is blindly backing the favourite on Polymarket profitable? A pre-registered backtest over 2,418 resolved markets gives the answer: favourites win 90.6% of the time — and the strategy still loses about 1% after fees.',
+        ],
+      },
+      {
+        heading: 'Why it matters',
+        paragraphs: [
+          'A 90% win rate that loses money is exactly the kind of result that never survives an unregistered analysis — there is always a filter that "fixes" it. The verdict rule was frozen before the data was pulled, so NOT PROVEN is the finding, not a disappointment.',
+        ],
+      },
+    ],
+  },
+  {
+    slug: 'football-trajectory',
+    kicker: 'Quant research',
+    title: 'Football Career Trajectory Model',
+    year: '2026',
+    role: 'Solo',
+    stack: ['Python', 'pandas', 'Monte Carlo', 'FBref data'],
+    links: [{ label: 'GitHub', href: 'https://github.com/aleks-drozy/football-trajectory' }],
+    metrics: [
+      { value: '24,057', label: 'Player-seasons' },
+      { value: '6', label: 'Horizons tested' },
+      { value: '2025–26', label: 'Unseen holdout' },
+      { value: 'NOT PROVEN', label: 'Verdict' },
+    ],
+    sections: [
+      {
+        heading: 'The question',
+        paragraphs: [
+          'Can you project a teenager’s footballing career? A pre-registered Monte Carlo trajectory model with aging curves, built on 24,057 Big-5-league player-seasons from FBref and cross-checked against unseen 2025–26 data at six horizons.',
+        ],
+      },
+      {
+        heading: 'The verdict',
+        paragraphs: [
+          'NOT PROVEN: the model shows real skill, but its error bars are under-confident — and the pre-registered rule counts that as a fail. A model whose uncertainty cannot be trusted is not a model you can act on, however good its point estimates look.',
+        ],
+      },
+    ],
+  },
+  {
     slug: 'trading-dashboard',
     kicker: 'Full-stack',
     title: 'Trading Analytics Dashboard',
     year: '2026',
     role: 'Solo full-stack',
-    stack: ['TypeScript', 'Next.js', 'Python', 'Vitest', 'Vercel'],
+    timeline: '228 commits',
+    stack: ['TypeScript', 'Next.js', 'Python', 'FastAPI', 'Vitest', 'Vercel'],
     links: [
       { label: 'GitHub', href: 'https://github.com/aleks-drozy/Trading_Dashboard' },
       { label: 'Live app', href: 'https://tradingdashboard-one.vercel.app' },
