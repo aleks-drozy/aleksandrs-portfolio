@@ -109,7 +109,7 @@ export const alsoShipped: AlsoShipped[] = [
   {
     title: 'Trading Analytics Dashboard',
     blurb:
-      '228-commit full-stack trade journal and market-research app — Next.js dashboard, authenticated trade logging, analytics pages, a Python/FastAPI back end, tests, schemas, and Vercel deployment.',
+      '230+ commit full-stack trade journal and market-research app — Next.js dashboard, authenticated trade logging, analytics pages, a Python/FastAPI back end, tests, schemas, and Vercel deployment.',
     slug: 'trading-dashboard',
     github: 'https://github.com/aleks-drozy/Trading_Dashboard',
     live: 'https://tradingdashboard-one.vercel.app',
@@ -127,6 +127,14 @@ export const alsoShipped: AlsoShipped[] = [
       'Full-stack note-taking app with authentication, CRUD notes, private sharing, and role-based publishing.',
     slug: 'noteit',
     github: 'https://github.com/aleks-drozy/noteit',
+  },
+  {
+    title: 'Speed-to-Lead AI Agent',
+    blurb:
+      'AI receptionist that catches, qualifies, and books inbound leads in under 60 seconds — free-text chat, an owner dashboard with an ROI readout, and a one-line rebrand config. Public scripted demo; the production design pairs Claude with Supabase and calendar booking.',
+    slug: 'speed-to-lead',
+    github: 'https://github.com/aleks-drozy/speed-to-lead-demo',
+    live: 'https://aleks-drozy.github.io/speed-to-lead-demo/',
   },
   {
     title: 'Monte Carlo Robustness Study',
@@ -148,6 +156,7 @@ export const alsoShipped: AlsoShipped[] = [
       'Pre-registered Monte Carlo projection of young footballers’ careers on 24,057 FBref player-seasons, cross-checked on unseen 2025–26 data at six horizons. Verdict: NOT PROVEN — skilled but under-confident.',
     slug: 'football-trajectory',
     github: 'https://github.com/aleks-drozy/football-trajectory',
+    live: 'https://aleks-drozy.github.io/football-trajectory/',
   },
 ]
 
