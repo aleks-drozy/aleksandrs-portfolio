@@ -1,5 +1,7 @@
 # Aleksandrs Drozdovs Portfolio
 
+[![CI](https://github.com/aleks-drozy/aleksandrs-portfolio/actions/workflows/ci.yml/badge.svg?branch=master)](https://github.com/aleks-drozy/aleksandrs-portfolio/actions/workflows/ci.yml)
+
 Personal portfolio for graduate software engineering, full-stack, data tooling, and quantitative developer roles.
 
 Live at: [aleksandrs-portfolio.vercel.app](https://aleksandrs-portfolio.vercel.app)
