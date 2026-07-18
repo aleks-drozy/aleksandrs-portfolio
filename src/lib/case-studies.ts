@@ -68,7 +68,7 @@ export const caseStudies: CaseStudy[] = [
     timeline: '145 merged pull requests',
     role: 'Solo full-stack',
     stack: ['Next.js', 'TypeScript', 'Supabase', 'PostgreSQL', 'Groq (Llama 3.3 70B)', 'Vitest', 'Playwright'],
-    links: [{ label: 'Live app', href: 'https://personal-performance-os.vercel.app' }],
+    links: [{ label: 'Live app (DailyAtlas)', href: 'https://dailyatlas.vercel.app' }],
     metrics: [
       { value: '33', label: 'Postgres tables (RLS)' },
       { value: '28', label: 'Migrations' },
@@ -287,7 +287,11 @@ export const caseStudies: CaseStudy[] = [
     year: '2026',
     role: 'Solo',
     stack: ['Python', 'pandas', 'Monte Carlo', 'FBref data'],
-    links: [{ label: 'GitHub', href: 'https://github.com/aleks-drozy/football-trajectory' }],
+    links: [
+      { label: 'Live explorer', href: 'https://aleks-drozy.github.io/football-trajectory/' },
+      { label: 'GitHub', href: 'https://github.com/aleks-drozy/football-trajectory' },
+      { label: 'Predictions ledger', href: 'https://github.com/aleks-drozy/football-trajectory/blob/master/PREDICTIONS.md' },
+    ],
     metrics: [
       { value: '24,057', label: 'Player-seasons' },
       { value: '6', label: 'Horizons tested' },
@@ -310,12 +314,51 @@ export const caseStudies: CaseStudy[] = [
     ],
   },
   {
+    slug: 'speed-to-lead',
+    kicker: 'AI agent · product demo',
+    title: 'Speed-to-Lead AI Agent',
+    year: '2026',
+    role: 'Solo — product, engineering, demo',
+    stack: ['JavaScript', 'Claude', 'Supabase', 'Cal.com', 'GitHub Pages'],
+    links: [
+      { label: 'Live demo', href: 'https://aleks-drozy.github.io/speed-to-lead-demo/' },
+      { label: 'GitHub', href: 'https://github.com/aleks-drozy/speed-to-lead-demo' },
+    ],
+    metrics: [
+      { value: '<60s', label: 'Lead to booked slot' },
+      { value: 'Free text', label: 'Not a button tree' },
+      { value: '1 line', label: 'Rebrand config' },
+    ],
+    sections: [
+      {
+        heading: 'What it is',
+        paragraphs: [
+          'An AI receptionist for local businesses that lose enquiries to slow follow-up: a website visitor gets an instant reply, is qualified (issue, urgency, contact, area), booked into a slot, and the owner is notified — with a lead-inbox dashboard showing leads caught versus missed, and the revenue that follow-up speed saves.',
+        ],
+      },
+      {
+        heading: 'The demo, honestly labelled',
+        bullets: [
+          'The public demo is a scripted conversation engine in self-contained vanilla HTML/CSS/JS — zero external calls, zero API cost — so anyone can play a full lead-capture run and flip to the owner view without keys or setup.',
+          'It still understands free text, not just button taps, with instant human-feeling chat: typing indicators, timestamps, "replied in 2s."',
+          'A single CONFIG block rebrands the whole product — business, colours, services, ROI copy — in one line.',
+        ],
+      },
+      {
+        heading: 'Production design',
+        paragraphs: [
+          'The production version is an embeddable Next.js widget with Claude running the conversation, Cal.com / Google Calendar for booking, a multi-tenant Supabase lead store behind Row-Level Security, and Resend / Twilio for owner alerts.',
+        ],
+      },
+    ],
+  },
+  {
     slug: 'trading-dashboard',
     kicker: 'Full-stack',
     title: 'Trading Analytics Dashboard',
     year: '2026',
     role: 'Solo full-stack',
-    timeline: '228 commits',
+    timeline: '230+ commits',
     stack: ['TypeScript', 'Next.js', 'Python', 'FastAPI', 'Vitest', 'Vercel'],
     links: [
       { label: 'GitHub', href: 'https://github.com/aleks-drozy/Trading_Dashboard' },
