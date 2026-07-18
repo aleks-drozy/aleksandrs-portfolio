@@ -22,12 +22,19 @@ describe('caseStudies', () => {
     }
   })
 
-  it('links all have a label and an https URL', () => {
+  it('links all have a label and resolve (https, or an internal case-study path)', () => {
     for (const cs of caseStudies) {
       expect(cs.links.length).toBeGreaterThan(0)
       for (const link of cs.links) {
         expect(link.label.trim()).not.toBe('')
-        expect(new URL(link.href).protocol).toBe('https:')
+        if (link.href.startsWith('/')) {
+          // internal cross-links between case studies must not 404
+          const slug = link.href.match(/^\/projects\/([^/]+)$/)?.[1]
+          expect(slug, `internal link "${link.href}" is not a /projects/<slug> path`).toBeDefined()
+          expect(getCaseStudy(slug!), `internal link "${link.href}" points at a missing case study`).toBeDefined()
+        } else {
+          expect(new URL(link.href).protocol).toBe('https:')
+        }
       }
     }
   })
