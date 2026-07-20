@@ -172,7 +172,7 @@ export const caseStudies: CaseStudy[] = [
       {
         heading: 'The sequel: the edge went on trial',
         paragraphs: [
-          'After submission I built a six-phase, pre-registered research program around this strategy — a no-lookahead backtest engine, walk-forward validation, and frozen decision rules — to settle whether the +$28,400 was a real edge or period-specific tuning. It was tuning: across 10 years, three futures markets, and 1,402 out-of-sample trades, the edge did not survive. The full story is in the Quant Strategy Research Program case study.',
+          'After submission I built a six-phase, pre-registered research program around this strategy — a no-lookahead backtest engine, walk-forward validation, and frozen decision rules — to settle whether the +$28,400 was a real edge or period-specific tuning. It was tuning: across ~10 years, three futures markets, and 1,402 out-of-sample trades, the edge did not survive. The full story is in the Quant Strategy Research Program case study.',
         ],
       },
     ],
@@ -319,13 +319,13 @@ export const caseStudies: CaseStudy[] = [
     title: 'Speed-to-Lead AI Agent',
     year: '2026',
     role: 'Solo — product, engineering, demo',
-    stack: ['JavaScript', 'Claude', 'Supabase', 'Cal.com', 'GitHub Pages'],
+    stack: ['JavaScript', 'HTML/CSS', 'GitHub Pages'],
     links: [
       { label: 'Live demo', href: 'https://aleks-drozy.github.io/speed-to-lead-demo/' },
       { label: 'GitHub', href: 'https://github.com/aleks-drozy/speed-to-lead-demo' },
     ],
     metrics: [
-      { value: '<60s', label: 'Lead to booked slot' },
+      { value: '0 deps', label: 'Self-contained demo' },
       { value: 'Free text', label: 'Not a button tree' },
       { value: '1 line', label: 'Rebrand config' },
     ],
@@ -333,7 +333,7 @@ export const caseStudies: CaseStudy[] = [
       {
         heading: 'What it is',
         paragraphs: [
-          'An AI receptionist for local businesses that lose enquiries to slow follow-up: a website visitor gets an instant reply, is qualified (issue, urgency, contact, area), booked into a slot, and the owner is notified — with a lead-inbox dashboard showing leads caught versus missed, and the revenue that follow-up speed saves.',
+          'A prototype AI receptionist for local businesses that lose enquiries to slow follow-up: a website visitor gets an instant reply and is qualified (issue, urgency, contact, area), with a lead-inbox dashboard showing leads caught versus missed and the revenue that follow-up speed saves. Booking and owner alerts are designed, not yet built.',
         ],
       },
       {
@@ -347,7 +347,7 @@ export const caseStudies: CaseStudy[] = [
       {
         heading: 'Production design',
         paragraphs: [
-          'The production version is an embeddable Next.js widget with Claude running the conversation, Cal.com / Google Calendar for booking, a multi-tenant Supabase lead store behind Row-Level Security, and Resend / Twilio for owner alerts.',
+          'The production version, not yet built, would be an embeddable Next.js widget with Claude running the conversation, Cal.com / Google Calendar for booking, a multi-tenant Supabase lead store behind Row-Level Security, and Resend / Twilio for owner alerts.',
         ],
       },
     ],
