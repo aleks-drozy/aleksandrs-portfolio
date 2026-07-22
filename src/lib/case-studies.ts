@@ -281,6 +281,51 @@ export const caseStudies: CaseStudy[] = [
     ],
   },
   {
+    slug: 'dublin-bikes-forecast',
+    kicker: 'Live ML · self-scoring',
+    title: 'Dublin Bikes Forecast',
+    year: '2026',
+    role: 'Solo — research, engineering, ops, design',
+    stack: ['Python', 'scikit-learn', 'pandas', 'GitHub Actions', 'Oracle Cloud VM'],
+    links: [
+      { label: 'Live scoreboard', href: 'https://aleks-drozy.github.io/dublin-bikes-forecast/' },
+      { label: 'GitHub', href: 'https://github.com/aleks-drozy/dublin-bikes-forecast' },
+      { label: 'Offline validation report', href: 'https://github.com/aleks-drozy/dublin-bikes-forecast/blob/main/reports/p2/REPORT.md' },
+    ],
+    metrics: [
+      { value: '671K', label: 'Training rows' },
+      { value: '8/8', label: 'Offline CIs positive' },
+      { value: '68', label: 'Tests' },
+      { value: 'PENDING', label: '28-day live verdict' },
+    ],
+    sections: [
+      {
+        heading: 'The claim',
+        paragraphs: [
+          'Twice a day, a frozen gradient-boosted model publishes the probability that each Dublin Bikes station will have a bike, and a free dock, at the next commute window (08:30 and 17:30). The forecasts answer a real commuter question — and they are the only kind of ML claim that cannot be dressed up afterwards, because they are scored live, in public, against pre-registered baselines.',
+        ],
+      },
+      {
+        heading: 'Why it cannot cheat',
+        paragraphs: [
+          'Every forecast is appended to a git ledger and pushed before its target time exists; the commit timestamp is the proof. Baselines (station climatology and persistence) are computed at issuance and stored inside each ledger row, so scoring can never recompute them with hindsight. Missed polls, feed gaps, and out-of-service stations are counted and published, never dropped. The verdict gate — beat both baselines at the overnight horizon over 28 scored days, day-clustered bootstrap 95% CIs excluding zero — was committed to the repo before the first byte of data was collected.',
+        ],
+      },
+      {
+        heading: 'Validation before deployment',
+        paragraphs: [
+          'The model earned its deployment offline first: trained on 671,312 forecast rows built from two years of Smart Dublin archive data (after proving the archive’s undocumented timestamps were UTC from commute-flux patterns), evaluated by 17-fold expanding-window monthly cross-validation, then a three-month held-out test touched exactly once. All eight Brier-skill confidence intervals came back positive and the reliability curves sat on the diagonal. The pipeline is leakage-guard tested: mutating any data after a forecast’s issuance instant cannot change that forecast.',
+        ],
+      },
+      {
+        heading: 'The first night',
+        paragraphs: [
+          'Hours after going live, a poll process died mid-write and wedged the pipeline; the next morning’s forecasts scored as UNSCOREABLE_GAP — 228 rows of honest failure, permanently in the public record. The fix shipped the same morning with a self-healing recovery routine and a regression test for the exact failure class. A system that documents its own outages is the point: the 28-day verdict, PASS or NOT PROVEN, will mean something either way.',
+        ],
+      },
+    ],
+  },
+  {
     slug: 'football-trajectory',
     kicker: 'Quant research',
     title: 'Football Career Trajectory Model',
