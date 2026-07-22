@@ -2,7 +2,7 @@
 
 **Date:** 2026-06-02
 **Owner:** Aleksandrs Drozdovs
-**Builds on:** `2026-04-17-portfolio-redesign-design.md`
+**Builds on:** `2026-04-17-portfolio-redesign.md`
 **Purpose:** Sync the live portfolio to the current CV by featuring the two strongest (currently missing) projects, sharpening the hero proof, and removing low-signal content — without a visual redesign.
 
 ## Problem
