@@ -10,7 +10,7 @@ export const site = {
   status: 'Open to 2026 roles',
   location: 'Dublin, Ireland',
   lede:
-    'Computer Science & Software Engineering graduate (Maynooth, 2026). I ship production systems end-to-end — two live SaaS apps, an agentic AI assistant, and a six-phase pre-registered quant research program. Tested, documented, and honest about the results.',
+    'Computer Science & Software Engineering graduate (Maynooth, 2026). I ship production systems end-to-end — two live SaaS apps, an agentic AI assistant, a live self-scoring ML forecasting service, and a six-phase pre-registered quant research program. Tested, documented, and honest about the results.',
   email: 'aleksandrs.drozdovs2005@gmail.com',
   phone: '089 257 1418',
   cvUrl: '/cv.pdf',
@@ -37,6 +37,20 @@ export type Exhibit = {
 export const exhibits: Exhibit[] = [
   {
     fig: 'Fig. 02',
+    kicker: 'Live ML · self-scoring',
+    title: 'Dublin Bikes Forecast',
+    blurb:
+      'A live forecasting service that predicts bike and dock availability across all ~115 Dublin Bikes stations at the 08:30 and 17:30 commute windows — and grades itself in public. Every forecast is committed to a git ledger before its target time exists, so the track record cannot be edited or restarted. A pre-registered 28-day gate decides the verdict on the public scoreboard: beat both climatology and persistence baselines with day-clustered bootstrap CIs, or the site says NOT PROVEN. Offline validation cleared all eight confidence intervals before deployment; when the first night’s infrastructure failed, the ledger recorded its own outage as unscoreable — the accounting is the product.',
+    tags: ['Python', 'scikit-learn', 'GitHub Actions', 'Oracle Cloud', 'GBFS'],
+    stats: [
+      { value: '671K', label: 'Training rows' },
+      { value: '2×/day', label: 'Live forecasts' },
+      { value: '28 days', label: 'Public verdict gate' },
+    ],
+    slug: 'dublin-bikes-forecast',
+  },
+  {
+    fig: 'Fig. 03',
     kicker: 'AI agent',
     title: 'JARVIS — voice-controlled AI assistant',
     blurb:
@@ -45,7 +59,7 @@ export const exhibits: Exhibit[] = [
     slug: 'jarvis',
   },
   {
-    fig: 'Fig. 03',
+    fig: 'Fig. 04',
     kicker: 'Full-stack SaaS',
     title: 'Personal Performance OS',
     blurb:
@@ -59,7 +73,7 @@ export const exhibits: Exhibit[] = [
     slug: 'personal-performance-os',
   },
   {
-    fig: 'Fig. 04',
+    fig: 'Fig. 05',
     kicker: 'Live SaaS · my sport',
     title: 'Maken — AI weight-cut SaaS',
     blurb:
@@ -68,11 +82,11 @@ export const exhibits: Exhibit[] = [
     slug: 'maken',
   },
   {
-    fig: 'Fig. 05',
+    fig: 'Fig. 06',
     kicker: 'Quant research',
     title: 'NASDAQ-100 FYP Strategy',
     blurb:
-      'Final-year Pine Script v6 strategy for NQ1! E-mini futures using Inverse Fair Value Gaps, Change in State of Delivery, and a liquidity-sweep filter, with fixed risk rules and honestly documented out-of-sample caveats. The sequel (Fig. 06) put this edge on trial — and disproved it.',
+      'Final-year Pine Script v6 strategy for NQ1! E-mini futures using Inverse Fair Value Gaps, Change in State of Delivery, and a liquidity-sweep filter, with fixed risk rules and honestly documented out-of-sample caveats. The sequel (Fig. 07) put this edge on trial — and disproved it.',
     tags: ['Pine Script v6', 'TradingView', 'Walk-forward'],
     stats: [
       { value: '56.94%', label: 'In-sample win rate' },
@@ -82,7 +96,7 @@ export const exhibits: Exhibit[] = [
     slug: 'fyp-trading-strategy',
   },
   {
-    fig: 'Fig. 06',
+    fig: 'Fig. 07',
     kicker: 'Quant research · capstone',
     title: 'Quant Strategy Research Program',
     blurb:
