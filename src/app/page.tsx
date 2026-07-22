@@ -106,7 +106,7 @@ export default function Home() {
         {/* ---------- SELECTED WORK ---------- */}
         <section id="work">
           <div className={`${CONTAINER} py-20 md:py-28`}>
-            <SectionHeader eyebrow="Selected work" title="Five exhibits, one direction." index="02 / EVIDENCE" />
+            <SectionHeader eyebrow="Selected work" title="Six exhibits, one direction." index="02 / EVIDENCE" />
 
             <div>
               {exhibits.map((ex, i) => (
