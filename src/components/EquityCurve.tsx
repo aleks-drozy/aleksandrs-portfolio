@@ -38,7 +38,7 @@ export function EquityCurve() {
     <figure className="m-0 border border-hair bg-surface p-5 shadow-[0_18px_40px_-28px_rgba(18,21,28,0.35)]">
       <figcaption className="mb-3 flex items-baseline justify-between font-mono text-[10.5px] uppercase tracking-[0.08em] text-ink-3">
         <span>
-          Fig. 01 — <span className="text-ink">NASDAQ-100 FYP strategy</span>
+          Fig. 01 – <span className="text-ink">NASDAQ-100 FYP strategy</span>
         </span>
         <span>Equity · in-sample</span>
       </figcaption>

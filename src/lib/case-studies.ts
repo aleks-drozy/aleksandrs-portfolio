@@ -21,10 +21,10 @@ export const caseStudies: CaseStudy[] = [
   {
     slug: 'jarvis',
     kicker: 'AI agent',
-    title: 'JARVIS — voice-controlled AI assistant',
+    title: 'JARVIS – voice-controlled AI assistant',
     year: '2026',
     timeline: 'Open source · built in public',
-    role: 'Solo — design, agent, infra',
+    role: 'Solo – design, agent, infra',
     stack: ['Claude agent', 'Electron', 'whisper.cpp', 'PowerShell', 'Windows Task Scheduler', 'Telegram Bot API', 'REST APIs'],
     links: [{ label: 'GitHub', href: 'https://github.com/aleks-drozy/jarvis' }],
     metrics: [
@@ -44,16 +44,16 @@ export const caseStudies: CaseStudy[] = [
       {
         heading: 'The unattended pipeline',
         bullets: [
-          'Aggregates my git history, notes, job alerts, and a real bank feed (aggregates only) into a single grounded morning brief, then delivers it to my phone over Telegram at 08:30 — email optional.',
-          'Two-way Telegram remote: request a briefing or status from my phone, and text quick notes that surface in the next morning’s brief — with command de-duplication and at-most-once semantics.',
-          'Runs on Windows Task Scheduler with no human in the loop — collectors are plain PowerShell, covered by unit tests.',
+          'Aggregates my git history, notes, job alerts, and a real bank feed (aggregates only) into a single grounded morning brief, then delivers it to my phone over Telegram at 08:30 – email optional.',
+          'Two-way Telegram remote: request a briefing or status from my phone, and text quick notes that surface in the next morning’s brief – with command de-duplication and at-most-once semantics.',
+          'Runs on Windows Task Scheduler with no human in the loop – collectors are plain PowerShell, covered by unit tests.',
           'Integrates a jobs REST API (Jooble) for automated role discovery, with provider fallback and rate-aware querying.',
         ],
       },
       {
         heading: 'Safety and secrets',
         bullets: [
-          'Hard-coded safety rules: no financial actions, and every send is self-only — the send lock fails closed if no owner is configured.',
+          'Hard-coded safety rules: no financial actions, and every send is self-only – the send lock fails closed if no owner is configured.',
           'OAuth token management with DPAPI-encrypted credentials at rest.',
           'Failure alarms so a broken run surfaces loudly instead of failing silently.',
         ],
@@ -78,7 +78,7 @@ export const caseStudies: CaseStudy[] = [
       {
         heading: 'What it is',
         paragraphs: [
-          'A production "operating system" for training, food, habits, tasks, and ideas — shipped solo across 145 merged pull requests. It is the app I actually use to run my own week.',
+          'A production "operating system" for training, food, habits, tasks, and ideas – shipped solo across 145 merged pull requests. It is the app I actually use to run my own week.',
         ],
       },
       {
@@ -100,7 +100,7 @@ export const caseStudies: CaseStudy[] = [
   {
     slug: 'maken',
     kicker: 'Live SaaS · my sport',
-    title: 'Maken — AI weight-cut SaaS',
+    title: 'Maken – AI weight-cut SaaS',
     year: '2026',
     timeline: 'Live with alpha users',
     role: 'Solo full-stack',
@@ -159,20 +159,20 @@ export const caseStudies: CaseStudy[] = [
         heading: 'Honest results',
         paragraphs: [
           'In-sample (Jan 2025 – Feb 2026): 56.94% win rate, +$28,400 net P&L, 1.703 profit factor, 0.95% max drawdown across 72 trades.',
-          'Out-of-sample (Jan 2023 – Dec 2024): 36.27% win rate, 0.855 profit factor, −$15,650. Reporting the weaker out-of-sample period is deliberate — it shows awareness of overfitting and market-regime risk rather than hiding it.',
+          'Out-of-sample (Jan 2023 – Dec 2024): 36.27% win rate, 0.855 profit factor, −$15,650. Reporting the weaker out-of-sample period is deliberate – it shows awareness of overfitting and market-regime risk rather than hiding it.',
         ],
       },
       {
         heading: 'What survived testing',
         bullets: [
           'A 1-minute liquidity-sweep filter was the only added filter that helped: +7.76% win rate, +0.311 profit factor. It stayed.',
-          'HTF EMA trend filter, minimum FVG-size filter, strong-candle filter, and a volume filter were all tested and cut — no meaningful edge, or worse.',
+          'HTF EMA trend filter, minimum FVG-size filter, strong-candle filter, and a volume filter were all tested and cut – no meaningful edge, or worse.',
         ],
       },
       {
         heading: 'The sequel: the edge went on trial',
         paragraphs: [
-          'After submission I built a six-phase, pre-registered research program around this strategy — a no-lookahead backtest engine, walk-forward validation, and frozen decision rules — to settle whether the +$28,400 was a real edge or period-specific tuning. It was tuning: across ~10 years, three futures markets, and 1,402 out-of-sample trades, the edge did not survive. The full story is in the Quant Strategy Research Program case study.',
+          'After submission I built a six-phase, pre-registered research program around this strategy – a no-lookahead backtest engine, walk-forward validation, and frozen decision rules – to settle whether the +$28,400 was a real edge or period-specific tuning. It was tuning: across ~10 years, three futures markets, and 1,402 out-of-sample trades, the edge did not survive. The full story is in the Quant Strategy Research Program case study.',
         ],
       },
     ],
@@ -199,7 +199,7 @@ export const caseStudies: CaseStudy[] = [
       {
         heading: 'The question',
         paragraphs: [
-          'My FYP strategy showed +$28,400 in backtests. "Impressive on paper" is exactly what overfitting looks like, so I built a research program to find out whether the edge was real — designed so I could not fool myself.',
+          'My FYP strategy showed +$28,400 in backtests. "Impressive on paper" is exactly what overfitting looks like, so I built a research program to find out whether the edge was real – designed so I could not fool myself.',
         ],
       },
       {
@@ -208,20 +208,20 @@ export const caseStudies: CaseStudy[] = [
           'Every phase pre-registered: grids, folds, floors, and the full verdict decision table were frozen and git-timestamped before each run; the runner recomputes the config hash and refuses to run on mismatch.',
           'A bar-by-bar backtest engine with no lookahead, regression-locked across refactors (results reproduce to 12 decimal places).',
           'Leak-free walk-forward optimisation, Monte Carlo bootstrap robustness studies, an ML trade-filter experiment, and day-cluster bootstrap confidence intervals built for correlated instruments.',
-          'Adversarial design reviews before every build phase — 19 blockers caught and fixed before any result was produced.',
+          'Adversarial design reviews before every build phase – 19 blockers caught and fixed before any result was produced.',
         ],
       },
       {
         heading: 'The verdict',
         paragraphs: [
-          'Run with zero re-tuning over ten years of S&P, Dow, and independent-vendor Nasdaq futures, the frozen hypothesis lost everywhere: pooled profit factor 0.905 with the entire 90% confidence interval below breakeven across 1,402 out-of-sample trades. The pre-registered rule — which could equally have said "proven" — said DISPROVEN. The original edge was period-specific tuning, not a persistent effect.',
+          'Run with zero re-tuning over ten years of S&P, Dow, and independent-vendor Nasdaq futures, the frozen hypothesis lost everywhere: pooled profit factor 0.905 with the entire 90% confidence interval below breakeven across 1,402 out-of-sample trades. The pre-registered rule – which could equally have said "proven" – said DISPROVEN. The original edge was period-specific tuning, not a persistent effect.',
           'Bonus finding: the validation gates forensically identified four defect classes in the original dataset, including a ±60-minute DST timestamp bug, proven with lag-correlation evidence and a cross-instrument referee test.',
         ],
       },
       {
         heading: 'Why it matters',
         paragraphs: [
-          'Anyone can produce a winning backtest. This project demonstrates the ability to design the experiment that determines whether it is real — and to accept the answer either way.',
+          'Anyone can produce a winning backtest. This project demonstrates the ability to design the experiment that determines whether it is real – and to accept the answer either way.',
         ],
       },
     ],
@@ -238,7 +238,7 @@ export const caseStudies: CaseStudy[] = [
       {
         heading: 'What it is',
         paragraphs: [
-          'A Monte Carlo stress-test of a real 72-trade NQ futures record. One equity curve is a single draw from a distribution — this study asks what the rest of that distribution looks like.',
+          'A Monte Carlo stress-test of a real 72-trade NQ futures record. One equity curve is a single draw from a distribution – this study asks what the rest of that distribution looks like.',
         ],
       },
       {
@@ -269,13 +269,13 @@ export const caseStudies: CaseStudy[] = [
       {
         heading: 'The question',
         paragraphs: [
-          'Is blindly backing the favourite on Polymarket profitable? A pre-registered backtest over 2,418 resolved markets gives the answer: favourites win 90.6% of the time — and the strategy still loses about 1% after fees.',
+          'Is blindly backing the favourite on Polymarket profitable? A pre-registered backtest over 2,418 resolved markets gives the answer: favourites win 90.6% of the time – and the strategy still loses about 1% after fees.',
         ],
       },
       {
         heading: 'Why it matters',
         paragraphs: [
-          'A 90% win rate that loses money is exactly the kind of result that never survives an unregistered analysis — there is always a filter that "fixes" it. The verdict rule was frozen before the data was pulled, so NOT PROVEN is the finding, not a disappointment.',
+          'A 90% win rate that loses money is exactly the kind of result that never survives an unregistered analysis – there is always a filter that "fixes" it. The verdict rule was frozen before the data was pulled, so NOT PROVEN is the finding, not a disappointment.',
         ],
       },
     ],
@@ -285,7 +285,7 @@ export const caseStudies: CaseStudy[] = [
     kicker: 'Live ML · self-scoring',
     title: 'Dublin Bikes Forecast',
     year: '2026',
-    role: 'Solo — research, engineering, ops, design',
+    role: 'Solo – research, engineering, ops, design',
     stack: ['Python', 'scikit-learn', 'pandas', 'GitHub Actions', 'Oracle Cloud VM'],
     links: [
       { label: 'Live scoreboard', href: 'https://aleks-drozy.github.io/dublin-bikes-forecast/' },
@@ -302,13 +302,13 @@ export const caseStudies: CaseStudy[] = [
       {
         heading: 'The claim',
         paragraphs: [
-          'Twice a day, a frozen gradient-boosted model publishes the probability that each Dublin Bikes station will have a bike, and a free dock, at the next commute window (08:30 and 17:30). The forecasts answer a real commuter question — and they are the only kind of ML claim that cannot be dressed up afterwards, because they are scored live, in public, against pre-registered baselines.',
+          'Twice a day, a frozen gradient-boosted model publishes the probability that each Dublin Bikes station will have a bike, and a free dock, at the next commute window (08:30 and 17:30). The forecasts answer a real commuter question – and they are the only kind of ML claim that cannot be dressed up afterwards, because they are scored live, in public, against pre-registered baselines.',
         ],
       },
       {
         heading: 'Why it cannot cheat',
         paragraphs: [
-          'Every forecast is appended to a git ledger and pushed before its target time exists; the commit timestamp is the proof. Baselines (station climatology and persistence) are computed at issuance and stored inside each ledger row, so scoring can never recompute them with hindsight. Missed polls, feed gaps, and out-of-service stations are counted and published, never dropped. The verdict gate — beat both baselines at the overnight horizon over 28 scored days, day-clustered bootstrap 95% CIs excluding zero — was committed to the repo before the first byte of data was collected.',
+          'Every forecast is appended to a git ledger and pushed before its target time exists; the commit timestamp is the proof. Baselines (station climatology and persistence) are computed at issuance and stored inside each ledger row, so scoring can never recompute them with hindsight. Missed polls, feed gaps, and out-of-service stations are counted and published, never dropped. The verdict gate – beat both baselines at the overnight horizon over 28 scored days, day-clustered bootstrap 95% CIs excluding zero – was committed to the repo before the first byte of data was collected.',
         ],
       },
       {
@@ -320,7 +320,7 @@ export const caseStudies: CaseStudy[] = [
       {
         heading: 'The first night',
         paragraphs: [
-          'Hours after going live, a poll process died mid-write and wedged the pipeline; the next morning’s forecasts scored as UNSCOREABLE_GAP — 228 rows of honest failure, permanently in the public record. The fix shipped the same morning with a self-healing recovery routine and a regression test for the exact failure class. A system that documents its own outages is the point: the 28-day verdict, PASS or NOT PROVEN, will mean something either way.',
+          'Hours after going live, a poll process died mid-write and wedged the pipeline; the next morning’s forecasts scored as UNSCOREABLE_GAP – 228 rows of honest failure, permanently in the public record. The fix shipped the same morning with a self-healing recovery routine and a regression test for the exact failure class. A system that documents its own outages is the point: the 28-day verdict, PASS or NOT PROVEN, will mean something either way.',
         ],
       },
     ],
@@ -353,7 +353,7 @@ export const caseStudies: CaseStudy[] = [
       {
         heading: 'The verdict',
         paragraphs: [
-          'NOT PROVEN: the model shows real skill, but its error bars are under-confident — and the pre-registered rule counts that as a fail. A model whose uncertainty cannot be trusted is not a model you can act on, however good its point estimates look.',
+          'NOT PROVEN: the model shows real skill, but its error bars are under-confident – and the pre-registered rule counts that as a fail. A model whose uncertainty cannot be trusted is not a model you can act on, however good its point estimates look.',
         ],
       },
     ],
@@ -363,7 +363,7 @@ export const caseStudies: CaseStudy[] = [
     kicker: 'AI agent · product demo',
     title: 'Speed-to-Lead AI Agent',
     year: '2026',
-    role: 'Solo — product, engineering, demo',
+    role: 'Solo – product, engineering, demo',
     stack: ['JavaScript', 'HTML/CSS', 'GitHub Pages'],
     links: [
       { label: 'Live demo', href: 'https://aleks-drozy.github.io/speed-to-lead-demo/' },
@@ -384,9 +384,9 @@ export const caseStudies: CaseStudy[] = [
       {
         heading: 'The demo, honestly labelled',
         bullets: [
-          'The public demo is a scripted conversation engine in self-contained vanilla HTML/CSS/JS — zero external calls, zero API cost — so anyone can play a full lead-capture run and flip to the owner view without keys or setup.',
+          'The public demo is a scripted conversation engine in self-contained vanilla HTML/CSS/JS – zero external calls, zero API cost – so anyone can play a full lead-capture run and flip to the owner view without keys or setup.',
           'It still understands free text, not just button taps, with instant human-feeling chat: typing indicators, timestamps, "replied in 2s."',
-          'A single CONFIG block rebrands the whole product — business, colours, services, ROI copy — in one line.',
+          'A single CONFIG block rebrands the whole product – business, colours, services, ROI copy – in one line.',
         ],
       },
       {
@@ -446,6 +446,129 @@ export const caseStudies: CaseStudy[] = [
         bullets: [
           'Benchmarks SMA Crossover and RSI Mean Reversion against the FYP IFVG+CISD strategy on a common, reproducible harness.',
           'Modular strategy modules with test coverage; GitHub Actions auto-updates results on every push.',
+        ],
+      },
+    ],
+  },
+  {
+    slug: 'options-pricing-engine',
+    kicker: 'Quant research',
+    title: 'Options Pricing Engine',
+    year: '2026',
+    timeline: 'Built in one day',
+    role: 'Solo – research, engineering, validation',
+    stack: ['Python', 'Black-Scholes', 'CRR Binomial Trees', 'Monte Carlo', 'Implied Volatility'],
+    links: [
+      { label: 'GitHub', href: 'https://github.com/aleks-drozy/options-pricing-engine' },
+      { label: 'Live explorer', href: 'https://aleks-drozy.github.io/options-pricing-engine/' },
+    ],
+    metrics: [
+      { value: '7/7', label: 'Validation gates pass' },
+      { value: '2.84e-14', label: 'Put-call parity precision' },
+      { value: '95%', label: 'MC/BS CI coverage, 200 seeds' },
+      { value: '59', label: 'Tests, no network' },
+    ],
+    sections: [
+      {
+        heading: 'What it is',
+        paragraphs: [
+          'Three independent vanilla-option pricers, a Black-Scholes closed form, a CRR binomial tree with American exercise, and a seeded Monte Carlo simulation, that should all agree, and a set of gates that prove whether they actually do.',
+        ],
+      },
+      {
+        heading: 'Seven gates, all passing',
+        bullets: [
+          'Put-call parity holds to 2.84e-14 in the closed form, and across all 16 grid points in the Monte Carlo version.',
+          'Tree-to-Black-Scholes convergence shrinks cleanly from 200 to 2,000 steps; Monte Carlo-to-Black-Scholes convergence holds correct 95% confidence-interval coverage over 200 seeds.',
+          'Closed-form and finite-difference Greeks agree to 5.57e-6 relative error; no-arbitrage (American price at least the European price) holds with zero violations.',
+        ],
+      },
+      {
+        heading: 'The market disagrees with all three',
+        paragraphs: [
+          'Turning the validated engine on a real SPY option-chain snapshot and inverting market prices back to volatility surfaces the smile: the market quotes a different sigma at every strike, spanning 13.6 to 15.9% at-the-money across a 9 to 90 day window. Flat-vol Black-Scholes says that is impossible, the smile is the market pricing in the fat tails and skew a lognormal model assumes away.',
+        ],
+      },
+      {
+        heading: 'Why it matters',
+        paragraphs: [
+          'Built in one day via a Claude-Code-driven, subagent-based TDD plan with independent per-task review and a final adversarial whole-branch pass. A live GitHub Pages explorer with sliders for every pricing input carries a self-check badge that re-verifies all seven gates on every load, the numbers are regenerated, not hand-typed.',
+        ],
+      },
+    ],
+  },
+  {
+    slug: 'jobq',
+    kicker: 'Systems programming',
+    title: 'jobq, durable job queue',
+    year: '2026',
+    timeline: 'Built from scratch, standard library only',
+    role: 'Solo',
+    stack: ['Go', 'Write-Ahead Log', 'Property-Based Testing'],
+    links: [{ label: 'GitHub', href: 'https://github.com/aleks-drozy/jobq' }],
+    metrics: [
+      { value: '65µs', label: 'Per-op under 16 producers' },
+      { value: '5/5', label: 'Crash rounds survived' },
+      { value: '0', label: 'Jobs lost or resurrected' },
+    ],
+    sections: [
+      {
+        heading: 'What it is',
+        paragraphs: [
+          'A durable, single-node job queue written from scratch in Go using only the standard library, the systems-programming piece, built to be explained rather than just to run. At-least-once delivery, leases with lazy expiry, retries with per-job attempt budgets, delayed jobs, and dead-letter queues.',
+        ],
+      },
+      {
+        heading: 'Proving durability',
+        bullets: [
+          'A segmented, CRC-checked write-ahead log with group commit: actors hand encoded records to a single committer, so sixteen producers share one fsync instead of paying for sixteen, cutting per-operation cost from 550µs sequential to 65µs under load.',
+          'A crash harness kills the process cold, mid-write, at a random moment, across 5 rounds. Result: zero acknowledged jobs lost, zero resurrected, duplicates counted and permitted under the at-least-once contract.',
+          'Two invariants verified under the race detector: conservation (every job accounted for in exactly one state across thousands of randomized interleavings) and unique settlement (exactly one lease Ack ever succeeds per job).',
+        ],
+      },
+      {
+        heading: 'Why it matters',
+        paragraphs: [
+          'An actor-per-topic design, one goroutine per topic, no global mutex, means unrelated topics never contend and lease expiry is never a race. Everything is measured, not asserted: the README’s benchmark table is regenerated from the same harness a reader can run themselves.',
+        ],
+      },
+    ],
+  },
+  {
+    slug: 'ghost-bus-tracker',
+    kicker: 'Data engineering, public impact',
+    title: 'Ghost Bus Tracker',
+    year: '2026',
+    role: 'Solo – research, engineering, ops',
+    stack: ['Python', 'GTFS-Realtime', 'Oracle Cloud', 'systemd'],
+    links: [
+      { label: 'Live site', href: 'https://aleks-drozy.github.io/ghost-bus/' },
+      { label: 'GitHub', href: 'https://github.com/aleks-drozy/ghost-bus' },
+    ],
+    metrics: [
+      { value: '6', label: 'Honest outcome classes' },
+      { value: '24/7', label: 'Live polling' },
+      { value: '14 days', label: 'Public baseline window' },
+    ],
+    sections: [
+      {
+        heading: 'What it is',
+        paragraphs: [
+          'Which Dublin buses actually show up? A 24/7 pipeline polls TFI’s GTFS-Realtime feed once a minute and classifies every scheduled Dublin Bus or Go-Ahead Ireland trip into exactly one of six honest outcomes, then publishes a public scoreboard and an open dataset from the result.',
+        ],
+      },
+      {
+        heading: 'The tracker grades itself',
+        bullets: [
+          'Every window where the tracker’s own polling drops below 90% uptime is pulled out of the operator’s stats and counted instead as tracker downtime, in public, on the same site as the bus data.',
+          'A self-designed feed-health gate caught a real NTA VehiclePositions outage on its first live day, two operators’ position reporting collapsed simultaneously, and withdrew that day’s verdicts rather than publish roughly 280 false "vanished bus" accusations.',
+          'Two rates, never summed: a bus that vanished mid-route (direct evidence) and a bus never tracked at all (which looks identical to a dead telematics unit) are reported as separate numbers, not combined into one accusatory score.',
+        ],
+      },
+      {
+        heading: 'Why it matters',
+        paragraphs: [
+          'Publicly grading a state service means the measurement itself has to be beyond reproach. Runs unattended on an Oracle Cloud VM; currently in a public 14-day pre-baseline collection window before route rankings publish.',
         ],
       },
     ],
