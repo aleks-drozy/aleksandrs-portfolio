@@ -17,9 +17,9 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   if (!cs) return { title: 'Case study not found' }
   const description = cs.summary ?? cs.sections[0]?.paragraphs?.[0] ?? cs.title
   return {
-    title: `${cs.title} — Aleksandrs Drozdovs`,
+    title: `${cs.title} – Aleksandrs Drozdovs`,
     description,
-    openGraph: { title: `${cs.title} — Aleksandrs Drozdovs`, description, type: 'article' },
+    openGraph: { title: `${cs.title} – Aleksandrs Drozdovs`, description, type: 'article' },
   }
 }
 

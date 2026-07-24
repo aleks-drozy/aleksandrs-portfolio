@@ -15,7 +15,7 @@ export const metadata: Metadata = {
   metadataBase: new URL('https://aleksandrs-portfolio.vercel.app'),
   title: 'Aleksandrs Drozdovs | Software Engineer',
   description:
-    'Dublin-based Computer Science & Software Engineering graduate (Maynooth, 2026). Ships production full-stack SaaS, agentic AI systems, and systematic trading tools — tested, documented, and honest about the results.',
+    'Dublin-based Computer Science & Software Engineering graduate (Maynooth, 2026). Ships production full-stack SaaS, agentic AI systems, and systematic trading tools, tested, documented, and honest about the results.',
   keywords: [
     'Aleksandrs Drozdovs',
     'Software Engineer',
@@ -33,12 +33,12 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Aleksandrs Drozdovs | Software Engineer',
     description:
-      'CS & Software Engineering graduate (Maynooth, 2026). Full-stack SaaS, agentic AI, and systematic trading systems — tested and documented.',
+      'CS & Software Engineering graduate (Maynooth, 2026). Full-stack SaaS, agentic AI, and systematic trading systems, tested and documented.',
     type: 'website',
     locale: 'en_IE',
     url: 'https://aleksandrs-portfolio.vercel.app',
     siteName: 'Aleksandrs Drozdovs',
-    images: [{ url: '/og.png', width: 1200, height: 630, alt: 'Aleksandrs Drozdovs — Software Engineer, Dublin' }],
+    images: [{ url: '/og.png', width: 1200, height: 630, alt: 'Aleksandrs Drozdovs, Software Engineer, Dublin' }],
   },
   twitter: {
     card: 'summary_large_image',
