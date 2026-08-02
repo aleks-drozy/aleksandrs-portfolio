@@ -1,6 +1,6 @@
 # Aleksandrs Drozdovs Portfolio
 
-![Portfolio hero: Aleksandrs Drozdovs, software engineer with quant instincts — Dublin, Maynooth 2026 — alongside the Fig. 01 FYP strategy equity curve](public/og.png)
+![Portfolio hero: Aleksandrs Drozdovs, software engineer with quant instincts (Dublin, Maynooth 2026), alongside the Fig. 01 FYP strategy equity curve](public/og.png)
 
 [![CI](https://github.com/aleks-drozy/aleksandrs-portfolio/actions/workflows/ci.yml/badge.svg?branch=master)](https://github.com/aleks-drozy/aleksandrs-portfolio/actions/workflows/ci.yml)
 
@@ -10,7 +10,7 @@ Live at: [aleksandrs-portfolio.vercel.app](https://aleksandrs-portfolio.vercel.a
 
 ## Positioning
 
-The site presents Aleksandrs as a Dublin-based Computer Science and Software Engineering graduate from Maynooth (2026) with a practical SWE plus quant angle. The hero pairs three proof metrics with `Fig. 01`, the in-sample equity curve of the final-year NASDAQ-100 strategy. Beneath it, six exhibits carry the argument: the Dublin Bikes Forecast, JARVIS, Personal Performance OS, Maken, the NASDAQ-100 FYP strategy, and the pre-registered research program that put that strategy on trial and disproved its edge.
+The site presents Aleksandrs as a Dublin-based Computer Science and Software Engineering graduate from Maynooth (2026) with a practical SWE plus quant angle. The hero pairs three proof metrics with `Fig. 01`, the in-sample equity curve of the final-year NASDAQ-100 strategy. Beneath it, seven exhibits carry the argument: the Dublin Bikes Forecast, JARVIS, Personal Performance OS, Maken, the Options Pricing Engine, the NASDAQ-100 FYP strategy, and the pre-registered research program that put that strategy on trial and disproved its edge.
 
 ## Stack
 
@@ -19,7 +19,7 @@ The site presents Aleksandrs as a Dublin-based Computer Science and Software Eng
 - **Styling:** Tailwind CSS v4 with a hex token set declared in a `@theme` block (`src/app/globals.css`)
 - **Type:** Fraunces (serif), Geist Sans, Geist Mono
 - **Motion:** Framer Motion
-- **Charts:** hand-rolled SVG — `src/components/EquityCurve.tsx`, no charting library
+- **Charts:** hand-rolled SVG: `src/components/EquityCurve.tsx`, no charting library
 - **Testing:** Vitest, Testing Library, jsdom
 - **Deployment:** Vercel
 
@@ -42,6 +42,9 @@ Every case study is statically generated from the slugs in `src/lib/case-studies
 - `/projects/trading-dashboard` - full-stack trade journal and market-research app
 - `/projects/backtest-engine` - Python backtesting infrastructure and strategy comparison
 - `/projects/noteit` - full-stack note-taking project
+- `/projects/options-pricing-engine` - three-model option pricer that reconstructs a live SPY volatility smile
+- `/projects/jobq` - durable Go job queue with an at-least-once, crash-tested write-ahead log
+- `/projects/ghost-bus-tracker` - live GTFS-Realtime pipeline grading Dublin Bus punctuality in public
 
 ## Homepage Sections
 
