@@ -574,18 +574,80 @@ export const caseStudies: CaseStudy[] = [
     ],
   },
   {
-    slug: 'noteit',
-    kicker: 'Full-stack',
-    title: 'NoteIt',
+    slug: 'registry-resolve',
+    kicker: 'Data engineering, entity resolution',
+    title: 'registry-resolve, cross-register entity resolution',
     year: '2026',
-    role: 'Solo full-stack',
-    stack: ['JavaScript', 'Node.js', 'MongoDB'],
-    links: [{ label: 'GitHub', href: 'https://github.com/aleks-drozy/noteit' }],
+    timeline: 'Real Irish government data, built in one week',
+    role: 'Solo',
+    stack: ['Python', 'DuckDB', 'Splink', 'pandas', 'Streamlit'],
+    links: [{ label: 'GitHub', href: 'https://github.com/aleks-drozy/registry-resolve' }],
+    metrics: [
+      { value: '898,481', label: 'Rows in the final entity spine' },
+      { value: '1.000', label: 'Cohen’s kappa, self-consistency' },
+      { value: '4.47M', label: 'Splink-scored candidate pairs' },
+    ],
     sections: [
       {
         heading: 'What it is',
         paragraphs: [
-          'A full-stack note-taking app with authentication, CRUD notes, private sharing, and role-based publishing.',
+          'Entity resolution across three real Irish open-data registers: CRO company records, the Register of Charities, and public procurement award data. Deterministic ID join wherever a real identifier exists (a charity’s CRO Number maps straight onto a company number), Splink probabilistic matching for the one register with no supplier identifier at all, free-text names, sometimes with a trading-as inline.',
+        ],
+      },
+      {
+        heading: 'Proving the gold standard is trustworthy',
+        bullets: [
+          'Evaluated against 330 blind human-labelled pairs, judged without ever seeing the model’s score. A planted 10% of pairs were secretly re-shown under a different ID to measure self-consistency: first run, Cohen’s kappa came back 0.608, which the textbook Landis and Koch convention calls “substantial” but a self-imposed stricter bar (built for exactly this reason) called “borderline, re-check before citing.”',
+          'Went back to the flagged disagreements, judged each one against the real record, re-ran the check. Kappa is genuinely 1.000, arrived at, not rounded there.',
+          'Assembled the final entity spine with best-match-per-record resolution rather than naive graph clustering, after measuring that the real data has enough crossing ties (245 charities, 683 procurement rows scoring above threshold against more than one company) that connected-components clustering would merge distinct real companies together.',
+        ],
+      },
+      {
+        heading: 'Why it matters',
+        paragraphs: [
+          'The match threshold, 0.95, was chosen from the real precision/recall tradeoff measured on the gold labels (88.4% precision / 54.2% recall at 0.95 versus 69.5% / 57.7% at 0.90), stated with its Wilson confidence interval rather than as a bare point estimate. Every number in the project’s methods writeup cites the exact artifact and command that produced it.',
+        ],
+      },
+    ],
+  },
+  {
+    slug: 'irish-property-price-index',
+    kicker: 'Data engineering, dbt',
+    title: 'Irish Property Price Index, mix-adjusted',
+    year: '2026',
+    timeline: '797,774 real transactions, validated against the CSO',
+    role: 'Solo',
+    stack: ['Python', 'dbt', 'DuckDB', 'SQL'],
+    links: [
+      { label: 'GitHub', href: 'https://github.com/aleks-drozy/irish-property-price-index' },
+      { label: 'Live Dashboard', href: 'https://aleks-drozy.github.io/irish-property-price-index/dashboard/' },
+    ],
+    metrics: [
+      { value: '797,774', label: 'Real Property Price Register sales' },
+      { value: '+2.22 / -3.91', label: 'National vs Dublin index-point gap' },
+      { value: '31 / 187', label: 'Months the two measures disagree on direction' },
+    ],
+    sections: [
+      {
+        heading: 'What it is',
+        paragraphs: [
+          'A mix-adjusted stratified price index built on the full Property Price Register, 797,774 real sales, using dbt and DuckDB, validated directly against the CSO’s own official Residential Property Price Index rather than assumed correct.',
+        ],
+      },
+      {
+        heading: 'The finding',
+        bullets: [
+          'Nationally, the raw median that gets reported overstates price growth by 2.22 index points on average versus the mix-adjusted measure. In Dublin it does the opposite, understating growth by 3.91 points, the opposite sign, from the same method on the same data.',
+          'Across 187 months with a year-on-year comparison, 31 have the raw and mix-adjusted series moving in different directions entirely, one says prices fell, the other says they rose, in the same month. Worst case: June 2013, a 13.05-point gap at the post-crash trough.',
+          'Not a broken number: both series correlate at 0.99+ over the full period. It’s the standard Simpson’s-paradox mechanism, what gets sold shifts composition over time, and a raw median conflates that shift with genuine price movement.',
+        ],
+      },
+      {
+        heading: 'Getting the pipeline honest',
+        bullets: [
+          'First CI run reported nothing at all, because the workflow YAML itself was invalid; the check meant to catch mistakes had never once run a job.',
+          'Fixed that, then found the fixture job had never actually fetched the CSO benchmark it was supposed to validate against, so it had been silently passing against nothing since it was written.',
+          'A third fix pinned the parquet engine dependency the export step needs at runtime. None of the three were subtle bugs, they were just never checked, a different failure mode from a bug and a more common one.',
         ],
       },
     ],

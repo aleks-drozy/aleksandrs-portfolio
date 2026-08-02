@@ -49,7 +49,7 @@ Every case study is statically generated from the slugs in `src/lib/case-studies
 ## Homepage Sections
 
 - **Hero** - status, headline, lede, three proof metrics, CV download, and the `Fig. 01` equity curve
-- **Selected work** (`#work`) - six exhibits (`Fig. 02` to `Fig. 07`), then seven "Also shipped" cards; all thirteen link to a case study
+- **Selected work** (`#work`) - seven exhibits (`Fig. 02` to `Fig. 08`), then ten "Also shipped" cards; all seventeen link to a case study
 - **Track record** (`#experience`) - DLT Capital and part-time roles beside the Maynooth degree, coursework, and certifications
 - **Toolbox** (`#skills`) - languages, frameworks, AI and ML, testing and tools
 - **Character** (`#character`) - judo and algorithmic trading

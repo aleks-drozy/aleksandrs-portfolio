@@ -150,11 +150,19 @@ export const alsoShipped: AlsoShipped[] = [
     github: 'https://github.com/aleks-drozy/aleksander-backtest-engine',
   },
   {
-    title: 'NoteIt',
+    title: 'registry-resolve',
     blurb:
-      'Full-stack note-taking app with authentication, CRUD notes, private sharing, and role-based publishing.',
-    slug: 'noteit',
-    github: 'https://github.com/aleks-drozy/noteit',
+      'Entity resolution across three real Irish open-data registers – deterministic ID join where one exists, Splink matching where it doesn’t. Evaluated against 330 blind pairs, Cohen’s kappa 1.000 after a stricter self-imposed bar flagged the first pass as not good enough.',
+    slug: 'registry-resolve',
+    github: 'https://github.com/aleks-drozy/registry-resolve',
+  },
+  {
+    title: 'Irish Property Price Index',
+    blurb:
+      'Mix-adjusted stratified price index on 797,774 real Property Price Register sales (dbt + DuckDB), validated against the CSO. Finds the raw median overstates national growth and understates Dublin’s, opposite signs from the same method.',
+    slug: 'irish-property-price-index',
+    github: 'https://github.com/aleks-drozy/irish-property-price-index',
+    live: 'https://aleks-drozy.github.io/irish-property-price-index/dashboard/',
   },
   {
     title: 'Speed-to-Lead AI Agent',
