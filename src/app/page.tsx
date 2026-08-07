@@ -4,7 +4,7 @@ import { SiteNav } from '@/components/SiteNav'
 import { Reveal } from '@/components/Reveal'
 import { EquityCurve } from '@/components/EquityCurve'
 import BlurText from '@/components/BlurText'
-import MetricValue from '@/components/MetricValue'
+import { MetricValue } from '@/components/MetricValue'
 import {
   site,
   heroMetrics,

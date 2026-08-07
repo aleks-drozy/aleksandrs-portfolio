@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest'
 import { render } from '@testing-library/react'
-import MetricValue from './MetricValue'
+import { MetricValue } from './MetricValue'
 
 // No reduced-motion mocking here on purpose: src/test/setup.ts already stubs
 // matchMedia as non-matching and IntersectionObserver as a no-op, so CountUp
@@ -32,5 +32,13 @@ describe('MetricValue', () => {
   it('passes className through to the rendered span', () => {
     const { container } = render(<MetricValue value="790+" className="x" />)
     expect(container.querySelector('span.x')).not.toBeNull()
+  })
+
+  it('renders trailing-zero decimals statically instead of losing precision', () => {
+    // Number('1.000') === 1 and Number('0.0100') === 0.01: CountUp would
+    // re-derive 0 and 2 decimal places and settle on '1' / '0.01', so these
+    // must take the exact static fallback instead.
+    expect(render(<MetricValue value="1.000" />).container.textContent).toBe('1.000')
+    expect(render(<MetricValue value="0.0100" />).container.textContent).toBe('0.0100')
   })
 })

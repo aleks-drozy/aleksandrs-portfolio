@@ -97,7 +97,7 @@ const BlurText: React.FC<BlurTextProps> = ({
 
   if (reduce) {
     return (
-      <Tag ref={ref as unknown as React.Ref<HTMLDivElement>} className={`blur-text ${className}`}>
+      <Tag ref={ref as unknown as React.Ref<HTMLDivElement>} className={`blur-text ${className} flex flex-wrap`}>
         {text}
       </Tag>
     );
@@ -124,11 +124,12 @@ const BlurText: React.FC<BlurTextProps> = ({
             onAnimationComplete={index === elements.length - 1 ? onAnimationComplete : undefined}
             style={{
               display: 'inline-block',
+              whiteSpace: 'pre',
               willChange: 'transform, filter, opacity'
             }}
           >
-            {segment === ' ' ? '\u00A0' : segment}
-            {animateBy === 'words' && index < elements.length - 1 && '\u00A0'}
+            {segment}
+            {animateBy === 'words' && index < elements.length - 1 && ' '}
           </motion.span>
         );
       })}
