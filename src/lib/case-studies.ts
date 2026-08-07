@@ -652,6 +652,88 @@ export const caseStudies: CaseStudy[] = [
       },
     ],
   },
+  {
+    slug: 'alpha-signal-lab',
+    kicker: 'Quant research, applied ML',
+    title: 'Alpha Signal Lab',
+    year: '2026',
+    timeline: 'Zero-cost, built and shipped in one weekend',
+    role: 'Solo – research, engineering, validation',
+    stack: ['Python', 'LightGBM', 'pandas', 'scikit-learn', 'SHAP', 'Plotly'],
+    links: [
+      { label: 'GitHub', href: 'https://github.com/aleks-drozy/alpha-signal-lab' },
+      { label: 'Live dashboard', href: 'https://aleks-drozy.github.io/alpha-signal-lab/' },
+    ],
+    metrics: [
+      { value: '0.0100', label: 'Honest rank IC' },
+      { value: '0.1506', label: 'Leaky-twin rank IC' },
+      { value: '8/8', label: 'Leakage audits pass' },
+      { value: '117', label: 'Tests (CI)' },
+    ],
+    sections: [
+      {
+        heading: 'What it is',
+        paragraphs: [
+          'A pre-registered test of one question: does a gradient-boosted model (LightGBM) on twelve standard price/volume features beat plain 12-1 momentum and buy-and-hold on 5-day cross-sectional excess returns, for a 30-name US large-cap universe, under leakage-proof evaluation? The methodology (`specs/methodology.md`) was committed first and never edited after seeing results.',
+          'Purged walk-forward cross-validation (5-day purge, ~1% embargo, expanding window) produced 21 out-of-sample folds from 2016 to 2026. Eight automated leakage-audit tests, shuffled-label destruction, split-boundary checks, point-in-time feature recomputation, shift-sensitivity, label-window purity, no-full-series statistics, price sanity, and determinism, all run against the real pipeline code, not mocks, and all pass.',
+        ],
+      },
+      {
+        heading: 'The number that proves the audit is real',
+        bullets: [
+          'A deliberately leaky “twin” control, same features, same model, same target, but naive shuffled k-fold instead of purged walk-forward, was run alongside the honest pipeline. Leaky rank IC: 0.1506. Honest rank IC: 0.0100. A fifteen-fold difference from a single methodological mistake, which is exactly what most published “alpha” likely is.',
+          'A per-fold SHAP diagnostic explains the honest result rather than just reporting it: a volatility ratio dominates the model’s decisions in 21 of 21 folds (not momentum, despite momentum being the only feature with real edge on its own), the model’s picks agree with momentum’s only ~0.05% of the time (so it is not a noisy momentum clone), and it diverges from momentum’s picks on 92% of days, losing money on that swap slightly more than half the time.',
+        ],
+      },
+      {
+        heading: 'Why it matters',
+        paragraphs: [
+          'The honest model does not beat momentum, and the project says so as the headline, not a caveat. Built via a research/planning pass into an ultracode multi-phase build (scaffold, pipeline, audits/explainability, dashboard, verify), then hardened by three parallel adversarial audits that found and fixed twelve real data-integrity and numeric bugs before publishing. A static GitHub Pages dashboard (dark-mode aware, WCAG-checked contrast) leads with the honest-vs-leaky IC gap as the hero visual, not the model’s own performance.',
+        ],
+      },
+    ],
+  },
+  {
+    slug: 'job-hunt-analytics',
+    kicker: 'Data engineering, analytics',
+    title: 'Job-Hunt Analytics',
+    year: '2026',
+    timeline: 'One month of real, honestly-accumulated data',
+    role: 'Solo – ETL, privacy gate, analysis, dashboard',
+    stack: ['Python', 'DuckDB', 'SQL', 'Plotly', 'pytest', 'GitHub Actions'],
+    links: [
+      { label: 'GitHub', href: 'https://github.com/aleks-drozy/job-hunt-analytics' },
+      { label: 'Live dashboard', href: 'https://aleks-drozy.github.io/job-hunt-analytics/' },
+    ],
+    metrics: [
+      { value: '50', label: 'Tracked applications' },
+      { value: '65', label: 'Logged assistant ops' },
+      { value: '164', label: 'Tests (1 skipped)' },
+      { value: '7', label: 'Leak paths closed pre-publish' },
+    ],
+    sections: [
+      {
+        heading: 'What it is',
+        paragraphs: [
+          'A month of my own real job search and AI-assistant operations, the same messy markdown trackers a personal agent (JARVIS) had already been keeping since early July, parsed by a tested ETL pipeline into a queryable DuckDB database and published as an anonymised static dashboard. Zero new data collection: the data already existed, honestly accumulated as a side effect of actually job-hunting.',
+        ],
+      },
+      {
+        heading: 'The privacy gate had to earn its keep',
+        bullets: [
+          'Role titles are not exported (re-identifiable via search), and internal topic slugs are not exported (they contain real company and person names); coarse derived categories replace both.',
+          'Three agents adversarially attacked the sanitisation gate beyond its own unit tests and found seven real, non-theoretical leak paths, most seriously, a hand-crafted row with an extra unquoted CSV field could smuggle a real company name past the scanner because nothing validated a row’s cell count against its header. All seven fixed and independently re-verified, not just trusted from the fix report, before any export was generated.',
+          'A whole-branch review after the analysis stage caught the published “as of” date silently including a future scheduled reminder rather than the last real observation, directly undercutting the project’s own honesty framing; corrected and re-verified before publishing.',
+        ],
+      },
+      {
+        heading: 'The honest headline',
+        paragraphs: [
+          'Nine SQL analyses, seven charts, and a static dashboard, deliberately framed as descriptive rather than inferential at this sample size: every rate is published beside its raw numerator and denominator rather than dressed up as a statistic it cannot support. The headline: 0 interviews from 50 tracked applications, reported as the whole result, not buried in it.',
+        ],
+      },
+    ],
+  },
 ]
 
 export function getCaseStudy(slug: string): CaseStudy | undefined {
