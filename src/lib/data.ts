@@ -123,6 +123,20 @@ export const exhibits: Exhibit[] = [
     ],
     slug: 'options-pricing-engine',
   },
+  {
+    fig: 'Fig. 09',
+    kicker: 'Quant research · applied ML',
+    title: 'Alpha Signal Lab',
+    blurb:
+      'A pre-registered, leakage-audited test of whether a gradient-boosted model beats plain momentum on 5-day cross-sectional equity returns across a 30-name large-cap universe. Twelve point-in-time features, purged walk-forward cross-validation (5-day purge, ~1% embargo), and eight automated leakage-audit tests that all pass against the real pipeline, not mocks. A deliberately leaky control run alongside the honest one shows exactly what overclaiming looks like: honest rank IC 0.0100 versus leaky IC 0.1506, a fifteen-fold inflation from one mistake, shuffling instead of purging. The honest model does not beat momentum, and a follow-up SHAP diagnostic explains precisely why: which feature dominates every fold, and where the model’s picks diverge from momentum’s.',
+    tags: ['Python', 'LightGBM', 'SHAP', 'pandas', 'scikit-learn'],
+    stats: [
+      { value: '0.0100 / 0.1506', label: 'Honest vs leaky rank IC' },
+      { value: '8/8', label: 'Leakage audits pass' },
+      { value: '117', label: 'Tests (CI)' },
+    ],
+    slug: 'alpha-signal-lab',
+  },
 ]
 
 export type AlsoShipped = {
@@ -208,6 +222,14 @@ export const alsoShipped: AlsoShipped[] = [
     slug: 'ghost-bus-tracker',
     github: 'https://github.com/aleks-drozy/ghost-bus',
     live: 'https://aleks-drozy.github.io/ghost-bus/',
+  },
+  {
+    title: 'Job-Hunt Analytics',
+    blurb:
+      'A month of one graduate’s real job search and AI-assistant operations, parsed from messy markdown trackers into a queryable DuckDB database and published as an anonymised static dashboard. A privacy gate enforced in CI was adversarially attacked and closed on 7 real leak paths before anything went public, behind a 164-test suite. Nine SQL analyses over 50 tracked applications and 65 logged assistant operations, deliberately framed as descriptive rather than inferential at that sample size – every rate published beside its raw numerator and denominator, including the headline: 0 interviews from 50 applications.',
+    slug: 'job-hunt-analytics',
+    github: 'https://github.com/aleks-drozy/job-hunt-analytics',
+    live: 'https://aleks-drozy.github.io/job-hunt-analytics/',
   },
 ]
 
