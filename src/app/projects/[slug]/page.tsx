@@ -3,6 +3,8 @@ import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { caseStudies, getCaseStudy } from '@/lib/case-studies'
 import { EquityCurve } from '@/components/EquityCurve'
+import { ReadingRule } from '@/components/ReadingRule'
+import { MetricValue } from '@/components/MetricValue'
 import { site } from '@/lib/data'
 
 const CONTAINER = 'mx-auto w-full max-w-[820px] px-6 sm:px-8'
@@ -40,6 +42,7 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
             ← All work
           </Link>
         </div>
+        <ReadingRule />
       </div>
 
       <article className={`${CONTAINER} py-16 md:py-20`}>
@@ -91,7 +94,9 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
           <div className="mt-10 grid grid-cols-2 gap-px overflow-hidden rounded-sm border border-hair bg-hair sm:grid-cols-4">
             {cs.metrics.map((m) => (
               <div key={m.label} className="bg-surface px-4 py-5">
-                <div className="font-serif text-[1.6rem] leading-none tracking-[-0.01em] text-cobalt">{m.value}</div>
+                <div className="font-serif text-[1.6rem] leading-none tracking-[-0.01em] text-cobalt">
+                  <MetricValue value={m.value} duration={1.2} />
+                </div>
                 <div className="mt-2 font-mono text-[10px] uppercase tracking-[0.1em] text-ink-3">{m.label}</div>
               </div>
             ))}

@@ -3,6 +3,8 @@ import Image from 'next/image'
 import { SiteNav } from '@/components/SiteNav'
 import { Reveal } from '@/components/Reveal'
 import { EquityCurve } from '@/components/EquityCurve'
+import BlurText from '@/components/BlurText'
+import MetricValue from '@/components/MetricValue'
 import {
   site,
   heroMetrics,
@@ -72,16 +74,36 @@ export default function Home() {
                 {site.status} · {site.location}
               </span>
               <h1 className="mt-5 text-balance font-serif text-[clamp(2.5rem,6vw,4.25rem)] font-medium leading-[1.02] tracking-[-0.02em]">
-                {site.headline}
-                <br />
-                <em className="italic text-cobalt">{site.headlineAccent}</em>
+                <BlurText
+                  as="span"
+                  text={site.headline}
+                  animateBy="words"
+                  delay={90}
+                  stepDuration={0.5}
+                  easing={[0.23, 1, 0.32, 1]}
+                  animationFrom={{ filter: 'blur(8px)', opacity: 0, y: 12 }}
+                  animationTo={[{ filter: 'blur(0px)', opacity: 1, y: 0 }]}
+                />
+                <BlurText
+                  as="span"
+                  className="italic text-cobalt"
+                  text={site.headlineAccent}
+                  animateBy="words"
+                  delay={90}
+                  stepDuration={0.5}
+                  easing={[0.23, 1, 0.32, 1]}
+                  animationFrom={{ filter: 'blur(8px)', opacity: 0, y: 12 }}
+                  animationTo={[{ filter: 'blur(0px)', opacity: 1, y: 0 }]}
+                />
               </h1>
               <p className="mt-6 max-w-[48ch] text-lg leading-relaxed text-ink-2">{site.lede}</p>
 
               <dl className="mt-9 flex flex-wrap gap-9">
                 {heroMetrics.map((m) => (
                   <div key={m.label}>
-                    <dd className="font-serif text-[1.9rem] leading-none tracking-[-0.01em] text-cobalt">{m.value}</dd>
+                    <dd className="font-serif text-[1.9rem] leading-none tracking-[-0.01em] text-cobalt">
+                      <MetricValue value={m.value} duration={1.2} />
+                    </dd>
                     <dt className="mt-2 font-mono text-[10.5px] uppercase tracking-[0.12em] text-ink-3">{m.label}</dt>
                   </div>
                 ))}
@@ -148,7 +170,9 @@ export default function Home() {
                     <div className="flex gap-6 md:flex-col md:gap-4 md:pt-1 md:text-right">
                       {ex.stats.map((s) => (
                         <div key={s.label}>
-                          <div className="font-serif text-[1.35rem] leading-none tracking-[-0.01em] text-ink">{s.value}</div>
+                          <div className="font-serif text-[1.35rem] leading-none tracking-[-0.01em] text-ink">
+                            <MetricValue value={s.value} duration={1.2} />
+                          </div>
                           <div className="mt-1 font-mono text-[10px] uppercase tracking-[0.1em] text-ink-3">{s.label}</div>
                         </div>
                       ))}
