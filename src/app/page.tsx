@@ -5,7 +5,6 @@ import { SiteNav } from '@/components/SiteNav'
 import { Reveal } from '@/components/Reveal'
 import { EquityCurve } from '@/components/EquityCurve'
 import { OptionSurfacePanel } from '@/components/OptionSurfacePanel'
-import { EvidenceRailSection } from '@/components/EvidenceRailSection'
 import BlurText from '@/components/BlurText'
 import { MetricValue } from '@/components/MetricValue'
 import {
@@ -132,8 +131,6 @@ export default function Home() {
         <section id="work">
           <div className={`${CONTAINER} py-20 md:py-28`}>
             <SectionHeader eyebrow="Selected work" title="Nine exhibits, one direction." index="02 / EVIDENCE" />
-
-            <EvidenceRailSection />
 
             <div>
               {exhibits.map((ex, i) => (
