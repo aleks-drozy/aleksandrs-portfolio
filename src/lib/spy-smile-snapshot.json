@@ -1,0 +1,112 @@
+{
+  "fetchedUtc": "2026-07-18T13:46:25+00:00",
+  "spot": 743.29,
+  "rate": 0.0371,
+  "source": "https://github.com/aleks-drozy/options-pricing-engine/blob/main/data/spy_chain.json",
+  "expiries": [
+    {
+      "expiry": "2026-07-27",
+      "dte": 9,
+      "quotes": [
+        { "strike": 710.0, "mid": 33.97 },
+        { "strike": 725.0, "mid": 20.24 },
+        { "strike": 735.0, "mid": 12.09 },
+        { "strike": 744.0, "mid": 6.04 },
+        { "strike": 749.0, "mid": 3.48 },
+        { "strike": 753.0, "mid": 1.96 },
+        { "strike": 757.0, "mid": 0.96 },
+        { "strike": 761.0, "mid": 0.39 },
+        { "strike": 765.0, "mid": 0.15 },
+        { "strike": 769.0, "mid": 0.06 }
+      ]
+    },
+    {
+      "expiry": "2026-08-07",
+      "dte": 20,
+      "quotes": [
+        { "strike": 655.0, "mid": 89.71 },
+        { "strike": 687.0, "mid": 58.63 },
+        { "strike": 695.0, "mid": 51.11 },
+        { "strike": 704.0, "mid": 42.72 },
+        { "strike": 712.0, "mid": 35.55 },
+        { "strike": 721.0, "mid": 27.81 },
+        { "strike": 729.0, "mid": 21.37 },
+        { "strike": 736.0, "mid": 16.14 },
+        { "strike": 743.0, "mid": 11.45 },
+        { "strike": 750.0, "mid": 7.41 },
+        { "strike": 757.0, "mid": 4.26 },
+        { "strike": 764.0, "mid": 2.12 },
+        { "strike": 771.0, "mid": 0.92 },
+        { "strike": 778.0, "mid": 0.36 },
+        { "strike": 785.0, "mid": 0.15 }
+      ]
+    },
+    {
+      "expiry": "2026-08-21",
+      "dte": 34,
+      "quotes": [
+        { "strike": 655.0, "mid": 91.66 },
+        { "strike": 665.0, "mid": 82.03 },
+        { "strike": 675.0, "mid": 72.45 },
+        { "strike": 685.0, "mid": 63.46 },
+        { "strike": 695.0, "mid": 53.86 },
+        { "strike": 705.0, "mid": 44.92 },
+        { "strike": 715.0, "mid": 35.72 },
+        { "strike": 725.0, "mid": 28.13 },
+        { "strike": 735.0, "mid": 20.57 },
+        { "strike": 745.0, "mid": 13.86 },
+        { "strike": 755.0, "mid": 8.28 },
+        { "strike": 765.0, "mid": 4.24 },
+        { "strike": 775.0, "mid": 1.85 },
+        { "strike": 785.0, "mid": 0.71 },
+        { "strike": 795.0, "mid": 0.28 },
+        { "strike": 825.0, "mid": 0.06 }
+      ]
+    },
+    {
+      "expiry": "2026-09-18",
+      "dte": 62,
+      "quotes": [
+        { "strike": 655.0, "mid": 95.32 },
+        { "strike": 672.0, "mid": 79.61 },
+        { "strike": 687.0, "mid": 65.99 },
+        { "strike": 699.0, "mid": 55.41 },
+        { "strike": 710.0, "mid": 46.09 },
+        { "strike": 721.0, "mid": 37.18 },
+        { "strike": 732.0, "mid": 28.74 },
+        { "strike": 743.0, "mid": 21.18 },
+        { "strike": 755.0, "mid": 14.05 },
+        { "strike": 766.0, "mid": 8.84 },
+        { "strike": 777.0, "mid": 5.08 },
+        { "strike": 788.0, "mid": 2.68 },
+        { "strike": 799.0, "mid": 1.33 },
+        { "strike": 810.0, "mid": 0.64 },
+        { "strike": 821.0, "mid": 0.32 }
+      ]
+    },
+    {
+      "expiry": "2026-10-16",
+      "dte": 90,
+      "quotes": [
+        { "strike": 655.0, "mid": 98.25 },
+        { "strike": 665.0, "mid": 89.16 },
+        { "strike": 675.0, "mid": 80.21 },
+        { "strike": 685.0, "mid": 71.41 },
+        { "strike": 695.0, "mid": 62.87 },
+        { "strike": 705.0, "mid": 54.5 },
+        { "strike": 715.0, "mid": 46.44 },
+        { "strike": 725.0, "mid": 38.65 },
+        { "strike": 735.0, "mid": 31.45 },
+        { "strike": 745.0, "mid": 24.84 },
+        { "strike": 755.0, "mid": 18.91 },
+        { "strike": 765.0, "mid": 13.8 },
+        { "strike": 775.0, "mid": 9.63 },
+        { "strike": 785.0, "mid": 6.44 },
+        { "strike": 795.0, "mid": 4.12 },
+        { "strike": 805.0, "mid": 2.55 },
+        { "strike": 815.0, "mid": 1.54 },
+        { "strike": 825.0, "mid": 0.93 }
+      ]
+    }
+  ]
+}

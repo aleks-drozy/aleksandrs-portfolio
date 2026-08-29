@@ -5,6 +5,7 @@ import { SiteNav } from '@/components/SiteNav'
 import { Reveal } from '@/components/Reveal'
 import { EquityCurve } from '@/components/EquityCurve'
 import { OptionSurfacePanel } from '@/components/OptionSurfacePanel'
+import { VolSmilePanel } from '@/components/VolSmilePanel'
 import BlurText from '@/components/BlurText'
 import { MetricValue } from '@/components/MetricValue'
 import {
@@ -182,9 +183,14 @@ export default function Home() {
                   )}
                 </Reveal>
                 {ex.slug === 'options-pricing-engine' && (
-                  <Reveal>
-                    <OptionSurfacePanel />
-                  </Reveal>
+                  <>
+                    <Reveal>
+                      <OptionSurfacePanel />
+                    </Reveal>
+                    <Reveal>
+                      <VolSmilePanel />
+                    </Reveal>
+                  </>
                 )}
                 </Fragment>
               ))}
