@@ -14,7 +14,7 @@ Prove, not describe. Every exhibit exists to demonstrate that a claimed result i
 
 ## Brand Personality
 
-Quiet confidence, evidentiary, unshowy. Three words: precise, honest, unhyped. The voice reads like a lab notebook or an engineering postmortem, not a marketing page: numbered exhibits ("Fig. 02" through "Fig. 08"), metrics stated with their caveats attached (Wilson CIs, "NOT PROVEN" verdicts shown as prominently as wins), self-caught bugs disclosed rather than hidden. Nothing is claimed that isn't backed by a linked, real, running repo or dataset.
+Quiet confidence, evidentiary, unshowy. Three words: precise, honest, unhyped. The voice reads like a lab notebook or an engineering postmortem, not a marketing page: numbered exhibits ("Exhibit 03" through "Exhibit 10", with "Fig." reserved for entries that render an actual figure — the hero equity curve is Fig. 01, the Options Pricing Engine row is Fig. 02), metrics stated with their caveats attached (Wilson CIs, "NOT PROVEN" verdicts shown as prominently as wins), self-caught bugs disclosed rather than hidden. Nothing is claimed that isn't backed by a linked, real, running repo or dataset.
 
 ## Anti-references
 
@@ -24,7 +24,7 @@ Generic SaaS-startup portfolio templates: gradient hero text, bouncing icon grid
 
 - Every claim is checkable: a metric, a link to the repo, or both, on the same screen.
 - Show working, not just conclusions: failed and disproven experiments (NOT PROVEN verdicts, self-caught bugs) are surfaced with the same visual weight as wins, not buried.
-- Numbered evidence over marketing copy: the "Fig." system frames the page as an exhibit log, not a highlight reel.
+- Numbered evidence over marketing copy: the exhibit-numbering system frames the page as an exhibit log, not a highlight reel. "Fig." is reserved for rows that render an actual rendered figure (equity curve, options-engine panels); every other exhibit is labeled "Exhibit NN" so the label never overclaims what is on the page.
 - Quiet confidence over loud design: the interface should never need to compensate for weak substance with visual noise. Restraint is the flex.
 - Honesty about tone in body copy: no em dashes, no filler adjectives; a claim reads the same way a code comment or commit message would.
 

@@ -18,6 +18,7 @@ import {
   skillGroups,
   character,
 } from '@/lib/data'
+import { getCaseStudy } from '@/lib/case-studies'
 
 const CONTAINER = 'mx-auto w-full max-w-[1180px] px-6 sm:px-8'
 
@@ -134,7 +135,11 @@ export default function Home() {
             <SectionHeader eyebrow="Selected work" title="Nine exhibits, one direction." index="02 / EVIDENCE" />
 
             <div>
-              {exhibits.map((ex, i) => (
+              {exhibits.map((ex, i) => {
+                const caseLinks = getCaseStudy(ex.slug)?.links ?? []
+                const githubLink = caseLinks.find((l) => l.label === 'GitHub')
+                const liveLink = caseLinks.find((l) => l.label.startsWith('Live'))
+                return (
                 <Fragment key={ex.slug}>
                 <Reveal
                   as="article"
@@ -161,12 +166,34 @@ export default function Home() {
                         </span>
                       ))}
                     </div>
-                    <Link
-                      href={`/projects/${ex.slug}`}
-                      className="mt-4 inline-block font-mono text-xs text-cobalt hover:underline"
-                    >
-                      Open case study →
-                    </Link>
+                    <div className="mt-4 flex flex-wrap items-center gap-4">
+                      <Link
+                        href={`/projects/${ex.slug}`}
+                        className="font-mono text-xs text-cobalt hover:underline"
+                      >
+                        Open case study →
+                      </Link>
+                      {githubLink && (
+                        <a
+                          href={githubLink.href}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="font-mono text-xs text-ink-3 hover:text-cobalt"
+                        >
+                          GitHub ↗
+                        </a>
+                      )}
+                      {liveLink && (
+                        <a
+                          href={liveLink.href}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="font-mono text-xs text-ink-3 hover:text-cobalt"
+                        >
+                          Live ↗
+                        </a>
+                      )}
+                    </div>
                   </div>
 
                   {ex.stats && (
@@ -193,7 +220,8 @@ export default function Home() {
                   </>
                 )}
                 </Fragment>
-              ))}
+                )
+              })}
             </div>
 
             {/* also shipped */}

@@ -12,7 +12,6 @@ export const site = {
   lede:
     'Computer Science & Software Engineering graduate (Maynooth, 2026). I ship production systems end-to-end – two live SaaS apps, an agentic AI assistant, a live self-scoring ML forecasting service, and a six-phase pre-registered quant research program. Tested, documented, and honest about the results.',
   email: 'aleksandrs.drozdovs2005@gmail.com',
-  phone: '089 257 1418',
   cvUrl: '/cv.pdf',
   github: 'https://github.com/aleks-drozy',
   linkedin: 'https://www.linkedin.com/in/aleksandrsdrozdovs/',
@@ -50,7 +49,7 @@ export const exhibits: Exhibit[] = [
     slug: 'options-pricing-engine',
   },
   {
-    fig: 'Fig. 03',
+    fig: 'Exhibit 03',
     kicker: 'Live ML · self-scoring',
     title: 'Dublin Bikes Forecast',
     blurb:
@@ -64,7 +63,7 @@ export const exhibits: Exhibit[] = [
     slug: 'dublin-bikes-forecast',
   },
   {
-    fig: 'Fig. 04',
+    fig: 'Exhibit 04',
     kicker: 'Quant research · applied ML',
     title: 'Alpha Signal Lab',
     blurb:
@@ -78,7 +77,7 @@ export const exhibits: Exhibit[] = [
     slug: 'alpha-signal-lab',
   },
   {
-    fig: 'Fig. 05',
+    fig: 'Exhibit 05',
     kicker: 'Quant research · capstone',
     title: 'Quant Strategy Research Program',
     blurb:
@@ -92,7 +91,7 @@ export const exhibits: Exhibit[] = [
     slug: 'fyp-strategy-engine',
   },
   {
-    fig: 'Fig. 06',
+    fig: 'Exhibit 06',
     kicker: 'AI research, pre-registered',
     title: 'Prompt Placebo',
     blurb:
@@ -106,7 +105,7 @@ export const exhibits: Exhibit[] = [
     slug: 'prompt-placebo',
   },
   {
-    fig: 'Fig. 07',
+    fig: 'Exhibit 07',
     kicker: 'Systems programming',
     title: 'jobq — Durable Job Queue (Go)',
     blurb:
@@ -120,7 +119,7 @@ export const exhibits: Exhibit[] = [
     slug: 'jobq',
   },
   {
-    fig: 'Fig. 08',
+    fig: 'Exhibit 08',
     kicker: 'Data engineering, dbt',
     title: 'Irish Property Price Index',
     blurb:
@@ -134,7 +133,7 @@ export const exhibits: Exhibit[] = [
     slug: 'irish-property-price-index',
   },
   {
-    fig: 'Fig. 09',
+    fig: 'Exhibit 09',
     kicker: 'Data engineering, entity resolution',
     title: 'registry-resolve',
     blurb:
@@ -148,7 +147,7 @@ export const exhibits: Exhibit[] = [
     slug: 'registry-resolve',
   },
   {
-    fig: 'Fig. 10',
+    fig: 'Exhibit 10',
     kicker: 'Full-stack SaaS',
     title: 'Personal Performance OS',
     blurb:

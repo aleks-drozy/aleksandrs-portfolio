@@ -26,7 +26,7 @@ describe('project slugs', () => {
 
 describe('exhibits', () => {
   it.each(exhibits.map((e) => [e.slug, e] as const))('"%s" has complete card copy', (_slug, e) => {
-    expect(e.fig).toMatch(/^Fig\. \d{2}$/)
+    expect(e.fig).toMatch(/^(Fig\.|Exhibit) \d{2}$/)
     expect(e.kicker).not.toBe('')
     expect(e.title).not.toBe('')
     expect(e.blurb.length).toBeGreaterThan(40)

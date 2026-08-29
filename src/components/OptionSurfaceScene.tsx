@@ -344,7 +344,7 @@ export default function OptionSurfaceScene() {
     <figure className="m-0 border border-hair bg-surface p-5 shadow-[0_18px_40px_-28px_rgba(18,21,28,0.35)]">
       <figcaption className="mb-3 flex items-baseline justify-between font-mono text-[10.5px] uppercase tracking-[0.08em] text-ink-3">
         <span>
-          Fig. 02 live model – <span className="text-ink">Black-Scholes price surface</span>
+          Fig. 02a live model – <span className="text-ink">Black-Scholes price surface</span>
         </span>
         <span>Drag to orbit</span>
       </figcaption>
