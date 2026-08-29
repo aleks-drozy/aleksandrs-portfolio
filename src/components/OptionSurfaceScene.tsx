@@ -15,9 +15,9 @@ const Z_SCALE = 1.1
 const Y_SCALE = 1.3
 
 const DEFAULT_AZIMUTH = 0.7
-const DEFAULT_POLAR = Math.PI / 2 - 0.32
-const MIN_POLAR = THREE.MathUtils.degToRad(25)
-const MAX_POLAR = THREE.MathUtils.degToRad(75)
+const DEFAULT_POLAR = THREE.MathUtils.degToRad(55)
+const MIN_POLAR = THREE.MathUtils.degToRad(35)
+const MAX_POLAR = THREE.MathUtils.degToRad(65)
 const EASE_BACK_MS = 600
 
 // Solves the CSS-style cubic-bezier(x1,y1,x2,y2) easing for y at a given
@@ -194,6 +194,7 @@ function Scene({ res, isMobile, onProbe }: { res: number; isMobile: boolean; onP
   const controlsRef = useRef<OrbitControlsImpl>(null)
   const groupRef = useRef<THREE.Group>(null)
   const easeRef = useRef<number | null>(null)
+  const isOrbitingRef = useRef(false)
 
   useEffect(() => {
     camera.position.set(
@@ -208,7 +209,13 @@ function Scene({ res, isMobile, onProbe }: { res: number; isMobile: boolean; onP
     const controls = controlsRef.current
     if (!controls) return
 
+    const onStart = () => {
+      isOrbitingRef.current = true
+      if (groupRef.current) groupRef.current.rotation.set(0, 0, 0)
+    }
+
     const onEnd = () => {
+      isOrbitingRef.current = false
       if (easeRef.current) cancelAnimationFrame(easeRef.current)
       const fromAzimuth = controls.getAzimuthalAngle()
       const fromPolar = controls.getPolarAngle()
@@ -235,8 +242,10 @@ function Scene({ res, isMobile, onProbe }: { res: number; isMobile: boolean; onP
       easeRef.current = requestAnimationFrame(tick)
     }
 
+    controls.addEventListener('start', onStart)
     controls.addEventListener('end', onEnd)
     return () => {
+      controls.removeEventListener('start', onStart)
       controls.removeEventListener('end', onEnd)
       if (easeRef.current) cancelAnimationFrame(easeRef.current)
     }
@@ -247,7 +256,7 @@ function Scene({ res, isMobile, onProbe }: { res: number; isMobile: boolean; onP
     if (isMobile) return
     const el = gl.domElement
     const onMove = (e: PointerEvent) => {
-      if (e.pointerType === 'touch' || !groupRef.current) return
+      if (e.pointerType === 'touch' || !groupRef.current || isOrbitingRef.current) return
       const rect = el.getBoundingClientRect()
       const nx = ((e.clientX - rect.left) / rect.width) * 2 - 1
       const ny = ((e.clientY - rect.top) / rect.height) * 2 - 1
