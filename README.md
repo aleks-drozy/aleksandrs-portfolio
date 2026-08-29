@@ -10,7 +10,7 @@ Live at: [aleksandrs-portfolio.vercel.app](https://aleksandrs-portfolio.vercel.a
 
 ## Positioning
 
-The site presents Aleksandrs as a Dublin-based Computer Science and Software Engineering graduate from Maynooth (2026) with a practical SWE plus quant angle. The hero pairs three proof metrics with `Fig. 01`, the in-sample equity curve of the final-year NASDAQ-100 strategy. Beneath it, seven exhibits carry the argument: the Dublin Bikes Forecast, JARVIS, Personal Performance OS, Maken, the Options Pricing Engine, the NASDAQ-100 FYP strategy, and the pre-registered research program that put that strategy on trial and disproved its edge.
+The site presents Aleksandrs as a Dublin-based Computer Science and Software Engineering graduate from Maynooth (2026) with a practical SWE plus quant angle. The hero pairs three proof metrics with `Fig. 01`, the in-sample equity curve of the final-year NASDAQ-100 strategy. Beneath it, nine exhibits carry the argument: the Dublin Bikes Forecast, JARVIS, Personal Performance OS, Maken, the NASDAQ-100 FYP strategy, the pre-registered research program that put that strategy on trial and disproved its edge, the Options Pricing Engine, Alpha Signal Lab, and Prompt Placebo.
 
 ## Stack
 
@@ -41,15 +41,19 @@ Every case study is statically generated from the slugs in `src/lib/case-studies
 - `/projects/speed-to-lead` - AI receptionist that qualifies and books inbound leads
 - `/projects/trading-dashboard` - full-stack trade journal and market-research app
 - `/projects/backtest-engine` - Python backtesting infrastructure and strategy comparison
-- `/projects/noteit` - full-stack note-taking project
 - `/projects/options-pricing-engine` - three-model option pricer that reconstructs a live SPY volatility smile
 - `/projects/jobq` - durable Go job queue with an at-least-once, crash-tested write-ahead log
 - `/projects/ghost-bus-tracker` - live GTFS-Realtime pipeline grading Dublin Bus punctuality in public
+- `/projects/registry-resolve` - entity resolution across three real Irish open-data registers
+- `/projects/irish-property-price-index` - mix-adjusted stratified house price index vs. the CSO
+- `/projects/alpha-signal-lab` - pre-registered, leakage-audited ML vs. momentum equity signal test
+- `/projects/prompt-placebo` - pre-registered, paired-delta audit of prompting techniques
+- `/projects/job-hunt-analytics` - anonymised dashboard of a real graduate job search and AI-assistant ops
 
 ## Homepage Sections
 
 - **Hero** - status, headline, lede, three proof metrics, CV download, and the `Fig. 01` equity curve
-- **Selected work** (`#work`) - seven exhibits (`Fig. 02` to `Fig. 08`), then ten "Also shipped" cards; all seventeen link to a case study
+- **Selected work** (`#work`) - nine exhibits (`Fig. 02` to `Fig. 10`), then eleven "Also shipped" cards; all twenty link to a case study
 - **Track record** (`#experience`) - DLT Capital and part-time roles beside the Maynooth degree, coursework, and certifications
 - **Toolbox** (`#skills`) - languages, frameworks, AI and ML, testing and tools
 - **Character** (`#character`) - judo and algorithmic trading

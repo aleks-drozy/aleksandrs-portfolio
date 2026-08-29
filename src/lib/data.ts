@@ -137,6 +137,20 @@ export const exhibits: Exhibit[] = [
     ],
     slug: 'alpha-signal-lab',
   },
+  {
+    fig: 'Fig. 10',
+    kicker: 'AI research, pre-registered',
+    title: 'Prompt Placebo',
+    blurb:
+      'A pre-registered, paired-delta audit of six popular prompting techniques (role prompts, chain-of-thought, emotional stakes, tips, politeness, few-shot) against an identical baseline, run across 1,438 questions and 23,008 API requests for $20.01. Method, thresholds, and correction rule were hash-frozen before the full run. Result: 0 of 39 technique-model-task comparisons earned a still_works verdict; 20 were placebo, 17 inconclusive. The only two statistically significant effects, both surviving Holm-Bonferroni correction, are harms: on claude-sonnet-5 with reasoning disabled, politeness cuts procedural-task accuracy by 2.84 points and few-shot examples cut it by 3.79 points.',
+    tags: ['Python', 'Anthropic API', 'Bootstrap CIs', 'Holm-Bonferroni'],
+    stats: [
+      { value: '0/39', label: 'Comparisons that "still work"' },
+      { value: '-3.79pp', label: 'Few-shot accuracy drop, p=0.0004' },
+      { value: '23,008', label: 'API requests, $20.01 spend' },
+    ],
+    slug: 'prompt-placebo',
+  },
 ]
 
 export type AlsoShipped = {

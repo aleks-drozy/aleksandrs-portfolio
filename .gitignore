@@ -36,6 +36,9 @@ yarn-error.log*
 # vercel
 .vercel
 
+# graphify-rs knowledge graph (regenerated locally, see project CLAUDE.md)
+/graphify-out/
+
 # typescript
 *.tsbuildinfo
 next-env.d.ts

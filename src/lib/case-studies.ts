@@ -29,7 +29,7 @@ export const caseStudies: CaseStudy[] = [
     links: [{ label: 'GitHub', href: 'https://github.com/aleks-drozy/jarvis' }],
     metrics: [
       { value: '100%', label: 'Local speech-to-text' },
-      { value: '08:30', label: 'Daily unattended brief' },
+      { value: '25', label: 'Test suites, CI 11/11' },
       { value: '0', label: 'Financial actions allowed' },
     ],
     sections: [
@@ -46,8 +46,10 @@ export const caseStudies: CaseStudy[] = [
         bullets: [
           'Aggregates my git history, notes, job alerts, and a real bank feed (aggregates only) into a single grounded morning brief, then delivers it to my phone over Telegram at 08:30 – email optional.',
           'Two-way Telegram remote: request a briefing or status from my phone, and text quick notes that surface in the next morning’s brief – with command de-duplication and at-most-once semantics.',
-          'Runs on Windows Task Scheduler with no human in the loop – collectors are plain PowerShell, covered by unit tests.',
+          'Runs on Windows Task Scheduler with no human in the loop – collectors are plain PowerShell, covered by unit tests, with a burst-window cache added 2026-08-21 for the Telegram collectors.',
           'Integrates a jobs REST API (Jooble) for automated role discovery, with provider fallback and rate-aware querying.',
+          'Opt-in Night Shift task (off by default): stages prep sheets for career triggers – interview, assessment, deadline within 48h – from already-collected local data into a vault folder. Nothing is sent, nothing is applied automatically.',
+          'A deferred-intents system captures "someday" utterances, verifies them in code rather than trusting the model, and resurfaces them through the existing hourly opportunity alarm.',
         ],
       },
       {
@@ -56,6 +58,18 @@ export const caseStudies: CaseStudy[] = [
           'Hard-coded safety rules: no financial actions, and every send is self-only – the send lock fails closed if no owner is configured.',
           'OAuth token management with DPAPI-encrypted credentials at rest.',
           'Failure alarms so a broken run surfaces loudly instead of failing silently.',
+          'The Telegram remote chat surface is pinned to Read/Glob/Grep only at the command line – Bash, Write, Edit, WebFetch, and WebSearch are explicitly denied, enforced by a structural test that fails the build if that allowlist ever widens.',
+          'Opt-in weekly memory consolidation (Sunday 21:00, off by default) rewrites PATTERNS.md from the trailing week of debriefs, with contradiction flags computed in PowerShell, not by the model.',
+        ],
+      },
+      {
+        heading: 'Bugs caught, not hidden',
+        bullets: [
+          'A command-injection bug shipped and was fixed 2026-07-15: a job-alert email subject line was interpolated straight into a shell command string. Caught by an adversarial review pass – not by the test suite – and the README documents it as such rather than omitting it.',
+          'A kill-switch parsing bug meant the safety off-switch could silently fail to parse under certain input; fixed with composed-in-script push text so the failure mode can’t go quiet again.',
+          'A duplicate-command bug produced five briefings from four texts; fixed with at-most-once command consumption plus a single-flight lock, backed by table-driven near-miss tests aimed at the exact edge that broke.',
+          'A "lied about being late" bug had the assistant report an on-time status when a run had actually slipped; fixed with an explicit -OnDemand flag rather than papering over the report path.',
+          'As of v3.0.0: 25 test suites, CI green 11/11, and gitleaks run over full history – the honesty is in the paper trail, not the pass rate.',
         ],
       },
     ],
@@ -689,6 +703,55 @@ export const caseStudies: CaseStudy[] = [
         heading: 'Why it matters',
         paragraphs: [
           'The honest model does not beat momentum, and the project says so as the headline, not a caveat. Built via a research/planning pass into an ultracode multi-phase build (scaffold, pipeline, audits/explainability, dashboard, verify), then hardened by three parallel adversarial audits that found and fixed twelve real data-integrity and numeric bugs before publishing. A static GitHub Pages dashboard (dark-mode aware, WCAG-checked contrast) leads with the honest-vs-leaky IC gap as the hero visual, not the model’s own performance.',
+        ],
+      },
+    ],
+  },
+  {
+    slug: 'prompt-placebo',
+    kicker: 'AI research, pre-registered',
+    title: 'Prompt Placebo',
+    year: '2026',
+    timeline: 'P3 complete, pre-registered before any full-run data existed',
+    role: 'Research design, LLM eval harness, statistics',
+    stack: ['Python', 'Anthropic API', 'Paired-delta design', 'Bootstrap confidence intervals', 'Holm-Bonferroni correction', 'Pre-registration'],
+    links: [{ label: 'GitHub', href: 'https://github.com/aleks-drozy/prompt-placebo' }],
+    metrics: [
+      { value: '0/39', label: 'Comparisons that "still work"' },
+      { value: '-3.79pp', label: 'Few-shot accuracy drop, p=0.0004' },
+      { value: '23,008', label: 'API requests, $20.01 spend' },
+    ],
+    sections: [
+      {
+        heading: 'The question',
+        paragraphs: [
+          'Do the prompting techniques everyone recommends, role prompts, "think step by step," emotional stakes, tips, politeness, few-shot examples, actually help? Prompt Placebo is a pre-registered, paired-delta audit: every technique is measured against an identical baseline on the same question, so any measured effect is the technique\'s own, not the underlying question getting easier or harder that run.',
+        ],
+      },
+      {
+        heading: 'The method',
+        bullets: [
+          'Paired-delta design across models and task categories (math, logic, procedural), with bootstrap confidence intervals and Holm-Bonferroni correction applied across all technique comparisons before anything was allowed to count as significant.',
+          'The methodology and verdict thresholds were hash-frozen (config hash 9b8af804...) and committed before any full-run data existed.',
+          'The completed run (P3): 1,438 questions, 23,008 API requests, $20.01 total spend against a pre-set $25 cap.',
+        ],
+      },
+      {
+        heading: 'The verdict',
+        paragraphs: [
+          '0 of 39 technique-model-task comparisons earned a still_works verdict. 20 came back placebo, 17 inconclusive, 2 actively_hurts, 0 still_works. Math is placebo across both models tested. Logic is placebo or inconclusive. Procedural tasks are where the only real effects show up, and they are harms.',
+        ],
+      },
+      {
+        heading: 'The only significant effects are harms',
+        paragraphs: [
+          'On claude-sonnet-5 with reasoning disabled, on procedural tasks, politeness drops accuracy 2.84 points (96.21% to 93.37%, 95% CI [-4.87, -0.81], p=0.0072) and few-shot examples drop it 3.79 points (96.21% to 92.42%, CI [-5.95, -1.62], p=0.0004). Both survive Holm-Bonferroni correction across all six techniques tested, so they are not multiple-comparisons noise.',
+        ],
+      },
+      {
+        heading: 'Why it matters',
+        paragraphs: [
+          'Most prompt-engineering advice is untested folklore repeated because it sounds plausible, not because anyone ran a paired, corrected comparison against a real baseline. This project ran that comparison and reports the null result as the headline: nothing tested here reliably helps, and two of the most commonly recommended techniques, politeness and few-shot examples, measurably hurt accuracy on procedural tasks. The finding is the exhibit, not a caveat attached to a positive one.',
         ],
       },
     ],
