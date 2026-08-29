@@ -514,7 +514,7 @@ export const caseStudies: CaseStudy[] = [
   {
     slug: 'jobq',
     kicker: 'Systems programming',
-    title: 'jobq, durable job queue',
+    title: 'jobq — Durable Job Queue (Go)',
     year: '2026',
     timeline: 'Built from scratch, standard library only',
     role: 'Solo',
@@ -590,7 +590,7 @@ export const caseStudies: CaseStudy[] = [
   {
     slug: 'registry-resolve',
     kicker: 'Data engineering, entity resolution',
-    title: 'registry-resolve, cross-register entity resolution',
+    title: 'registry-resolve',
     year: '2026',
     timeline: 'Real Irish government data, built in one week',
     role: 'Solo',
@@ -627,7 +627,7 @@ export const caseStudies: CaseStudy[] = [
   {
     slug: 'irish-property-price-index',
     kicker: 'Data engineering, dbt',
-    title: 'Irish Property Price Index, mix-adjusted',
+    title: 'Irish Property Price Index',
     year: '2026',
     timeline: '797,774 real transactions, validated against the CSO',
     role: 'Solo',

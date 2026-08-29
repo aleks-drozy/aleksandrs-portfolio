@@ -37,6 +37,20 @@ export type Exhibit = {
 export const exhibits: Exhibit[] = [
   {
     fig: 'Fig. 02',
+    kicker: 'Quant research',
+    title: 'Options Pricing Engine',
+    blurb:
+      'Three independent option pricers, Black-Scholes closed form, a CRR binomial tree with American exercise, and a seeded Monte Carlo simulation, cross-validated against each other through seven machine-checked numerical gates, all passing to sub-basis-point precision. Then the engine turns on a real SPY option chain and inverts the market\'s own prices back to volatility: the market quotes a different sigma at every strike, the smile that flat-vol Black-Scholes says is impossible. A live interactive Three.js surface and GitHub Pages explorer re-verifies all seven gates on every load.',
+    tags: ['Python', 'Black-Scholes', 'Monte Carlo', 'CRR Binomial'],
+    stats: [
+      { value: '7/7', label: 'Validation gates pass' },
+      { value: '2.84e-14', label: 'Parity precision' },
+      { value: '13.6-15.9%', label: 'ATM IV smile range' },
+    ],
+    slug: 'options-pricing-engine',
+  },
+  {
+    fig: 'Fig. 03',
     kicker: 'Live ML · self-scoring',
     title: 'Dublin Bikes Forecast',
     blurb:
@@ -50,81 +64,7 @@ export const exhibits: Exhibit[] = [
     slug: 'dublin-bikes-forecast',
   },
   {
-    fig: 'Fig. 03',
-    kicker: 'AI agent',
-    title: 'JARVIS – voice-controlled AI assistant',
-    blurb:
-      'A personal AI butler that runs my mornings – now open source. A voice-controlled Iron-Man-style HUD (Electron, with 100% local speech-to-text via whisper.cpp) sits on top of a scheduled, fully unattended agent pipeline: it aggregates my git history, notes, job alerts, and a real bank feed into a grounded morning brief and delivers it to my phone over Telegram at 08:30. Two-way remote commands, headless Claude-agent execution with DPAPI-encrypted credentials, hard safety rules (no financial actions, self-only sends that fail closed), and failure alarms.',
-    tags: ['Claude agent', 'Electron', 'whisper.cpp', 'PowerShell', 'Telegram Bot API'],
-    slug: 'jarvis',
-  },
-  {
     fig: 'Fig. 04',
-    kicker: 'Full-stack SaaS',
-    title: 'Personal Performance OS',
-    blurb:
-      'A production "operating system" for training, food, habits, and tasks – shipped solo across 145 merged pull requests. Supabase Postgres with Row-Level Security on all 33 tables (28 migrations), Groq (Llama 3.3 70B) coaching hardened against prompt injection, and 790+ automated tests behind CI/CD.',
-    tags: ['Next.js', 'TypeScript', 'Supabase', 'Groq AI'],
-    stats: [
-      { value: '33', label: 'RLS tables' },
-      { value: '790+', label: 'Tests' },
-      { value: '145', label: 'Merged PRs' },
-    ],
-    slug: 'personal-performance-os',
-  },
-  {
-    fig: 'Fig. 05',
-    kicker: 'Live SaaS · my sport',
-    title: 'Maken – AI weight-cut SaaS',
-    blurb:
-      'A weight-cut platform for judo and BJJ athletes, built by a 16-year black belt for his own sport. Live with alpha users: streaming AI estimates, Upstash Redis rate limiting, Resend email automation, an installable offline PWA, full technical SEO, and GDPR-compliant export and deletion.',
-    tags: ['Next.js 16', 'Supabase', 'Groq AI', 'PWA'],
-    slug: 'maken',
-  },
-  {
-    fig: 'Fig. 06',
-    kicker: 'Quant research',
-    title: 'NASDAQ-100 FYP Strategy',
-    blurb:
-      'Final-year Pine Script v6 strategy for NQ1! E-mini futures using Inverse Fair Value Gaps, Change in State of Delivery, and a liquidity-sweep filter, with fixed risk rules and honestly documented out-of-sample caveats. The sequel (Fig. 07) put this edge on trial – and disproved it.',
-    tags: ['Pine Script v6', 'TradingView', 'Walk-forward'],
-    stats: [
-      { value: '56.94%', label: 'In-sample win rate' },
-      { value: '+$28.4K', label: 'In-sample P&L' },
-      { value: '1.703', label: 'In-sample profit factor' },
-    ],
-    slug: 'fyp-trading-strategy',
-  },
-  {
-    fig: 'Fig. 07',
-    kicker: 'Quant research · capstone',
-    title: 'Quant Strategy Research Program',
-    blurb:
-      'A six-phase, pre-registered research program that settled whether the FYP strategy’s +$28.4K backtest edge was real. Bar-by-bar backtest engine with no lookahead, leak-free walk-forward optimisation, Monte Carlo bootstrap studies, an ML trade-filter experiment, and cluster-bootstrap confidence intervals – verdict decided by a git-timestamped frozen decision table the runner hash-verifies before it will run. Answer: the edge did not survive 10 years and three futures markets, and the gates forensically caught a 60-minute timestamp bug in the source dataset along the way.',
-    tags: ['Python', 'pandas', 'pytest', 'Statistics', 'GitHub Actions'],
-    stats: [
-      { value: '176', label: 'Tests (CI)' },
-      { value: '1,402', label: 'OOS trades' },
-      { value: '10 yrs', label: '× 3 markets' },
-    ],
-    slug: 'fyp-strategy-engine',
-  },
-  {
-    fig: 'Fig. 08',
-    kicker: 'Quant research',
-    title: 'Options Pricing Engine',
-    blurb:
-      'Three independent option pricers, Black-Scholes closed form, a CRR binomial tree with American exercise, and a seeded Monte Carlo simulation, cross-validated against each other through seven machine-checked numerical gates, all passing to sub-basis-point precision. Then the engine turns on a real SPY option chain and inverts the market\'s own prices back to volatility: the market quotes a different sigma at every strike, the smile that flat-vol Black-Scholes says is impossible. A live GitHub Pages explorer re-verifies all seven gates on every load.',
-    tags: ['Python', 'Black-Scholes', 'Monte Carlo', 'CRR Binomial'],
-    stats: [
-      { value: '7/7', label: 'Validation gates pass' },
-      { value: '2.84e-14', label: 'Parity precision' },
-      { value: '13.6-15.9%', label: 'ATM IV smile range' },
-    ],
-    slug: 'options-pricing-engine',
-  },
-  {
-    fig: 'Fig. 09',
     kicker: 'Quant research · applied ML',
     title: 'Alpha Signal Lab',
     blurb:
@@ -138,7 +78,21 @@ export const exhibits: Exhibit[] = [
     slug: 'alpha-signal-lab',
   },
   {
-    fig: 'Fig. 10',
+    fig: 'Fig. 05',
+    kicker: 'Quant research · capstone',
+    title: 'Quant Strategy Research Program',
+    blurb:
+      'A six-phase, pre-registered research program that settled whether a final-year FYP strategy’s +$28.4K backtest edge was real. Bar-by-bar backtest engine with no lookahead, leak-free walk-forward optimisation, Monte Carlo bootstrap studies, an ML trade-filter experiment, and cluster-bootstrap confidence intervals – verdict decided by a git-timestamped frozen decision table the runner hash-verifies before it will run. Answer: the edge did not survive 10 years and three futures markets, and the gates forensically caught a 60-minute timestamp bug in the source dataset along the way.',
+    tags: ['Python', 'pandas', 'pytest', 'Statistics', 'GitHub Actions'],
+    stats: [
+      { value: '176', label: 'Tests (CI)' },
+      { value: '1,402', label: 'OOS trades' },
+      { value: '10 yrs', label: '× 3 markets' },
+    ],
+    slug: 'fyp-strategy-engine',
+  },
+  {
+    fig: 'Fig. 06',
     kicker: 'AI research, pre-registered',
     title: 'Prompt Placebo',
     blurb:
@@ -150,6 +104,62 @@ export const exhibits: Exhibit[] = [
       { value: '23,008', label: 'API requests, $20.01 spend' },
     ],
     slug: 'prompt-placebo',
+  },
+  {
+    fig: 'Fig. 07',
+    kicker: 'Systems programming',
+    title: 'jobq — Durable Job Queue (Go)',
+    blurb:
+      'A durable, single-node job queue written from scratch in Go using only the standard library: at-least-once delivery, actor-per-topic concurrency, leases with lazy expiry, and a CRC-checked, group-committed write-ahead log. Sixteen producers hand records to a single committer and share one fsync instead of paying for sixteen, cutting per-operation cost from 550µs sequential to 65µs under load. A crash harness kills the process cold, mid-write, at a random moment across five rounds: zero acknowledged jobs lost, zero resurrected. Two invariants, conservation and unique settlement, hold under the race detector across thousands of randomized interleavings.',
+    tags: ['Go', 'Write-Ahead Log', 'Property-Based Testing'],
+    stats: [
+      { value: '65µs', label: 'Per-op under 16 producers' },
+      { value: '5/5', label: 'Crash rounds survived' },
+      { value: '0', label: 'Jobs lost or resurrected' },
+    ],
+    slug: 'jobq',
+  },
+  {
+    fig: 'Fig. 08',
+    kicker: 'Data engineering, dbt',
+    title: 'Irish Property Price Index',
+    blurb:
+      'A mix-adjusted stratified price index built on the full Property Price Register, 797,774 real sales, using dbt and DuckDB, validated directly against the CSO’s own official Residential Property Price Index rather than assumed correct. Nationally, the raw median that gets reported overstates price growth by 2.22 index points on average versus the mix-adjusted measure; in Dublin it does the opposite, understating growth by 3.91 points – opposite signs, from the same method, on the same data. Across 187 months, 31 have the raw and mix-adjusted series disagreeing on direction entirely: the standard Simpson’s-paradox mechanism, live in real housing data.',
+    tags: ['Python', 'dbt', 'DuckDB', 'SQL'],
+    stats: [
+      { value: '797,774', label: 'Real PPR sales' },
+      { value: '+2.22 / -3.91', label: 'National vs Dublin index gap' },
+      { value: '31/187', label: 'Months disagreeing on direction' },
+    ],
+    slug: 'irish-property-price-index',
+  },
+  {
+    fig: 'Fig. 09',
+    kicker: 'Data engineering, entity resolution',
+    title: 'registry-resolve',
+    blurb:
+      'Entity resolution across three real Irish open-data registers – CRO company records, the Register of Charities, and public procurement award data – deterministic ID joins where a real identifier exists, Splink probabilistic matching where it doesn’t. Evaluated against 330 blind human-labelled pairs with planted self-consistency probes: a first-pass Cohen’s kappa of 0.608 was rejected against a stricter self-imposed bar, re-checked, and re-measured to a genuine 1.000. The final 898,481-row entity spine uses best-match-per-record resolution after measuring that naive graph clustering would merge distinct real companies together.',
+    tags: ['Python', 'DuckDB', 'Splink', 'pandas'],
+    stats: [
+      { value: '898,481', label: 'Rows in entity spine' },
+      { value: '1.000', label: 'Cohen’s kappa, self-consistency' },
+      { value: '88.4% / 54.2%', label: 'Precision / recall at threshold' },
+    ],
+    slug: 'registry-resolve',
+  },
+  {
+    fig: 'Fig. 10',
+    kicker: 'Full-stack SaaS',
+    title: 'Personal Performance OS',
+    blurb:
+      'A production "operating system" for training, food, habits, and tasks – shipped solo across 145 merged pull requests. Supabase Postgres with Row-Level Security on all 33 tables (28 migrations), Groq (Llama 3.3 70B) coaching hardened against prompt injection, and 790+ automated tests behind CI/CD.',
+    tags: ['Next.js', 'TypeScript', 'Supabase', 'Groq AI'],
+    stats: [
+      { value: '33', label: 'RLS tables' },
+      { value: '790+', label: 'Tests' },
+      { value: '145', label: 'Merged PRs' },
+    ],
+    slug: 'personal-performance-os',
   },
 ]
 
@@ -163,34 +173,56 @@ export type AlsoShipped = {
 
 export const alsoShipped: AlsoShipped[] = [
   {
-    title: 'Trading Analytics Dashboard',
+    title: 'Ghost Bus Tracker',
     blurb:
-      '230+ commit full-stack trade journal and market-research app – Next.js dashboard, authenticated trade logging, analytics pages, a Python/FastAPI back end, tests, schemas, and Vercel deployment.',
-    slug: 'trading-dashboard',
-    github: 'https://github.com/aleks-drozy/Trading_Dashboard',
-    live: 'https://tradingdashboard-one.vercel.app',
+      'A 24/7 pipeline that polls Dublin\'s live GTFS-Realtime feed and classifies every scheduled Dublin Bus / Go-Ahead trip into one of six honest outcomes, grading its own uptime in public alongside the routes it measures. A self-designed feed-health gate caught a real NTA data outage on its first live day and withdrew that day\'s verdicts rather than publish false accusations.',
+    slug: 'ghost-bus-tracker',
+    github: 'https://github.com/aleks-drozy/ghost-bus',
+    live: 'https://aleks-drozy.github.io/ghost-bus/',
   },
   {
-    title: 'Vectorised Backtesting Engine',
+    title: 'Job-Hunt Analytics',
     blurb:
-      'Python engine with a strategy registry, slippage/commission model, and walk-forward split. Benchmarks SMA Crossover and RSI Mean Reversion against the FYP strategy; GitHub Actions auto-updates results.',
-    slug: 'backtest-engine',
-    github: 'https://github.com/aleks-drozy/aleksander-backtest-engine',
+      'A month of one graduate’s real job search and AI-assistant operations, parsed from messy markdown trackers into a queryable DuckDB database and published as an anonymised static dashboard. A privacy gate enforced in CI was adversarially attacked and closed on 7 real leak paths before anything went public, behind a 164-test suite. Nine SQL analyses over 50 tracked applications and 65 logged assistant operations, deliberately framed as descriptive rather than inferential at that sample size – every rate published beside its raw numerator and denominator, including the headline: 0 interviews from 50 applications.',
+    slug: 'job-hunt-analytics',
+    github: 'https://github.com/aleks-drozy/job-hunt-analytics',
+    live: 'https://aleks-drozy.github.io/job-hunt-analytics/',
   },
   {
-    title: 'registry-resolve',
+    title: 'Football Career Trajectory Model',
     blurb:
-      'Entity resolution across three real Irish open-data registers – deterministic ID join where one exists, Splink matching where it doesn’t. Evaluated against 330 blind pairs, Cohen’s kappa 1.000 after a stricter self-imposed bar flagged the first pass as not good enough.',
-    slug: 'registry-resolve',
-    github: 'https://github.com/aleks-drozy/registry-resolve',
+      'Pre-registered Monte Carlo projection of young footballers’ careers on 24,057 FBref player-seasons, cross-checked on unseen 2025–26 data at six horizons. Verdict: NOT PROVEN, skilled but under-confident.',
+    slug: 'football-trajectory',
+    github: 'https://github.com/aleks-drozy/football-trajectory',
+    live: 'https://aleks-drozy.github.io/football-trajectory/',
   },
   {
-    title: 'Irish Property Price Index',
+    title: 'JARVIS – voice-controlled AI assistant',
     blurb:
-      'Mix-adjusted stratified price index on 797,774 real Property Price Register sales (dbt + DuckDB), validated against the CSO. Finds the raw median overstates national growth and understates Dublin’s, opposite signs from the same method.',
-    slug: 'irish-property-price-index',
-    github: 'https://github.com/aleks-drozy/irish-property-price-index',
-    live: 'https://aleks-drozy.github.io/irish-property-price-index/dashboard/',
+      'A personal AI butler that runs my mornings – now open source. A voice-controlled Iron-Man-style HUD (Electron, 100% local speech-to-text via whisper.cpp) sits on top of a scheduled, fully unattended agent pipeline that delivers a grounded morning brief to Telegram at 08:30, with two-way remote commands, DPAPI-encrypted credentials, and fail-closed safety rules. Elite interview stories – including a shipped-and-fixed command-injection bug – but no 2-minute demo: it is local, personal, and scheduled.',
+    slug: 'jarvis',
+    github: 'https://github.com/aleks-drozy/jarvis',
+  },
+  {
+    title: 'Maken – AI weight-cut SaaS',
+    blurb:
+      'A weight-cut platform for judo and BJJ athletes, built by a 16-year black belt for his own sport. Live with alpha users: streaming AI estimates, Upstash Redis rate limiting, Resend email automation, an installable offline PWA, full technical SEO, and GDPR-compliant export and deletion.',
+    slug: 'maken',
+    live: 'https://maken-coach.vercel.app',
+  },
+  {
+    title: 'Polymarket Favourite Bias',
+    blurb:
+      'Pre-registered backtest over 2,418 resolved Polymarket markets: favourites win 90.6% of the time and still lose ~1% after fees. Verdict: NOT PROVEN.',
+    slug: 'polymarket-favourite-bias',
+    github: 'https://github.com/aleks-drozy/polymarket-favourite-bias',
+  },
+  {
+    title: 'NASDAQ-100 FYP Strategy',
+    blurb:
+      'Final-year Pine Script v6 strategy for NQ1! E-mini futures using Inverse Fair Value Gaps, Change in State of Delivery, and a liquidity-sweep filter, with fixed risk rules and honestly documented out-of-sample caveats. Its own sequel, the Quant Strategy Research Program, put this edge on trial – and disproved it.',
+    slug: 'fyp-trading-strategy',
+    github: 'https://github.com/aleks-drozy/fyp-trading-strategy',
   },
   {
     title: 'Speed-to-Lead AI Agent',
@@ -208,42 +240,19 @@ export const alsoShipped: AlsoShipped[] = [
     github: 'https://github.com/aleks-drozy/Trading-Strategy-Monte-Carlo-Simulation',
   },
   {
-    title: 'Polymarket Favourite Bias',
+    title: 'Trading Analytics Dashboard',
     blurb:
-      'Pre-registered backtest over 2,418 resolved Polymarket markets: favourites win 90.6% of the time and still lose ~1% after fees. Verdict: NOT PROVEN.',
-    slug: 'polymarket-favourite-bias',
-    github: 'https://github.com/aleks-drozy/polymarket-favourite-bias',
+      '230+ commit full-stack trade journal and market-research app – Next.js dashboard, authenticated trade logging, analytics pages, a Python/FastAPI back end, tests, schemas, and Vercel deployment.',
+    slug: 'trading-dashboard',
+    github: 'https://github.com/aleks-drozy/Trading_Dashboard',
+    live: 'https://tradingdashboard-one.vercel.app',
   },
   {
-    title: 'Football Career Trajectory Model',
+    title: 'Vectorised Backtesting Engine',
     blurb:
-      'Pre-registered Monte Carlo projection of young footballers’ careers on 24,057 FBref player-seasons, cross-checked on unseen 2025–26 data at six horizons. Verdict: NOT PROVEN, skilled but under-confident.',
-    slug: 'football-trajectory',
-    github: 'https://github.com/aleks-drozy/football-trajectory',
-    live: 'https://aleks-drozy.github.io/football-trajectory/',
-  },
-  {
-    title: 'jobq, Durable Job Queue',
-    blurb:
-      'Durable job queue built from scratch in Go, standard library only: at-least-once delivery, actor-per-topic concurrency, a CRC-checked group-committed write-ahead log. A crash harness kills the process cold mid-write across 5 rounds: zero jobs lost, zero acknowledged jobs resurrected.',
-    slug: 'jobq',
-    github: 'https://github.com/aleks-drozy/jobq',
-  },
-  {
-    title: 'Ghost Bus Tracker',
-    blurb:
-      'A 24/7 pipeline that polls Dublin\'s live GTFS-Realtime feed and classifies every scheduled Dublin Bus / Go-Ahead trip into one of six honest outcomes, grading its own uptime in public alongside the routes it measures. A self-designed feed-health gate caught a real NTA data outage on its first live day and withdrew that day\'s verdicts rather than publish false accusations.',
-    slug: 'ghost-bus-tracker',
-    github: 'https://github.com/aleks-drozy/ghost-bus',
-    live: 'https://aleks-drozy.github.io/ghost-bus/',
-  },
-  {
-    title: 'Job-Hunt Analytics',
-    blurb:
-      'A month of one graduate’s real job search and AI-assistant operations, parsed from messy markdown trackers into a queryable DuckDB database and published as an anonymised static dashboard. A privacy gate enforced in CI was adversarially attacked and closed on 7 real leak paths before anything went public, behind a 164-test suite. Nine SQL analyses over 50 tracked applications and 65 logged assistant operations, deliberately framed as descriptive rather than inferential at that sample size – every rate published beside its raw numerator and denominator, including the headline: 0 interviews from 50 applications.',
-    slug: 'job-hunt-analytics',
-    github: 'https://github.com/aleks-drozy/job-hunt-analytics',
-    live: 'https://aleks-drozy.github.io/job-hunt-analytics/',
+      'Python engine with a strategy registry, slippage/commission model, and walk-forward split. Benchmarks SMA Crossover and RSI Mean Reversion against the FYP strategy; GitHub Actions auto-updates results.',
+    slug: 'backtest-engine',
+    github: 'https://github.com/aleks-drozy/aleksander-backtest-engine',
   },
 ]
 
