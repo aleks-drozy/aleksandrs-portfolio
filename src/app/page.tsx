@@ -1,8 +1,10 @@
+import { Fragment } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { SiteNav } from '@/components/SiteNav'
 import { Reveal } from '@/components/Reveal'
 import { EquityCurve } from '@/components/EquityCurve'
+import { OptionSurfacePanel } from '@/components/OptionSurfacePanel'
 import BlurText from '@/components/BlurText'
 import { MetricValue } from '@/components/MetricValue'
 import {
@@ -132,8 +134,8 @@ export default function Home() {
 
             <div>
               {exhibits.map((ex, i) => (
+                <Fragment key={ex.slug}>
                 <Reveal
-                  key={ex.slug}
                   as="article"
                   className={`grid grid-cols-1 items-start gap-7 py-7 md:grid-cols-[100px_1fr_auto] ${
                     i === 0 ? 'border-t border-ink' : 'border-t border-hair'
@@ -179,6 +181,12 @@ export default function Home() {
                     </div>
                   )}
                 </Reveal>
+                {ex.slug === 'options-pricing-engine' && (
+                  <Reveal>
+                    <OptionSurfacePanel />
+                  </Reveal>
+                )}
+                </Fragment>
               ))}
             </div>
 
