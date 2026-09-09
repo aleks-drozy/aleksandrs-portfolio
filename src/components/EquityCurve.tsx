@@ -40,7 +40,7 @@ export function EquityCurve() {
         <span>
           Fig. 01 – <span className="text-ink">NASDAQ-100 FYP strategy</span>
         </span>
-        <span>Equity · in-sample</span>
+        <span className="text-right">In-sample · edge disproven OOS</span>
       </figcaption>
 
       <div className="relative aspect-[16/9] w-full">

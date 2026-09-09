@@ -79,7 +79,7 @@ export const caseStudies: CaseStudy[] = [
     kicker: 'Full-stack SaaS',
     title: 'Personal Performance OS',
     year: '2026',
-    timeline: '145 merged pull requests',
+    timeline: '145 merged pull requests · private codebase, live app',
     role: 'Solo full-stack',
     stack: ['Next.js', 'TypeScript', 'Supabase', 'PostgreSQL', 'Groq (Llama 3.3 70B)', 'Vitest', 'Playwright'],
     links: [{ label: 'Live app (DailyAtlas)', href: 'https://dailyatlas.vercel.app' }],
@@ -299,6 +299,7 @@ export const caseStudies: CaseStudy[] = [
     kicker: 'Live ML · self-scoring',
     title: 'Dublin Bikes Forecast',
     year: '2026',
+    timeline: 'Paused since 23 Jul 2026 (cloud host suspended the VM)',
     role: 'Solo – research, engineering, ops, design',
     stack: ['Python', 'scikit-learn', 'pandas', 'GitHub Actions', 'Oracle Cloud VM'],
     links: [
@@ -310,7 +311,7 @@ export const caseStudies: CaseStudy[] = [
       { value: '671K', label: 'Training rows' },
       { value: '8/8', label: 'Offline CIs positive' },
       { value: '68', label: 'Tests' },
-      { value: 'PENDING', label: '28-day live verdict' },
+      { value: 'PAUSED', label: '28-day live verdict' },
     ],
     sections: [
       {
@@ -335,6 +336,12 @@ export const caseStudies: CaseStudy[] = [
         heading: 'The first night',
         paragraphs: [
           'Hours after going live, a poll process died mid-write and wedged the pipeline; the next morning’s forecasts scored as UNSCOREABLE_GAP – 228 rows of honest failure, permanently in the public record. The fix shipped the same morning with a self-healing recovery routine and a regression test for the exact failure class. A system that documents its own outages is the point: the 28-day verdict, PASS or NOT PROVEN, will mean something either way.',
+        ],
+      },
+      {
+        heading: 'Current status',
+        paragraphs: [
+          'Collection has been paused since 23 July 2026: the cloud provider suspended the tenancy hosting the VM, an appeal is filed, and there is no SLA on a decision. The 28-day verdict clock is frozen at the day it stopped rather than restarted, because restarting would be exactly the kind of quiet re-rolling the ledger exists to prevent. The public scoreboard shows the gap. If the host does not restore service, the pipeline moves to a new VM and the clock resumes from where it stopped.',
         ],
       },
     ],
@@ -561,8 +568,8 @@ export const caseStudies: CaseStudy[] = [
     ],
     metrics: [
       { value: '6', label: 'Honest outcome classes' },
-      { value: '24/7', label: 'Live polling' },
-      { value: '14 days', label: 'Public baseline window' },
+      { value: 'Day 4 / 14', label: 'Baseline window, paused' },
+      { value: '1', label: 'Real feed outage caught' },
     ],
     sections: [
       {
@@ -582,7 +589,7 @@ export const caseStudies: CaseStudy[] = [
       {
         heading: 'Why it matters',
         paragraphs: [
-          'Publicly grading a state service means the measurement itself has to be beyond reproach. Runs unattended on an Oracle Cloud VM; currently in a public 14-day pre-baseline collection window before route rankings publish.',
+          'Publicly grading a state service means the measurement itself has to be beyond reproach. It ran unattended on an Oracle Cloud VM until July 2026, when the provider suspended the tenancy four days into the 14-day pre-baseline window. Collection is paused, not restarted: the site shows the gap in its own uptime strip, and route rankings stay unpublished until the baseline genuinely exists.',
         ],
       },
     ],
@@ -792,7 +799,7 @@ export const caseStudies: CaseStudy[] = [
       {
         heading: 'The honest headline',
         paragraphs: [
-          'Nine SQL analyses, seven charts, and a static dashboard, deliberately framed as descriptive rather than inferential at this sample size: every rate is published beside its raw numerator and denominator rather than dressed up as a statistic it cannot support. The headline: 0 interviews from 50 tracked applications, reported as the whole result, not buried in it.',
+          'Nine SQL analyses, seven charts, and a static dashboard, deliberately framed as descriptive rather than inferential at this sample size: every rate is published beside its raw numerator and denominator rather than dressed up as a statistic it cannot support, including the conversion rate itself.',
         ],
       },
     ],

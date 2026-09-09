@@ -8,6 +8,7 @@ import { OptionSurfacePanel } from '@/components/OptionSurfacePanel'
 import { VolSmilePanel } from '@/components/VolSmilePanel'
 import BlurText from '@/components/BlurText'
 import { MetricValue } from '@/components/MetricValue'
+import { Disclosure } from '@/components/Disclosure'
 import {
   site,
   heroMetrics,
@@ -111,7 +112,11 @@ export default function Home() {
                     <dd className="font-serif text-[1.9rem] leading-none tracking-[-0.01em] text-cobalt">
                       <MetricValue value={m.value} duration={1.2} />
                     </dd>
-                    <dt className="mt-2 font-mono text-[10.5px] uppercase tracking-[0.12em] text-ink-3">{m.label}</dt>
+                    <dt className="mt-2 font-mono text-[10.5px] uppercase tracking-[0.12em] text-ink-3">
+                      <a href={m.href} className="border-b border-transparent transition-colors hover:border-cobalt hover:text-cobalt">
+                        {m.label} ↓
+                      </a>
+                    </dt>
                   </div>
                 ))}
               </dl>
@@ -213,49 +218,20 @@ export default function Home() {
                   )}
                 </Reveal>
                 {ex.slug === 'options-pricing-engine' && (
-                  <>
-                    <Reveal>
+                  <div className="mb-2 md:ml-[128px]">
+                    <Disclosure label="Fig. 02a · Live Black-Scholes price surface" hint="Interactive · WebGL">
                       <OptionSurfacePanel />
-                    </Reveal>
-                    <Reveal>
+                    </Disclosure>
+                    <Disclosure label="Fig. 02b · SPY implied-volatility smile" hint="Real chain snapshot · WebGL">
                       <VolSmilePanel />
-                    </Reveal>
-                  </>
+                    </Disclosure>
+                  </div>
                 )}
                 </Fragment>
                 )
               })}
             </div>
 
-            {/* also shipped */}
-            <div className="mt-16 grid grid-cols-1 gap-6 md:grid-cols-3">
-              {alsoShipped.map((p, i) => (
-                <Reveal key={p.slug} delay={i * 60} className="border-t border-hair pt-4">
-                  <div className="font-mono text-[10.5px] uppercase tracking-[0.1em] text-cobalt">Also shipped</div>
-                  <h4 className="mb-1.5 mt-2 font-semibold">
-                    <Link href={`/projects/${p.slug}`} className="transition-colors hover:text-cobalt">
-                      {p.title}
-                    </Link>
-                  </h4>
-                  <p className="mt-1.5 text-[0.85rem] leading-relaxed text-ink-2">{p.blurb}</p>
-                  <div className="mt-3 flex gap-4 font-mono text-[11px]">
-                    <Link href={`/projects/${p.slug}`} className="text-cobalt hover:underline">
-                      Details →
-                    </Link>
-                    {p.github && (
-                      <a href={p.github} target="_blank" rel="noopener noreferrer" className="text-ink-3 hover:text-cobalt">
-                        GitHub ↗
-                      </a>
-                    )}
-                    {p.live && (
-                      <a href={p.live} target="_blank" rel="noopener noreferrer" className="text-ink-3 hover:text-cobalt">
-                        Live ↗
-                      </a>
-                    )}
-                  </div>
-                </Reveal>
-              ))}
-            </div>
           </div>
         </section>
 
@@ -303,10 +279,44 @@ export default function Home() {
           </div>
         </section>
 
+        {/* ---------- ALSO SHIPPED ---------- */}
+        <section id="also-shipped" className="border-t border-hair">
+          <div className={`${CONTAINER} py-20 md:py-28`}>
+            <SectionHeader eyebrow="Also shipped" title="The rest of the ledger." index="04 / ARCHIVE" />
+            <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
+              {alsoShipped.map((p, i) => (
+                <Reveal key={p.slug} delay={i * 60} className="border-t border-hair pt-4">
+                  <h4 className="mb-1.5 mt-2 font-semibold">
+                    <Link href={`/projects/${p.slug}`} className="transition-colors hover:text-cobalt">
+                      {p.title}
+                    </Link>
+                  </h4>
+                  <p className="mt-1.5 text-[0.85rem] leading-relaxed text-ink-2">{p.blurb}</p>
+                  <div className="mt-3 flex gap-4 font-mono text-[11px]">
+                    <Link href={`/projects/${p.slug}`} className="text-cobalt hover:underline">
+                      Details →
+                    </Link>
+                    {p.github && (
+                      <a href={p.github} target="_blank" rel="noopener noreferrer" className="text-ink-3 hover:text-cobalt">
+                        GitHub ↗
+                      </a>
+                    )}
+                    {p.live && (
+                      <a href={p.live} target="_blank" rel="noopener noreferrer" className="text-ink-3 hover:text-cobalt">
+                        Live ↗
+                      </a>
+                    )}
+                  </div>
+                </Reveal>
+              ))}
+            </div>
+          </div>
+        </section>
+
         {/* ---------- EXPERIENCE & EDUCATION ---------- */}
         <section id="experience" className="border-t border-hair">
           <div className={`${CONTAINER} py-20 md:py-28`}>
-            <SectionHeader eyebrow="Track record" title="Real work, research, and pressure." index="04 / RECORD" />
+            <SectionHeader eyebrow="Track record" title="Real work, research, and pressure." index="05 / RECORD" />
 
             <div className="grid grid-cols-1 gap-14 md:grid-cols-2">
               <div>
@@ -371,7 +381,7 @@ export default function Home() {
         {/* ---------- SKILLS ---------- */}
         <section id="skills" className="border-t border-hair">
           <div className={`${CONTAINER} py-20 md:py-28`}>
-            <SectionHeader eyebrow="Toolbox" title="The stack I can actually work in." index="05 / STACK" />
+            <SectionHeader eyebrow="Toolbox" title="The stack I can actually work in." index="06 / STACK" />
 
             <div className="grid grid-cols-2 gap-8 md:grid-cols-4">
               {skillGroups.map((g, i) => (
@@ -397,13 +407,14 @@ export default function Home() {
           <div className={`${CONTAINER} py-20 md:py-28`}>
             <SectionHeader
               eyebrow="The stuff that changes how I work"
-              title="Composure, tested twice over."
-              index="06 / CHARACTER"
+              title="Composure, tested three ways."
+              index="07 / CHARACTER"
             />
-            <div className="grid grid-cols-1 gap-10 md:grid-cols-2">
+            <div className="grid grid-cols-1 gap-10 md:grid-cols-3 md:gap-8">
               {character.map((c, i) => (
-                <Reveal key={c.title} delay={i * 80} className="border-l-2 border-cobalt pl-6">
-                  <h4 className="mb-2.5 font-mono text-[11px] uppercase tracking-[0.14em] text-cobalt">{c.title}</h4>
+                <Reveal key={c.title} delay={i * 80} className="border-t border-ink pt-5">
+                  <div className="font-mono text-xs tracking-[0.06em] text-cobalt">0{i + 1}</div>
+                  <h4 className="mb-2.5 mt-1.5 font-mono text-[11px] uppercase tracking-[0.14em] text-ink">{c.title}</h4>
                   <p className="text-[0.95rem] leading-relaxed text-ink-2">{c.copy}</p>
                 </Reveal>
               ))}
@@ -416,11 +427,11 @@ export default function Home() {
           <div className={`${CONTAINER} py-20 md:py-28`}>
             <span className="eyebrow">Get in touch</span>
             <h2 className="mt-3.5 max-w-[16ch] text-balance font-serif text-[clamp(1.9rem,5vw,3.25rem)] font-medium leading-[1.05] tracking-[-0.02em]">
-              Hiring for 2026? <em className="italic text-cobalt">Let&rsquo;s talk.</em>
+              Hiring a graduate engineer? <em className="italic text-cobalt">Let&rsquo;s talk.</em>
             </h2>
             <p className="mt-5 max-w-[52ch] text-ink-2">
-              Open to graduate software engineering, full-stack, AI, fintech, and data-tooling roles. Best next step is
-              email or LinkedIn.
+              Available now in Dublin, or remote across the EU and UK. Graduate software engineering, quantitative
+              development, AI, fintech, and data-tooling roles. Best next step is email or LinkedIn.
             </p>
             <a
               href={`mailto:${site.email}`}
