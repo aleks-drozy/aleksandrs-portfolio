@@ -13,6 +13,9 @@ import {
   heroMetrics,
   exhibits,
   alsoShipped,
+  ossIntro,
+  ossContributions,
+  ossUnderReview,
   experience,
   education,
   skillGroups,
@@ -256,10 +259,54 @@ export default function Home() {
           </div>
         </section>
 
+        {/* ---------- OPEN SOURCE ---------- */}
+        <section id="open-source" className="border-t border-hair">
+          <div className={`${CONTAINER} py-20 md:py-28`}>
+            <SectionHeader eyebrow="Open source" title="Merged upstream, under other people's review." index="03 / UPSTREAM" />
+
+            <Reveal>
+              <p className="-mt-4 mb-10 max-w-[64ch] text-[0.95rem] leading-relaxed text-ink-2">{ossIntro}</p>
+            </Reveal>
+
+            <div>
+              {ossContributions.map((c, i) => (
+                <Reveal
+                  as="article"
+                  key={c.prUrl}
+                  className={`grid grid-cols-1 items-start gap-4 py-6 md:grid-cols-[180px_1fr_auto] md:gap-7 ${
+                    i === 0 ? 'border-t border-ink' : 'border-t border-hair'
+                  }`}
+                >
+                  <div className="pt-0.5 font-mono text-xs tracking-[0.06em] text-cobalt">
+                    {c.repo}
+                    <span className="mt-1.5 block text-[10px] uppercase tracking-[0.12em] text-ink-3">{c.org}</span>
+                    <span className="mt-1 block text-[10px] uppercase tracking-[0.12em] text-ink-3">
+                      Merged {c.merged}
+                    </span>
+                  </div>
+                  <p className="max-w-[64ch] text-[0.95rem] leading-relaxed text-ink-2">{c.summary}</p>
+                  <a
+                    href={c.prUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="font-mono text-xs text-cobalt hover:underline md:pt-0.5"
+                  >
+                    PR {c.prNumber} ↗
+                  </a>
+                </Reveal>
+              ))}
+            </div>
+
+            <Reveal>
+              <p className="mt-8 font-mono text-[11px] leading-relaxed tracking-[0.02em] text-ink-3">{ossUnderReview}</p>
+            </Reveal>
+          </div>
+        </section>
+
         {/* ---------- EXPERIENCE & EDUCATION ---------- */}
         <section id="experience" className="border-t border-hair">
           <div className={`${CONTAINER} py-20 md:py-28`}>
-            <SectionHeader eyebrow="Track record" title="Real work, research, and pressure." index="03 / RECORD" />
+            <SectionHeader eyebrow="Track record" title="Real work, research, and pressure." index="04 / RECORD" />
 
             <div className="grid grid-cols-1 gap-14 md:grid-cols-2">
               <div>
@@ -324,7 +371,7 @@ export default function Home() {
         {/* ---------- SKILLS ---------- */}
         <section id="skills" className="border-t border-hair">
           <div className={`${CONTAINER} py-20 md:py-28`}>
-            <SectionHeader eyebrow="Toolbox" title="The stack I can actually work in." index="04 / STACK" />
+            <SectionHeader eyebrow="Toolbox" title="The stack I can actually work in." index="05 / STACK" />
 
             <div className="grid grid-cols-2 gap-8 md:grid-cols-4">
               {skillGroups.map((g, i) => (
@@ -351,7 +398,7 @@ export default function Home() {
             <SectionHeader
               eyebrow="The stuff that changes how I work"
               title="Composure, tested twice over."
-              index="05 / CHARACTER"
+              index="06 / CHARACTER"
             />
             <div className="grid grid-cols-1 gap-10 md:grid-cols-2">
               {character.map((c, i) => (

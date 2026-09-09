@@ -5,6 +5,7 @@ import { site } from '@/lib/data'
 
 const LINKS = [
   { id: 'work', label: 'Work' },
+  { id: 'open-source', label: 'Open source' },
   { id: 'experience', label: 'Experience' },
   { id: 'skills', label: 'Skills' },
   { id: 'character', label: 'Character' },

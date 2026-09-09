@@ -255,6 +255,69 @@ export const alsoShipped: AlsoShipped[] = [
   },
 ]
 
+export type OssContribution = {
+  repo: string
+  org: string
+  prNumber: string
+  prUrl: string
+  merged: string
+  summary: string
+}
+
+export const ossIntro =
+  'Everything above is solo work. These fixes shipped into other teams’ codebases: reviewed by their maintainers, held to their test suites, merged on their terms. Each link is the pull request itself.'
+
+export const ossContributions: OssContribution[] = [
+  {
+    repo: 'hflow',
+    org: 'Hebbian Robotics',
+    prNumber: '#288',
+    prUrl: 'https://github.com/Hebbian-Robotics/hflow/pull/288',
+    merged: 'Aug 2026',
+    summary:
+      'A robotics data-quality SDK filed transform content refusals under its catch-all infrastructure bucket, so operators retried batches that could never succeed. Added a dedicated exception and failure kind so refusals classify as source-unsupported, with docs rewritten to match.',
+  },
+  {
+    repo: 'narwhals',
+    org: 'narwhals-dev',
+    prNumber: '#3856',
+    prUrl: 'https://github.com/narwhals-dev/narwhals/pull/3856',
+    merged: 'Aug 2026',
+    summary:
+      'The pandas-like backend ignored the schema argument’s column selection and order in from_dicts. Fixed with a reindex before dtype casting; six new test cases covering reordered, extra, and missing keys, each proven failing before the fix.',
+  },
+  {
+    repo: 'exchange_calendars',
+    org: 'gerrymanoim',
+    prNumber: '#593',
+    prUrl: 'https://github.com/gerrymanoim/exchange_calendars/pull/593',
+    merged: 'Aug 2026',
+    summary:
+      'Built the Dubai Financial Market (XDFM) trading calendar from scratch: 1,483 lines, holidays sourced from DFM and Nasdaq Dubai circulars with inline citations, and the calendar bounded at the exact 2022 date the UAE switched to a Monday-Friday work week, sidestepping a known upstream bug by design.',
+  },
+  {
+    repo: 'holidays',
+    org: 'vacanza',
+    prNumber: '#3748',
+    prUrl: 'https://github.com/vacanza/holidays/pull/3748',
+    merged: 'Aug 2026',
+    summary:
+      'Added Russian localization for Latvia’s holiday calendar, a real gap for roughly a quarter of the country’s population. Native-speaker translation, not machine output.',
+  },
+  {
+    repo: 'yfinance',
+    org: 'ranaroussi',
+    prNumber: '#2936',
+    prUrl: 'https://github.com/ranaroussi/yfinance/pull/2936',
+    merged: 'Aug 2026',
+    summary:
+      'Investigated a suspected intraday timezone regression, found it was an intentional, changelogged change rather than a bug, and fixed the real gap instead: download()’s docstring never stated the index timezone contract at all.',
+  },
+]
+
+export const ossUnderReview =
+  'Nine more fixes are open under maintainer review across scipy, splink, uvicorn, duckdb-python, quantstats, and soccerdata.'
+
 export type ExperienceEntry = {
   when: string
   location: string

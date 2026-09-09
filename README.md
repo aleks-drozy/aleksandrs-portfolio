@@ -54,6 +54,7 @@ Every case study is statically generated from the slugs in `src/lib/case-studies
 
 - **Hero** - status, headline, lede, three proof metrics, CV download, and the `Fig. 01` equity curve
 - **Selected work** (`#work`) - nine exhibits (`Fig. 02` to `Fig. 10`), then eleven "Also shipped" cards; all twenty link to a case study
+- **Open source** (`#open-source`) - five merged upstream pull requests (hflow, narwhals, exchange_calendars, holidays, yfinance), each linking to the PR itself, plus a note on fixes still under maintainer review
 - **Track record** (`#experience`) - DLT Capital and part-time roles beside the Maynooth degree, coursework, and certifications
 - **Toolbox** (`#skills`) - languages, frameworks, AI and ML, testing and tools
 - **Character** (`#character`) - judo and algorithmic trading
