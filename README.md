@@ -52,12 +52,13 @@ Every case study is statically generated from the slugs in `src/lib/case-studies
 
 ## Homepage Sections
 
-- **Hero** - status, headline, lede, three proof metrics, CV download, and the `Fig. 01` equity curve
-- **Selected work** (`#work`) - nine exhibits (`Fig. 02` to `Fig. 10`), then eleven "Also shipped" cards; all twenty link to a case study
+- **Hero** - status, headline, lede, three proof metrics (each linking to the section that backs it), CV download, and the `Fig. 01` equity curve
+- **Selected work** (`#work`) - nine exhibits (`Fig. 02`, then `Exhibit 03` to `Exhibit 10`); the two WebGL panels under Fig. 02 are collapsed by default and mount only when opened
 - **Open source** (`#open-source`) - five merged upstream pull requests (hflow, narwhals, exchange_calendars, holidays, yfinance), each linking to the PR itself, plus a note on fixes still under maintainer review
+- **Also shipped** (`#also-shipped`) - ten further cards, each linking to a case study
 - **Track record** (`#experience`) - DLT Capital and part-time roles beside the Maynooth degree, coursework, and certifications
 - **Toolbox** (`#skills`) - languages, frameworks, AI and ML, testing and tools
-- **Character** (`#character`) - judo and algorithmic trading
+- **Character** (`#character`) - judo, algorithmic trading, and how AI tooling is used in the workflow
 - **Contact** (`#contact`) - email, LinkedIn, GitHub, CV
 
 ## Design Specs

@@ -1,4 +1,4 @@
-export type Metric = { value: string; label: string }
+export type Metric = { value: string; label: string; href: string }
 export type Stat = { value: string; label: string }
 
 export const site = {
@@ -7,20 +7,22 @@ export const site = {
   role: 'Software Engineer',
   headline: 'Software engineer',
   headlineAccent: 'with quant instincts.',
-  status: 'Open to 2026 roles',
+  status: 'Available now · Graduate roles',
   location: 'Dublin, Ireland',
   lede:
-    'Computer Science & Software Engineering graduate (Maynooth, 2026). I ship production systems end-to-end – two live SaaS apps, an agentic AI assistant, a live self-scoring ML forecasting service, and a six-phase pre-registered quant research program. Tested, documented, and honest about the results.',
+    'Computer Science & Software Engineering graduate (Maynooth, 2026). I ship production systems end to end: live SaaS, an agentic AI assistant, a durable job queue in Go, and five pre-registered research programs that publish their verdict even when the answer is no. Five fixes merged upstream into other teams’ codebases.',
   email: 'aleksandrs.drozdovs2005@gmail.com',
   cvUrl: '/cv.pdf',
   github: 'https://github.com/aleks-drozy',
   linkedin: 'https://www.linkedin.com/in/aleksandrsdrozdovs/',
 }
 
+// Every hero number links to the section that proves it. Nothing here comes
+// from a private repo: the old "790+ tests" figure did, and was unverifiable.
 export const heroMetrics: Metric[] = [
-  { value: '790+', label: 'Automated tests' },
-  { value: '2', label: 'Live SaaS shipped' },
-  { value: '~$15K', label: 'Live trading profit' },
+  { value: '5', label: 'Merged upstream PRs', href: '#open-source' },
+  { value: '~$15K', label: 'Live trading profit', href: '#experience' },
+  { value: '5', label: 'Pre-registered verdicts', href: '#work' },
 ]
 
 export type Exhibit = {
@@ -39,7 +41,7 @@ export const exhibits: Exhibit[] = [
     kicker: 'Quant research',
     title: 'Options Pricing Engine',
     blurb:
-      'Three independent option pricers, Black-Scholes closed form, a CRR binomial tree with American exercise, and a seeded Monte Carlo simulation, cross-validated against each other through seven machine-checked numerical gates, all passing to sub-basis-point precision. Then the engine turns on a real SPY option chain and inverts the market\'s own prices back to volatility: the market quotes a different sigma at every strike, the smile that flat-vol Black-Scholes says is impossible. A live interactive Three.js surface and GitHub Pages explorer re-verifies all seven gates on every load.',
+      'Three independent option pricers (Black-Scholes closed form, a CRR binomial tree with American exercise, and a seeded Monte Carlo simulation) cross-validated through seven machine-checked numerical gates, all passing to sub-basis-point precision. Pointed at a real SPY option chain, the engine inverts market prices back to volatility and recovers the smile that flat-vol Black-Scholes says is impossible. The GitHub Pages explorer re-verifies all seven gates on every load.',
     tags: ['Python', 'Black-Scholes', 'Monte Carlo', 'CRR Binomial'],
     stats: [
       { value: '7/7', label: 'Validation gates pass' },
@@ -50,15 +52,15 @@ export const exhibits: Exhibit[] = [
   },
   {
     fig: 'Exhibit 03',
-    kicker: 'Live ML · self-scoring',
+    kicker: 'ML forecasting · self-scoring · paused',
     title: 'Dublin Bikes Forecast',
     blurb:
-      'A live forecasting service that predicts bike and dock availability across all ~115 Dublin Bikes stations at the 08:30 and 17:30 commute windows – and grades itself in public. Every forecast is committed to a git ledger before its target time exists, so the track record cannot be edited or restarted. A pre-registered 28-day gate decides the verdict on the public scoreboard: beat both climatology and persistence baselines with day-clustered bootstrap CIs, or the site says NOT PROVEN. Offline validation cleared all eight confidence intervals before deployment; when the first night’s infrastructure failed, the ledger recorded its own outage as unscoreable – the accounting is the product.',
+      'Twice-daily bike and dock availability forecasts for all ~115 Dublin Bikes stations, each committed to a git ledger before its target time exists, so the track record cannot be edited or restarted. Scored in public against pre-registered climatology and persistence baselines under a 28-day verdict gate: pass, or the site says NOT PROVEN. Offline validation cleared all eight confidence intervals first. Collection has been paused since 23 July 2026 (the cloud host suspended the VM); the ledger shows the gap rather than hiding it.',
     tags: ['Python', 'scikit-learn', 'GitHub Actions', 'Oracle Cloud', 'GBFS'],
     stats: [
       { value: '671K', label: 'Training rows' },
-      { value: '2×/day', label: 'Live forecasts' },
-      { value: '28 days', label: 'Public verdict gate' },
+      { value: '8/8', label: 'Offline CIs positive' },
+      { value: 'Paused', label: 'Since 23 Jul 2026' },
     ],
     slug: 'dublin-bikes-forecast',
   },
@@ -67,7 +69,7 @@ export const exhibits: Exhibit[] = [
     kicker: 'Quant research · applied ML',
     title: 'Alpha Signal Lab',
     blurb:
-      'A pre-registered, leakage-audited test of whether a gradient-boosted model beats plain momentum on 5-day cross-sectional equity returns across a 30-name large-cap universe. Twelve point-in-time features, purged walk-forward cross-validation (5-day purge, ~1% embargo), and eight automated leakage-audit tests that all pass against the real pipeline, not mocks. A deliberately leaky control run alongside the honest one shows exactly what overclaiming looks like: honest rank IC 0.0100 versus leaky IC 0.1506, a fifteen-fold inflation from one mistake, shuffling instead of purging. The honest model does not beat momentum, and a follow-up SHAP diagnostic explains precisely why: which feature dominates every fold, and where the model’s picks diverge from momentum’s.',
+      'Does a gradient-boosted model beat plain momentum on 5-day cross-sectional equity returns? Twelve point-in-time features, purged walk-forward cross-validation, and eight automated leakage-audit tests run against the real pipeline, not mocks. A deliberately leaky twin shows what overclaiming looks like: honest rank IC 0.0100 versus 0.1506 from one mistake, shuffling instead of purging. The honest model does not beat momentum, and a SHAP diagnostic explains why.',
     tags: ['Python', 'LightGBM', 'SHAP', 'pandas', 'scikit-learn'],
     stats: [
       { value: '0.0100 / 0.1506', label: 'Honest vs leaky rank IC' },
@@ -81,7 +83,7 @@ export const exhibits: Exhibit[] = [
     kicker: 'Quant research · capstone',
     title: 'Quant Strategy Research Program',
     blurb:
-      'A six-phase, pre-registered research program that settled whether a final-year FYP strategy’s +$28.4K backtest edge was real. Bar-by-bar backtest engine with no lookahead, leak-free walk-forward optimisation, Monte Carlo bootstrap studies, an ML trade-filter experiment, and cluster-bootstrap confidence intervals – verdict decided by a git-timestamped frozen decision table the runner hash-verifies before it will run. Answer: the edge did not survive 10 years and three futures markets, and the gates forensically caught a 60-minute timestamp bug in the source dataset along the way.',
+      'Six pre-registered phases to settle whether the final-year strategy’s +$28.4K backtest edge (Fig. 01) was real: a no-lookahead bar-by-bar engine, leak-free walk-forward optimisation, Monte Carlo bootstraps, and cluster-bootstrap confidence intervals, with the verdict table hash-frozen before each run. The edge did not survive 10 years and three futures markets. The same gates caught a 60-minute timestamp bug in the source dataset along the way.',
     tags: ['Python', 'pandas', 'pytest', 'Statistics', 'GitHub Actions'],
     stats: [
       { value: '176', label: 'Tests (CI)' },
@@ -95,7 +97,7 @@ export const exhibits: Exhibit[] = [
     kicker: 'AI research, pre-registered',
     title: 'Prompt Placebo',
     blurb:
-      'A pre-registered, paired-delta audit of six popular prompting techniques (role prompts, chain-of-thought, emotional stakes, tips, politeness, few-shot) against an identical baseline, run across 1,438 questions and 23,008 API requests for $20.01. Method, thresholds, and correction rule were hash-frozen before the full run. Result: 0 of 39 technique-model-task comparisons earned a still_works verdict; 20 were placebo, 17 inconclusive. The only two statistically significant effects, both surviving Holm-Bonferroni correction, are harms: on claude-sonnet-5 with reasoning disabled, politeness cuts procedural-task accuracy by 2.84 points and few-shot examples cut it by 3.79 points.',
+      'A pre-registered, paired-delta audit of six popular prompting techniques (role prompts, chain-of-thought, emotional stakes, tips, politeness, few-shot) across 1,438 questions and 23,008 API requests, with method, thresholds, and correction rule hash-frozen before the run. 0 of 39 comparisons earned a still_works verdict. The only two effects to survive Holm-Bonferroni correction are harms: politeness and few-shot both cut procedural-task accuracy on claude-sonnet-5 with reasoning disabled.',
     tags: ['Python', 'Anthropic API', 'Bootstrap CIs', 'Holm-Bonferroni'],
     stats: [
       { value: '0/39', label: 'Comparisons that "still work"' },
@@ -109,7 +111,7 @@ export const exhibits: Exhibit[] = [
     kicker: 'Systems programming',
     title: 'jobq: Durable Job Queue (Go)',
     blurb:
-      'A durable, single-node job queue written from scratch in Go using only the standard library: at-least-once delivery, actor-per-topic concurrency, leases with lazy expiry, and a CRC-checked, group-committed write-ahead log. Sixteen producers hand records to a single committer and share one fsync instead of paying for sixteen, cutting per-operation cost from 550µs sequential to 65µs under load. A crash harness kills the process cold, mid-write, at a random moment across five rounds: zero acknowledged jobs lost, zero resurrected. Two invariants, conservation and unique settlement, hold under the race detector across thousands of randomized interleavings.',
+      'A durable job queue written from scratch in Go, standard library only: at-least-once delivery, actor-per-topic concurrency, leases with lazy expiry, and a CRC-checked, group-committed write-ahead log that cuts per-operation cost from 550µs to 65µs under sixteen producers. A crash harness kills the process cold, mid-write, across five rounds: zero acknowledged jobs lost, zero resurrected. Conservation and unique-settlement invariants hold under the race detector across thousands of randomized interleavings.',
     tags: ['Go', 'Write-Ahead Log', 'Property-Based Testing'],
     stats: [
       { value: '65µs', label: 'Per-op under 16 producers' },
@@ -123,7 +125,7 @@ export const exhibits: Exhibit[] = [
     kicker: 'Data engineering, dbt',
     title: 'Irish Property Price Index',
     blurb:
-      'A mix-adjusted stratified price index built on the full Property Price Register, 797,774 real sales, using dbt and DuckDB, validated directly against the CSO’s own official Residential Property Price Index rather than assumed correct. Nationally, the raw median that gets reported overstates price growth by 2.22 index points on average versus the mix-adjusted measure; in Dublin it does the opposite, understating growth by 3.91 points – opposite signs, from the same method, on the same data. Across 187 months, 31 have the raw and mix-adjusted series disagreeing on direction entirely: the standard Simpson’s-paradox mechanism, live in real housing data.',
+      'A mix-adjusted stratified price index over all 797,774 sales in the Irish Property Price Register, built in dbt and DuckDB and validated against the CSO’s official index rather than assumed correct. Finding: the raw median overstates national price growth by 2.22 index points but understates Dublin’s by 3.91, and in 31 of 187 months the two series disagree on direction entirely. Simpson’s paradox, live in real housing data.',
     tags: ['Python', 'dbt', 'DuckDB', 'SQL'],
     stats: [
       { value: '797,774', label: 'Real PPR sales' },
@@ -137,7 +139,7 @@ export const exhibits: Exhibit[] = [
     kicker: 'Data engineering, entity resolution',
     title: 'registry-resolve',
     blurb:
-      'Entity resolution across three real Irish open-data registers – CRO company records, the Register of Charities, and public procurement award data – deterministic ID joins where a real identifier exists, Splink probabilistic matching where it doesn’t. Evaluated against 330 blind human-labelled pairs with planted self-consistency probes: a first-pass Cohen’s kappa of 0.608 was rejected against a stricter self-imposed bar, re-checked, and re-measured to a genuine 1.000. The final 898,481-row entity spine uses best-match-per-record resolution after measuring that naive graph clustering would merge distinct real companies together.',
+      'Entity resolution across three real Irish open-data registers (CRO company records, the Register of Charities, public procurement awards): deterministic ID joins where an identifier exists, Splink probabilistic matching where it does not. Evaluated against 330 blind human-labelled pairs with planted self-consistency probes; a first-pass Cohen’s kappa of 0.608 was rejected against a stricter bar and re-measured to a genuine 1.000. Best-match-per-record resolution, after measuring that naive clustering would merge distinct real companies.',
     tags: ['Python', 'DuckDB', 'Splink', 'pandas'],
     stats: [
       { value: '898,481', label: 'Rows in entity spine' },
@@ -151,7 +153,7 @@ export const exhibits: Exhibit[] = [
     kicker: 'Full-stack SaaS',
     title: 'Personal Performance OS',
     blurb:
-      'A production "operating system" for training, food, habits, and tasks – shipped solo across 145 merged pull requests. Supabase Postgres with Row-Level Security on all 33 tables (28 migrations), Groq (Llama 3.3 70B) coaching hardened against prompt injection, and 790+ automated tests behind CI/CD.',
+      'A production training, food, habits, and tasks app shipped solo across 145 merged pull requests: Supabase Postgres with Row-Level Security on all 33 tables (28 migrations), Groq (Llama 3.3 70B) coaching hardened against prompt injection, and 790+ automated tests behind CI/CD. The codebase is private; the app is live and linked, and I can walk through the code on request.',
     tags: ['Next.js', 'TypeScript', 'Supabase', 'Groq AI'],
     stats: [
       { value: '33', label: 'RLS tables' },
@@ -174,7 +176,7 @@ export const alsoShipped: AlsoShipped[] = [
   {
     title: 'Ghost Bus Tracker',
     blurb:
-      'A 24/7 pipeline that polls Dublin\'s live GTFS-Realtime feed and classifies every scheduled Dublin Bus / Go-Ahead trip into one of six honest outcomes, grading its own uptime in public alongside the routes it measures. A self-designed feed-health gate caught a real NTA data outage on its first live day and withdrew that day\'s verdicts rather than publish false accusations.',
+      'A 24/7 pipeline that polls Dublin\'s GTFS-Realtime feed and classifies every scheduled Dublin Bus / Go-Ahead trip into one of six honest outcomes, grading its own uptime in public alongside the routes it measures. A feed-health gate caught a real NTA data outage on its first live day and withdrew that day\'s verdicts rather than publish false accusations. Paused since July 2026 on the same suspended VM as the bikes forecast, with the 14-day baseline frozen at day 4 and the gap shown on the site.',
     slug: 'ghost-bus-tracker',
     github: 'https://github.com/aleks-drozy/ghost-bus',
     live: 'https://aleks-drozy.github.io/ghost-bus/',
@@ -182,7 +184,7 @@ export const alsoShipped: AlsoShipped[] = [
   {
     title: 'Job-Hunt Analytics',
     blurb:
-      'A month of one graduate’s real job search and AI-assistant operations, parsed from messy markdown trackers into a queryable DuckDB database and published as an anonymised static dashboard. A privacy gate enforced in CI was adversarially attacked and closed on 7 real leak paths before anything went public, behind a 164-test suite. Nine SQL analyses over 50 tracked applications and 65 logged assistant operations, deliberately framed as descriptive rather than inferential at that sample size – every rate published beside its raw numerator and denominator, including the headline: 0 interviews from 50 applications.',
+      'A month of one graduate’s real job search and AI-assistant operations, parsed from messy markdown trackers into a queryable DuckDB database and published as an anonymised static dashboard. A privacy gate enforced in CI was adversarially attacked and closed on 7 real leak paths before anything went public, behind a 164-test suite. Nine SQL analyses over 50 tracked applications and 65 logged assistant operations, deliberately framed as descriptive rather than inferential at that sample size, every rate published beside its raw numerator and denominator.',
     slug: 'job-hunt-analytics',
     github: 'https://github.com/aleks-drozy/job-hunt-analytics',
     live: 'https://aleks-drozy.github.io/job-hunt-analytics/',
@@ -222,14 +224,6 @@ export const alsoShipped: AlsoShipped[] = [
       'Final-year Pine Script v6 strategy for NQ1! E-mini futures using Inverse Fair Value Gaps, Change in State of Delivery, and a liquidity-sweep filter, with fixed risk rules and honestly documented out-of-sample caveats. Its own sequel, the Quant Strategy Research Program, put this edge on trial – and disproved it.',
     slug: 'fyp-trading-strategy',
     github: 'https://github.com/aleks-drozy/fyp-trading-strategy',
-  },
-  {
-    title: 'Speed-to-Lead AI Agent',
-    blurb:
-      'AI receptionist that catches, qualifies, and books inbound leads in under 60 seconds – free-text chat, an owner dashboard with an ROI readout, and a one-line rebrand config. Public scripted demo; the production design pairs Claude with Supabase and calendar booking.',
-    slug: 'speed-to-lead',
-    github: 'https://github.com/aleks-drozy/speed-to-lead-demo',
-    live: 'https://aleks-drozy.github.io/speed-to-lead-demo/',
   },
   {
     title: 'Monte Carlo Robustness Study',
@@ -398,5 +392,10 @@ export const character: CharacterPanel[] = [
     title: 'Algorithmic trading',
     copy:
       'Funded-account holder with verified real payouts, focused on NASDAQ-100 E-mini futures during NY morning sessions. I write strategies, test assumptions, and execute with predefined risk. It is a useful pressure test for engineering judgment: vague thinking gets punished quickly, and the only thing that survives is a system you can actually trust.',
+  },
+  {
+    title: 'AI-assisted, human-directed',
+    copy:
+      'I use Claude Code the way I would use a fast pairing partner: it accelerates implementation and red-teams my decisions when I ask it to, and the commit history on these repos says so openly. Every statistical method, every architecture call, and every decision about what to hedge or cut is mine, and I can walk through the reasoning on any commit. Verification is the part I never delegate: tests, CI, and driving the thing in a real browser before calling it done.',
   },
 ]

@@ -64,6 +64,15 @@ describe('site + hero', () => {
     }
   })
 
+  // Every hero number must point at the section that proves it; a metric with
+  // no on-page evidence is exactly the unverifiable claim PRODUCT.md forbids.
+  it('hero metrics each link to a homepage section that exists', () => {
+    const sections = ['#work', '#open-source', '#also-shipped', '#experience', '#skills', '#character', '#contact']
+    for (const m of heroMetrics) {
+      expect(sections, `hero metric "${m.label}" links to unknown section ${m.href}`).toContain(m.href)
+    }
+  })
+
   it('contact links are well-formed', () => {
     expect(site.email).toMatch(/^[^\s@]+@[^\s@]+\.[^\s@]+$/)
     expect(new URL(site.github).protocol).toBe('https:')
