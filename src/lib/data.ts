@@ -107,7 +107,7 @@ export const exhibits: Exhibit[] = [
   {
     fig: 'Exhibit 07',
     kicker: 'Systems programming',
-    title: 'jobq — Durable Job Queue (Go)',
+    title: 'jobq: Durable Job Queue (Go)',
     blurb:
       'A durable, single-node job queue written from scratch in Go using only the standard library: at-least-once delivery, actor-per-topic concurrency, leases with lazy expiry, and a CRC-checked, group-committed write-ahead log. Sixteen producers hand records to a single committer and share one fsync instead of paying for sixteen, cutting per-operation cost from 550µs sequential to 65µs under load. A crash harness kills the process cold, mid-write, at a random moment across five rounds: zero acknowledged jobs lost, zero resurrected. Two invariants, conservation and unique settlement, hold under the race detector across thousands of randomized interleavings.',
     tags: ['Go', 'Write-Ahead Log', 'Property-Based Testing'],
@@ -390,9 +390,9 @@ export type CharacterPanel = { title: string; copy: string }
 
 export const character: CharacterPanel[] = [
   {
-    title: 'Judo – 16 years, black belt',
+    title: 'Judo: 16 years, black belt',
     copy:
-      'Multiple Irish national medals, competing from regional to international level. Judo taught me to stay composed when things get ugly, lose without excuses, and improve through relentless repetition – the same temperament I bring to engineering. It also pointed me at a real problem to solve: I built Maken, an AI weight-cut SaaS, for athletes like me.',
+      'Multiple All-Ireland medals, and I have represented Ireland at international level. These days I give back as much as I compete: I coach kids at my club and train and coach alongside Irish judo pathway members. Competing taught me to stay composed when things get ugly and to lose without excuses; coaching taught me to break hard things down until they are teachable. It also pointed me at a real problem to solve: I built Maken, an AI weight-cut SaaS, for athletes like me.',
   },
   {
     title: 'Algorithmic trading',

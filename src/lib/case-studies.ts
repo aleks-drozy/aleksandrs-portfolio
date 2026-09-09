@@ -514,7 +514,7 @@ export const caseStudies: CaseStudy[] = [
   {
     slug: 'jobq',
     kicker: 'Systems programming',
-    title: 'jobq — Durable Job Queue (Go)',
+    title: 'jobq: Durable Job Queue (Go)',
     year: '2026',
     timeline: 'Built from scratch, standard library only',
     role: 'Solo',
